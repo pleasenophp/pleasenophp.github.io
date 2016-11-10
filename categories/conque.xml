@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Programming (conque)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/conque.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 10 Nov 2016 20:30:17 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Conque: vim-powered command line</title><link>https://pleasenophp.github.io/posts/conque-vim-powered-command-line.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;p&gt;I'm doing most actions in the command line. Recently I enabled vim mode in bash, which helped me to easily navigate in the command I'm typing. However, I was quite frustrated that whenever I need to select something from the console output, I need to use mouse. I would like to be able to use Vim for selecting the previous text in the console and pasting it into the command. And here Conque comes to help! It's a plugin that allows to run shell inside of vim, with full output into the current buffer.&lt;/p&gt;
+&lt;p&gt;Install it from &lt;a href="https://code.google.com/archive/p/conque/downloads"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After it, run vim, and you can test it works with the following command:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;ConqueTerm bash
+&lt;/pre&gt;
+
+
+&lt;p&gt;But of course we can improve it a little with a script. Add the following to the .bash_profile:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;vimc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'vim -c "ConqueTerm bash" -c "set nu"'&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;This will enable the &lt;strong&gt;vimc&lt;/strong&gt; alias that will just start vim in conque mode, and will also enable the line numbers (even if you put &lt;strong&gt;set nu&lt;/strong&gt; into your .vimrc, Conque ignores it for some reason).&lt;/p&gt;
+&lt;p&gt;As I'm on Mac, I also had to create a symlink to my .bash_profile, as Conque reads .bashrc by default.
+Run this from the home folder:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ ln -s .bash_profile .bashrc
+&lt;/pre&gt;
+
+
+&lt;p&gt;Also you might notice that Conque doesn't display the system user and folder name in the command line. For this just do the following trick (while still in the regular console):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"export PS1='&lt;/span&gt;&lt;span class="nv"&gt;$PS1&lt;/span&gt;&lt;span class="s2"&gt;'"&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/pre&gt;
+
+
+&lt;p&gt;This will add your regular settings of the shell prompt to the bash initialization script, and Conque will read it.&lt;/p&gt;
+&lt;p&gt;Voilà! Now just run:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ vimc
+&lt;/pre&gt;
+
+
+&lt;p&gt;And you can have a lot of fun with command line and your favorite vim! Just better don't try to run vim inside vim, looks a bit ugly :-P
+&lt;img alt="OMG" src="https://pleasenophp.github.io/images/vim-in-vim.jpg" title="WTF??"&gt;&lt;/p&gt;&lt;/div&gt;</description><category>cli</category><category>conque</category><category>vim</category><guid>https://pleasenophp.github.io/posts/conque-vim-powered-command-line.html</guid><pubDate>Mon, 07 Nov 2016 20:06:29 GMT</pubDate></item></channel></rss>

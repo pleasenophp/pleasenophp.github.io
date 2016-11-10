@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="This is a blog about programming and making life easier">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programming</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="https://pleasenophp.github.io/index.html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/conque-vim-powered-command-line.html" type="text/html">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://pleasenophp.github.io/">
+
+                <span id="blog-title">Programming</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="archive.html">Archive</a>
+                </li>
+<li>
+<a href="categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+
+    
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/conque-vim-powered-command-line.html" class="u-url">Conque: vim-powered command line</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Innerbytes
+            </span></p>
+            <p class="dateline"><a href="posts/conque-vim-powered-command-line.html" rel="bookmark"><time class="published dt-published" datetime="2016-11-07T21:06:29+01:00" title="2016-11-07 21:06">2016-11-07 21:06</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/conque-vim-powered-command-line.html#disqus_thread" data-disqus-identifier="cache/posts/conque-vim-powered-command-line.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>I'm doing most actions in the command line. Recently I enabled vim mode in bash, which helped me to easily navigate in the command I'm typing. However, I was quite frustrated that whenever I need to select something from the console output, I need to use mouse. I would like to be able to use Vim for selecting the previous text in the console and pasting it into the command. And here Conque comes to help! It's a plugin that allows to run shell inside of vim, with full output into the current buffer.</p>
+<p>Install it from <a href="https://code.google.com/archive/p/conque/downloads">here</a>.</p>
+<p>After it, run vim, and you can test it works with the following command:</p>
+<pre class="code literal-block"><span></span><span class="p">:</span>ConqueTerm bash
+</pre>
+
+
+<p>But of course we can improve it a little with a script. Add the following to the .bash_profile:</p>
+<pre class="code literal-block"><span></span><span class="nb">alias</span> <span class="nv">vimc</span><span class="o">=</span><span class="s1">'vim -c "ConqueTerm bash" -c "set nu"'</span>
+</pre>
+
+
+<p>This will enable the <strong>vimc</strong> alias that will just start vim in conque mode, and will also enable the line numbers (even if you put <strong>set nu</strong> into your .vimrc, Conque ignores it for some reason).</p>
+<p>As I'm on Mac, I also had to create a symlink to my .bash_profile, as Conque reads .bashrc by default.
+Run this from the home folder:</p>
+<pre class="code literal-block"><span></span>$ ln -s .bash_profile .bashrc
+</pre>
+
+
+<p>Also you might notice that Conque doesn't display the system user and folder name in the command line. For this just do the following trick (while still in the regular console):</p>
+<pre class="code literal-block"><span></span>$ <span class="nb">echo</span> <span class="s2">"export PS1='</span><span class="nv">$PS1</span><span class="s2">'"</span> &gt;&gt; ~/.bash_profile
+</pre>
+
+
+<p>This will add your regular settings of the shell prompt to the bash initialization script, and Conque will read it.</p>
+<p>Voilà! Now just run:</p>
+<pre class="code literal-block"><span></span>$ vimc
+</pre>
+
+
+<p>And you can have a lot of fun with command line and your favorite vim! Just better don't try to run vim inside vim, looks a bit ugly :-P
+<img alt="OMG" src="images/vim-in-vim.jpg" title="WTF??"></p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/i-have-installed-nikola.html" class="u-url">I have installed Nikola</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Innerbytes
+            </span></p>
+            <p class="dateline"><a href="posts/i-have-installed-nikola.html" rel="bookmark"><time class="published dt-published" datetime="2016-11-06T08:42:39+01:00" title="2016-11-06 08:42">2016-11-06 08:42</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/i-have-installed-nikola.html#disqus_thread" data-disqus-identifier="cache/posts/i-have-installed-nikola.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>I'm happy</h3>
+<p>I can now write all my blog posts in vim, using markdown, without distracting from the command line.
+<a href="https://getnikola.com">Nikola</a> rules! It allows you to store blog locally, commit it under git, and generate static html whenever you wish to deploy. You can use your favorite web hosting or github pages to host the blog. 
+<del>The only thing that frustrates me so far is the default styles of the code blocks, I wanna black background as in the terminal.</del>
+It appeared Nikola supports many code themes just in the configuration file! So I have set a good black one called "monokai" to start with (might change it later).</p>
+<pre class="code literal-block"><span></span><span class="n">CODE_COLOR_SCHEME</span> <span class="o">=</span> <span class="s1">'monokai'</span>
+</pre>
+
+
+<p>in the <em>conf.py</em></p>
+<p>And my old blog on Blogger is still <a href="https://pleasenophp.blogspot.dk">here</a>. There is only a few posts.</p>
+<hr>
+<p>For those who already installed Nikola, there might be helpfull some scripts. I have added this to my .bash_profile:</p>
+<pre class="code literal-block"><span></span><span class="nb">alias</span> <span class="nv">nstart</span><span class="o">=</span><span class="s2">"cd ~/nikola &amp;&amp; source bin/activate &amp;&amp; source .rc"</span>
+</pre>
+
+
+<p>This will enable nstart alias that automatically opens your nikola path, and activates the virtual environment. Then it reads my .rc file that I put under nikola folder:</p>
+<pre class="code literal-block"><span></span><span class="nb">eval</span> <span class="s2">"`nikola tabcompletion`"</span>
+
+<span class="nb">alias</span> <span class="nv">nnew</span><span class="o">=</span><span class="s2">"nikola new_post -f markdown"</span>
+<span class="nb">alias</span> <span class="nv">nbuild</span><span class="o">=</span><span class="s2">"nikola build"</span>
+<span class="nb">alias</span> <span class="nv">nserve</span><span class="o">=</span><span class="s2">"nikola serve -b"</span>
+<span class="nb">alias</span> <span class="nv">ndeploy</span><span class="o">=</span><span class="s2">"nikola github_deploy"</span>
+
+<span class="nb">alias</span> <span class="nv">nstop</span><span class="o">=</span><span class="s2">"deactivate &amp;&amp; cd ~"</span>
+</pre>
+
+
+<p>It adds some handy short aliases for build, serve and deploy, and the first line also enables the tabcompletion.
+When I finish working in the Nikola virtual environment I type nstop.</p>
+<p>And ofc you should enable markdown in Nikola, because by default is uses somethin else <em>(maybe what it uses is better, I didn't check, but I didn't either feel like learning one more not so popular markup standard).</em></p>
+<p>To enable markdown, just add .md extension in POSTS and PAGES in <em>conf.py</em> like this:</p>
+<pre class="code literal-block"><span></span><span class="n">POSTS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">"posts/*.rst"</span><span class="p">,</span> <span class="s2">"posts"</span><span class="p">,</span> <span class="s2">"post.tmpl"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"posts/*.txt"</span><span class="p">,</span> <span class="s2">"posts"</span><span class="p">,</span> <span class="s2">"post.tmpl"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"posts/*.html"</span><span class="p">,</span> <span class="s2">"posts"</span><span class="p">,</span> <span class="s2">"post.tmpl"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"posts/*.md"</span><span class="p">,</span> <span class="s2">"posts"</span><span class="p">,</span> <span class="s2">"post.tmpl"</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">PAGES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">"pages/*.rst"</span><span class="p">,</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="s2">"story.tmpl"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"pages/*.txt"</span><span class="p">,</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="s2">"story.tmpl"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"pages/*.html"</span><span class="p">,</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="s2">"story.tmpl"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"pages/*.md"</span><span class="p">,</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="s2">"story.tmpl"</span><span class="p">)</span>
+<span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+        
+       <script>var disqus_shortname="pleasenophp";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:info@innerbytes.com">Innerbytes</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

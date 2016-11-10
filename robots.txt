@@ -1,0 +1,4 @@
+Sitemap: https://pleasenophp.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: pleasenophp.github.io
