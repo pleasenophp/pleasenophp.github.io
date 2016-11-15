@@ -63,12 +63,14 @@ This is terrible, because in such code many classes start to use singletones, th
 
 #### Next articles:
 
-# Introducing context as IoC container
+#### Introducing context as IoC container
     (abstract, concrete, layers, closed context, factories, property injection)
-    How do we think
+    Generics example
+    How do we think example, in context
 
-# Usage of MinDI
-    
+#### Usage of MinDI articles
+(simple HW, Unity application, generics application, factory context, constructions, etc)
+
 
 
 
