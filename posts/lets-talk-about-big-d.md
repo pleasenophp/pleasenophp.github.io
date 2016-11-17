@@ -21,7 +21,7 @@ So, to begin, the largest problem that arise in a more or less complex project, 
 
 The tight coupling means that class A directly knows class B. This doesn't allow the class A to be tested independently of clase B, not it allows to mock class B, and also if we need a different implementation of class B, we cannot easily substitute it. That also violates big O principle for class A, as it will require changes during the project liftime. That's why big D says, that entities should not depend on each other, but depend on abstractions. This abstraction in C# is called *interface*. Let's see a few examples of coupling:
 
-1. Tight coupling where class A directly knows class B:
+Tight coupling where class A directly knows class B:
 ```csharp
     class B {
         ...
@@ -37,23 +37,50 @@ The tight coupling means that class A directly knows class B. This doesn't allow
 
 As described above, this structure creates major problem and violates SOLID. That's why any medium and large projects that is using tight coupling, become insupportable quite fast.
 
-2. Another example of very bad using of tight coupling is Singletone anti-pattern.
+Another example of very bad using of tight coupling is Singletone anti-pattern.
 ```csharp
 class A {
     void Action() {
         B.Instance.DoSomething();
     }
 }
-
 ```
 
 This is terrible, because in such code many classes start to use singletones, then singletones use other singletones, then everything is tight coupled and explodes when you need to change something. Unfortunately such a bad code can be encountered quite often, especially in the game development, where the quaility of the programming can be quite low. 
 
+## Setting it free
+
+So, the solution to this can be formulated in simple statements:
+1. Make all your code depend only on abstractions (in C# it's interfaces), what's called *loose coupling*
+1. Make a separate code that configures the abstractions, by matching them with concrete implementations
+
+That gives us the following main advantages:
+* Concrete implemntations of entities can be replaced separately only in one place, without changing the rest of the code. Our codebecomes refactoring friendly.
+* TDD-friendly. Now it's very easy to mock separate interfaces, our code becomes very testable. 
+* The modularity of the code is increased, and the usage of big L, big S and big I is especially encouraged. We don't need to create big God classes anymore, as we can easily define the concrete dependencies for each entity.
+We can easily susbtitute the concrete implementations of the interfaces, keeping all the code without any knowledge that we changed anything, as everything depends on interfaces, not on implementations. Of course, using of IoC/DI patterns cannot guarantee you will start magically write a good code, but it rather opens all the roads to write a nice code, if you are understand what you are doing.  
+* The dependencies become strictly defined in each concrete implementatons (we will talk about the Dependency Contract later), and not spread through the code.
+
+As you can see, it's all about Agile development, where we need to make the code, which is equily responsible to new feature requests on teh whole lifetime of the project. Where we want to use TDD to increase the stability of our builds. And where we want to have some fun by making code that looks nice and makes us happy. 
+
+Using DI and coding to interface approach also opens some questions:
+- if we start depending only to interface, what is a good way of passing those dependencies to concrete entities?
+- if we avoid using singletone patterns, what is a good way to have several entity use the same instance? How do we control lifetime of the objects?
+- how can we organize a centralized place of defining the concrete implementations for each interface?
+- can those implementations be substituted dynamically during runtime as well?
+
+The IoC/DI framework is designed to solve all those problems. Without such a framework we would need to just pass dependencies manually to every class, and that would be quite painfull. 
+C# is an interface-based language, and should encourage people to use interfaces. If you look at the .NET API itself, they have interfaces for everything. But how many code did you usually encounter in C#,
+that uses interfaces as a base? That's because Microsoft didn't create any built in method for manage dependencies in .NET, leaving the choice of DI, or other pattern to developer. You can use Spring.NET. Unity,
+or other popular DI libraries. But how many programmers ever heard about DI? In the environment where I worked during the last 10 years, I almost didn't encounter such a C# programmer. The most of the C# code I've 
+seen was ugly enough. The better situation is in Java world, where there are more traditions on coding standards. But now it's time to change the situation, and start using advantages of dependency injection.
+
+I hope I have encouraged you to at least research some information about DI/IoC containers, and maybe try some of them. The next articles will start telling about **MinDI** framework and will show some usage examples.  
+
+
+<!--
 #### Next:
 
-- Example of loosy coupling and it's advantages
-- Strict interface programming (alsoopen for testing and mocking)
-- Defining dependencies in one place
 - Introducing IoC container
 - Problems that IoC containers have
     * Access container itself
@@ -70,7 +97,7 @@ This is terrible, because in such code many classes start to use singletones, th
 
 #### Usage of MinDI articles
 (simple HW, Unity application, generics application, factory context, constructions, etc)
-
+-->
 
 
 
