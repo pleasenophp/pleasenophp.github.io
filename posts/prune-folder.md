@@ -15,7 +15,7 @@ Sometimes there is a typical task: automated builds are copied to a folder every
 But it's still good to do it with custom strategy. It can be simple: if file is older then N days, then keep only one last file per day, and if file is older than M days where M > N, then keep only one last file per month.
 I didn't find any similar script in the internet, so made one myself. It can be modified to achieve slightly different strategies when needed.
 
-This scripts works if all the files named following the following format: 
+This scripts works if all the files or folders named following the format: 
 ```
 text1-yyyy-mm-dd-text2
 ```
