@@ -19,7 +19,7 @@ This scripts works if all the files named following the following format:
 ```
 text1-yyyy-mm-dd-text2
 ```
-where text1 and text2 can be anything not starting with digits, and text1 is the same for all the files in the folder. The yyyy-mm-dd is the build date in the file name. The date must be the part of the file name, 
+where *text1* and *text2* can be anything not starting with digits, and *text1* is the same for all the files in the folder. The *yyyy-mm-dd* is the build date in the file name. The date must be the part of the file name, 
 because sorting by date of creation is dangerous - it's easy to change the date by doing something with files on the server. 
 
 Read the beginning of the script for the usage example: [prune.sh](https://github.com/pleasenophp/scripts/blob/master/prune.sh)
