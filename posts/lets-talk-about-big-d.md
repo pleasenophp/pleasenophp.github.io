@@ -94,6 +94,28 @@ I hope I have encouraged you to at least research information about DI/IoC conta
 <!--
 #### Next:
 
+Principles:
+- Abstractions are open for dependent classes, but the implementatons are closed
+- Context is an abstract factory that resolves abstractions to concrete classes by the name and types
+- Context is populated in the application start point, and at the objects building point, and in no other place in the program should the concrete entities be referenced in any way.
+- The entity can depend only on the abstractions, that explicitly specified in the contract 
+- The entities have no open access to context, or to the concrete implementations,  except entities of creational patterns (factories, builders)
+- Any dynamic dependencies should not be resolved implicitly, but should use contracts (factory interfaces)
+
+3 level of the access:
+- Full access for context
+- Context access for creation patterns
+- Abstractions access for the rest of the code
+
+3 main Layers
+- Global for library dependencies 
+- Application for redefining library dependencies, and defining application dependencies
+- Factory, for defining dependencies of dynamically created objects (with lifetime less than application)
+
+Prototype principle of the dependencies.
+
+
+
 - Introducing IoC container
 - Problems that IoC containers have
     * Access container itself
