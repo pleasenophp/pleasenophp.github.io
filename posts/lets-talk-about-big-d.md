@@ -2,8 +2,8 @@
 .. title: Let's talk about big D
 .. slug: lets-talk-about-big-d
 .. date: 2016-11-15 22:14:54 UTC+01:00
-.. tags: mindi, c#, philosophy 
-.. category: programming 
+.. tags: mindi, c#, agile, philosophy 
+.. category: Programming 
 .. link: 
 .. description: 
 .. type: text
