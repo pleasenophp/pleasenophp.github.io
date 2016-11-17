@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/cat_bash.xml</loc>
-  <lastmod>2016-11-17T10:40:00Z</lastmod>
+  <lastmod>2016-11-17T10:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/cat_make-it-easy.xml</loc>
@@ -27,7 +27,7 @@
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/scripts.xml</loc>
-  <lastmod>2016-11-17T10:40:00Z</lastmod>
+  <lastmod>2016-11-17T10:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/vim.xml</loc>
@@ -35,10 +35,10 @@
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/rss.xml</loc>
-  <lastmod>2016-11-17T10:40:00Z</lastmod>
+  <lastmod>2016-11-17T10:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/sitemap.xml</loc>
-  <lastmod>2016-11-17T10:40:00Z</lastmod>
+  <lastmod>2016-11-17T10:41:00Z</lastmod>
  </sitemap>
 </sitemapindex>
