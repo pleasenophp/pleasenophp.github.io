@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Programming (nikola)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://pleasenophp.github.io/categories/nikola.xml"></atom:link><language>en</language><lastBuildDate>Thu, 17 Nov 2016 16:10:53 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>I have installed Nikola</title><link>https://pleasenophp.github.io/posts/i-have-installed-nikola.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;I'm happy&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Programming (nikola)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/nikola.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 10 Nov 2016 20:30:17 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>I have installed Nikola</title><link>https://pleasenophp.github.io/posts/i-have-installed-nikola.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;I'm happy&lt;/h3&gt;
 &lt;p&gt;I can now write all my blog posts in vim, using markdown, without distracting from the command line.
 &lt;a href="https://getnikola.com"&gt;Nikola&lt;/a&gt; rules! It allows you to store blog locally, commit it under git, and generate static html whenever you wish to deploy. You can use your favorite web hosting or github pages to host the blog. 
 &lt;del&gt;The only thing that frustrates me so far is the default styles of the code blocks, I wanna black background as in the terminal.&lt;/del&gt;
@@ -10,8 +10,7 @@ It appeared Nikola supports many code themes just in the configuration file! So 
 
 &lt;p&gt;in the &lt;em&gt;conf.py&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;And my old blog on Blogger is still &lt;a href="https://pleasenophp.blogspot.dk"&gt;here&lt;/a&gt;. There is only a few posts.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;For those who already installed Nikola, there might be helpfull some scripts. I have added this to my .bash_profile:&lt;/p&gt;
+&lt;hr&gt;&lt;p&gt;For those who already installed Nikola, there might be helpfull some scripts. I have added this to my .bash_profile:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;nstart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"cd ~/nikola &amp;amp;&amp;amp; source bin/activate &amp;amp;&amp;amp; source .rc"&lt;/span&gt;
 &lt;/pre&gt;
 

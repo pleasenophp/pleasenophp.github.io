@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Programming (agile)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://pleasenophp.github.io/categories/agile.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 17 Nov 2016 17:18:08 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Let's talk about big D</title><link>https://pleasenophp.github.io/posts/lets-talk-about-big-d.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;p&gt;I would like to start a serie of posts about the context-oriented dependency injection and IoC in C#. This is related to my IoC container framework called &lt;strong&gt;MinDI&lt;/strong&gt;. Before introducing MinDI and talking about usage and implementation, let's take briefly theoretical and philosophycal aspects of it. &lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Programming (agile)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://pleasenophp.github.io/categories/agile.xml"></atom:link><language>en</language><lastBuildDate>Thu, 17 Nov 2016 22:14:14 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Let's talk about big D</title><link>https://pleasenophp.github.io/posts/lets-talk-about-big-d.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;p&gt;I would like to start a serie of posts about the context-oriented dependency injection and IoC in C#. This is related to my IoC container framework called &lt;strong&gt;MinDI&lt;/strong&gt;. Before introducing MinDI and talking about usage and implementation, let's take briefly theoretical and philosophycal aspects of it. &lt;/p&gt;
 &lt;h3&gt;Coupling&lt;/h3&gt;
 &lt;p&gt;I suppose you are familiar with the &lt;a href="http://goo.gl/9b6xB6"&gt;SOLID&lt;/a&gt; principles. If not yet, go now and read, and apply it in your programming life, and then come back. SOLID is a must have for any OO design. &lt;/p&gt;
 &lt;p&gt;So if you are still here, I guess you also have at least heard about &lt;a href="http://www.codeproject.com/Articles/615139/An-Absolute-Beginners-Tutorial-on-Dependency-Inver"&gt;IoC containers&lt;/a&gt;. The IoC container provides generally a nice way to resolve the big D problem of SOLID, and its good implementation encourages and makes it easier to apply all the other biggies as well :) Here and in the next posts we will talk about some aspects of Dependency Inversion and Injection, and about IoC containers, and Context-oriented programming and more.&lt;/p&gt;
@@ -32,41 +32,55 @@
 &lt;p&gt;This is terrible, because in such code many classes start to use singletons inside of the obscured calls, then singletons use other singletons, then everything is tight coupled and explodes when you need to change something. Unfortunately such a bad code can be encountered quite often, especially in the game development, where &lt;del&gt;programmers usually suck&lt;/del&gt; the quaility of the code can be rather low. &lt;/p&gt;
 &lt;h3&gt;Setting it free&lt;/h3&gt;
 &lt;p&gt;I briefly tocuhed tight coupling, because it's not very interesting, you can find plenty information about it in the internet. And the solution to the mentioned problem can be formulated in simple statements:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Make all your code depend only on abstractions (in C# it's interfaces), what's called &lt;em&gt;loose coupling&lt;/em&gt;&lt;/li&gt;
+&lt;ul&gt;&lt;li&gt;Make all your code depend only on abstractions (in C# it's interfaces), what's called &lt;em&gt;loose coupling&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Make a separate code that configures the abstractions, by matching them with concrete implementations&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;That gives us the following main advantages:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Concrete implementations of entities can be replaced separately only in one place, without changing the rest of the code. Our code becomes refactoring friendly.&lt;/li&gt;
-&lt;li&gt;TDD-friendly too. Now it's very easy to mock separate interfaces, so the code becomes very testable. &lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;That gives us the following main advantages:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Concrete implementations of entities can be replaced separately only in one place, without changing the rest of the code. Our code becomes refactoring friendly.&lt;/li&gt;
+&lt;li&gt;TDD-friendly too. Now it's very easy to mock separate interfaces, so the entities become very testable individually. &lt;/li&gt;
 &lt;li&gt;The modularity of the code is increased, and the usage of big L, big S, and big I is especially encouraged. We don't need to create big God classes anymore, as we can easily define the concrete dependencies for each entity.
 We can easily susbtitute the concrete implementations of the interfaces, keeping all the rest of the code without any knowledge of the fact, that we changed anything, as everything depends on interfaces, not on implementations. Of course, using of IoC/DI patterns cannot guarantee you will start magically write a good code, but it rather opens all the roads to write a nice code, if you understand what you are doing.  &lt;/li&gt;
 &lt;li&gt;The dependencies become strictly defined in each concrete implementatons (we will talk about the Dependency Contract later), and not spread implicitly through the code.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;As you can see, it's all about Agile development, where we need to make the code, that is equally responsible to new feature requests in the whole lifetime of the project. Where we also want to use TDD to increase the stability of our builds. And where we want to have some fun by making code that looks nice and makes us happy. &lt;/p&gt;
+&lt;/ul&gt;&lt;p&gt;As you can see, it's all about Agile development, where we need to make the code, that is equally responsible to new feature requests in the whole lifetime of the project. Where we also want to use TDD to increase the stability of our builds. And where we want to have some fun by making code that looks nice and makes us happy. &lt;/p&gt;
 &lt;h3&gt;We need a framework&lt;/h3&gt;
 &lt;p&gt;Using DI and coding to interface approach also opens some questions:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;if we start depending only on interfaces, what is a good way of easily passing those dependencies to concrete entities?&lt;/li&gt;
+&lt;ul&gt;&lt;li&gt;if we start depending only on interfaces, what is a good way of easily passing those dependencies to concrete entities?&lt;/li&gt;
 &lt;li&gt;if we avoid using singleton patterns, what is a good way to have several entity use the same instance? How do we control lifetime of the objects?&lt;/li&gt;
 &lt;li&gt;how can we organize a centralized place of defining the concrete implementations for each interface?&lt;/li&gt;
 &lt;li&gt;can those implementations be substituted dynamically during runtime as well?&lt;/li&gt;
 &lt;li&gt;can different parts of the code use different concrete implementatons of the same abstractions they depend on?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The IoC/DI framework is designed to solve all those problems. Without such a framework we would need to just pass dependencies manually to every created instance everywhere, and that would be very painfull. So without a framework or support from the language part, the DI pattern and coding to interface approach remain good only on the paper. &lt;/p&gt;
+&lt;/ul&gt;&lt;p&gt;The IoC/DI framework is designed to solve all those problems. Without such a framework we would need to just pass dependencies manually to every created instance everywhere, and that would be very painfull. So without a framework or support from the language part, the DI pattern and coding to interface approach remain good only on the paper. &lt;/p&gt;
 &lt;p&gt;C# is an interface-based language, and should encourage people to use interfaces. If you look at the .NET API itself, they have interfaces for everything. But how many code did you usually encounter in C#, that uses interfaces as a base? That's because Microsoft didn't force to use DI in .NET, leaving the choice of DI, or another pattern to developer. You can use Spring.NET, Unity, or other popular DI libraries. But how many C# programmers ever heard about DI? In the game development, where I worked during 6 years, the most of the C# code I've seen was ugly enough. The better situation is in Java world, where there are more traditions on coding standards. But you have to chose the DI library in Java as well, and the choice sometimes is not easy, because most of the modern libraries are not context-oriented, lack some features, or little refactoring-friendly. While there should still be a choice, I believe, the built in DI/IoC should be part of any modern strongly-typed language. I think people should learn SOLID, DRY and DI principles right together with learning OOP at school. But our world sucks. This was a little complaining part. Now it's time to change the situation, and start using advantages of dependency injection if you don't use it yet.&lt;/p&gt;
 &lt;h3&gt;A few words about Service Locator pattern&lt;/h3&gt;
 &lt;p&gt;It's ugly. Was that enough words?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Instead of removing tight coupling, it creates a new tight coupling, where all the classes are singleton-like coupled to service locator itself. &lt;/li&gt;
+&lt;ul&gt;&lt;li&gt;Instead of removing tight coupling, it creates a new tight coupling, where all the classes are singleton-like coupled to service locator itself. &lt;/li&gt;
 &lt;li&gt;It doesn't allow Dependency Contract, not allowing to make the dependencies explicit. That is a major advantage of DI, and we talk later about it. &lt;/li&gt;
 &lt;li&gt;It doesn't allow for any easy implementation of context-oriented and layered dependencies (I will reveal more on this topic later).  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;So basically, service locator is improved version of a singleton, that still smells. &lt;/p&gt;
+&lt;/ul&gt;&lt;p&gt;So basically, service locator is improved version of a singleton, that still smells. &lt;/p&gt;
 &lt;p&gt;I hope I have encouraged you to at least research information about DI/IoC containers, and maybe try some of them. The next articles will start telling about &lt;strong&gt;MinDI&lt;/strong&gt; framework and will show some usage examples.  &lt;/p&gt;
 &lt;!--
 #### Next:
+
+Principles:
+- Abstractions are open for dependent classes, but the implementatons are closed
+- Context is an abstract factory that resolves abstractions to concrete classes by the name and types
+- Context is populated in the application start point, and at the objects building point, and in no other place in the program should the concrete entities be referenced in any way.
+- The entity can depend only on the abstractions, that explicitly specified in the contract 
+- The entities have no open access to context, or to the concrete implementations,  except entities of creational patterns (factories, builders)
+- Any dynamic dependencies should not be resolved implicitly, but should use contracts (factory interfaces)
+
+3 level of the access:
+- Full access for context
+- Context access for creation patterns
+- Abstractions access for the rest of the code
+
+3 main Layers
+- Global for library dependencies 
+- Application for redefining library dependencies, and defining application dependencies
+- Factory, for defining dependencies of dynamically created objects (with lifetime less than application)
+
+Prototype principle of the dependencies.
+
+
 
 - Introducing IoC container
 - Problems that IoC containers have
