@@ -58,7 +58,7 @@ I briefly tocuhed tight coupling, because it's not very interesting, you can fin
 That gives us the following main advantages:
 
 - Concrete implementations of entities can be replaced separately only in one place, without changing the rest of the code. Our code becomes refactoring friendly.
-- TDD-friendly too. Now it's very easy to mock separate interfaces, so the code becomes very testable. 
+- TDD-friendly too. Now it's very easy to mock separate interfaces, so the entities become very testable individually. 
 - The modularity of the code is increased, and the usage of big L, big S, and big I is especially encouraged. We don't need to create big God classes anymore, as we can easily define the concrete dependencies for each entity.
 We can easily susbtitute the concrete implementations of the interfaces, keeping all the rest of the code without any knowledge of the fact, that we changed anything, as everything depends on interfaces, not on implementations. Of course, using of IoC/DI patterns cannot guarantee you will start magically write a good code, but it rather opens all the roads to write a nice code, if you understand what you are doing.  
 - The dependencies become strictly defined in each concrete implementatons (we will talk about the Dependency Contract later), and not spread implicitly through the code.
