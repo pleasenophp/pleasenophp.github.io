@@ -24,4 +24,5 @@ because sorting by date of creation is dangerous - it's easy to change the date 
 
 Read the beginning of the script for the usage example: [prune.sh](https://github.com/pleasenophp/scripts/blob/master/prune.sh)
 
+Note, that you also need to install **ruby** for this script to work, because it was more convenient to use ruby for the cross-platform date calculations.  
 
