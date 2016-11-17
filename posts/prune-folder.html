@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Programming">
 <meta property="og:title" content="Prune folder">
 <meta property="og:url" content="https://pleasenophp.github.io/posts/prune-folder.html">
-<meta property="og:description" content="Prine / clear folder with a strategy
+<meta property="og:description" content="Prune / clear folder with a strategy
 Sometimes there is a typical task: automated builds are copied to a folder every hour. We need to schedule a task to remove extra files from time to time.
 But it's">
 <meta property="og:type" content="article">
@@ -92,7 +92,7 @@ But it's">
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<h3>Prine / clear folder with a strategy</h3>
+<h3>Prune / clear folder with a strategy</h3>
 <p>Sometimes there is a typical task: automated builds are copied to a folder every hour. We need to schedule a task to remove extra files from time to time.
 But it's still good to do it with custom strategy. It can be simple: if file is older then N days, then keep only one last file per day, and if file is older than M days where M &gt; N, then keep only one last file per month.
 I didn't find any similar script in the internet, so made one myself. It can be modified to achieve slightly different strategies when needed.</p>
