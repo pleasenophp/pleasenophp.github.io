@@ -37,7 +37,7 @@ The tight coupling means that class A directly knows class B. This doesn't allow
 
 As described above, this structure creates major problem and violates SOLID. Any medium and large projects, that are using tight coupling, become insupportable quite fast.
 
-**b.** Another example of very bad using of tight coupling is Singletone anti-pattern.
+**b.** Another example of very bad using of tight coupling is Singleton anti-pattern.
 ```csharp
 class A {
     void Action() {
