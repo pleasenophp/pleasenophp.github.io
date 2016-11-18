@@ -46,7 +46,7 @@ class A {
 }
 ```
 
-This is terrible, because in such code many classes start to use singletons inside of the obscured calls, then singletons use other singletons, then everything is tight coupled and explodes when you need to change something. Unfortunately such a bad code can be encountered quite often, especially in the game development, where ~~programmers usually suck~~ the quaility of the code can be rather low. 
+This is terrible, because in such code many classes start to use singletons inside of the obscured calls, then singletons use other singletons, then everything is tight coupled and explodes when you need to change something. Unfortunately such a bad code can be encountered quite often.
 
 ## Setting it free
 
