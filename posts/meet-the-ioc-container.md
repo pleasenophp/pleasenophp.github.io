@@ -19,8 +19,8 @@ Let's see some common questions, that arise with an IoC container we want to cre
 - How do we define all our dependencies in one place of applications and keep those definitions refactoring-friendly?
 - Will we support multiple layers, where we can redefine some of the dependencies for some of the parts in the application?
 
-Different IoC/DI solutions have different approaches to those problems. Here I would like to introduce how it's solved in MinDI and to not bore you with more theory, jump to some examples.
-MinDI is a IoC/DI framework, that was initially started as a project to extend the [MinIOC](https://bitbucket.org/Baalrukh/minioc/wiki/Home) framework with some syntax sugar, but then quickly turned into its own project, with much more advanced features and ideology. You can read an overview of the MinDI features, structure and history here (TODO). 
+Different IoC/DI solutions have different approaches to those problems. Here I would like to introduce how it's solved in **MinDI** and to not bore you with more theory, jump to some examples.
+MinDI is a IoC/DI framework, that was initially started as a project to extend the [MinIOC](https://bitbucket.org/Baalrukh/minioc/wiki/Home) framework with some syntax sugar, but then quickly turned into its own project, with much more advanced features and ideology. You can read an overview of the MinDI features, structure and history here (TODO - references). 
 
 ## Dependency Injection 
 
@@ -63,14 +63,53 @@ Let's now see how and where we specify that *ISun* should resolve to an instance
 
 ## IoC container and context-oriented approach
 
-TODO
+The IoC container is basically a dictionary, that has interface type at minimum as a key and the factory that specifies how we create the object for this interface as a value. Additional features of the container is to control the lifetime of the objects. Even more advanced feature, is to provide the multi-layer context for the dependency injection.
+
+Let's see a simple example:
+
+```csharp
+public MyContextInitializer : IApplicationContextInitializer {
+	public void Initialize(IDIContext context) {
+		context.m().Bind<ISun>(() => new Sun());
+		context.m().Bind<IMoon>(() => new Moon());
+	}
+}
+```
+
+Here we defined 2 bindings: each injection of *ISun* will resolve itself to new instance of class *Sun*, and the same with *Moon*. Now whenever the new instance of *Earth* is created, the Injection of *ISun* will be resolved to the new *Sun()*, and so on with *IMoon*. Of course for this to work, the class *Earth* itself should be resolved from the same dependency injection container. When any of the classes is created from the context, its dependencies are fulfilled automatically from the same context. So the IoC container is the context of the possible dependencies. Each class provides the set of [Injection] attributes, that is called in MinDI **contract on dependencies**. Like this we can easily see which exactly dependencies this or that class uses. Having an explicit contract is very benefitial when refactoring and analyzing the code, trying to minimize the amount of the entities each class depends on.
+
+As we can see, if we want *ISun* to resolve to some *MySuperSun* instance instead of *Sun*, it's very easy to change it only in one place of the application: in the context initializer. All the objects, that depend on ISun will now use another class as implementor:
+
+context.m().Bind<ISun>(() => new MySuperSun());
+
+## 3 levels of the application
+
+Unlike some other DI frameworks, that use XML to define the dependencies, MinDI uses the lambda-syntax. That allows the code to be easily refactorable. If we rename a class or an interface, it will be automatically reflected in the context initializers.
+
+Let's now talk a little about the access to our context in the application. Unlike the class, which has strictly access to only its own dependencies the IoC container, or **the context** is a universal factory, which can be used to resolve any of the interfaces. To obtain directly any concrete instance using the context it's enough to call the following:
+
+```csharp
+var sun = context.Resolve<ISun>();
+```
+
+So this code will find a corresponding factory in the context and will create an object. In this example it will be an object of class Sun. If the user classes have direct access to the context, it creates a problems - we can suddenly anywhere in the code resolve any interface, and this creates implicit dependencies, bypassing the contract on dependencies. It becomes impossible to easily say which dependencies are used in the class. So, to avoid this problem, MinDI doesn't allow direct access to the context for the user-level classes. 
+
+The application in MinDI is conditionally divided in 3 levels of the access:
+
+1. **The context initialization level**. This is the place where we initialize the context, like MyContextInitializer. In this place we don't put any logic, but only define which interface is resolved by what class, and also we define the lifetime and some other more advanced things in the scope of the IoC container.
+2. **The user level**. This is where all the application classes function. On this level we have no access to the context, but we have dependency contracts in the classes, so all the dependencies are resolved automagically.
+3. **Open context level or factory level**. This is special classes that implement different creational patterns - like factories and builders. Such classes have access to the context from one side, and are used by the user-level classes from another side. Such classes should not contain any logic but building other objects. Usually each factory or builder has a *factory contract*, that limits which exactly type of objects it can build. 
+
+So, let's say we want the class Earth to dynamically create some plants, using interface IPlant. It can create many instances of IPlant and it knows nothing about what concrete class will be used for the IPlant interface, as it is defined only on the context initialization level.
+
+// TODO - example of using factories
+
+
 
 
 Controlling lifetime
 
-3 access layers of the application
 
-Using factories to create dynamic objects
 
 Standard context layers
 
