@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Let's talk about big D | Programming</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<meta content="#5670d4" name="theme-color">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="https://pleasenophp.github.io/posts/lets-talk-about-big-d.html">
 <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Innerbytes">
@@ -161,48 +162,6 @@ We can easily susbtitute the concrete implementations of the interfaces, keeping
 </ul>
 <p>So basically, service locator is improved version of a singleton, that still smells. </p>
 <p>I hope I have encouraged you to at least research information about DI/IoC containers, and maybe try some of them. The next articles will start telling about <strong>MinDI</strong> framework and will show some usage examples.  </p>
-<!--
-#### Next:
-
-Principles:
-- Abstractions are open for dependent classes, but the implementatons are closed
-- Context is an abstract factory that resolves abstractions to concrete classes by the name and types
-- Context is populated in the application start point, and at the objects building point, and in no other place in the program should the concrete entities be referenced in any way.
-- The entity can depend only on the abstractions, that explicitly specified in the contract 
-- The entities have no open access to context, or to the concrete implementations,  except entities of creational patterns (factories, builders)
-- Any dynamic dependencies should not be resolved implicitly, but should use contracts (factory interfaces)
-
-3 level of the access:
-- Full access for context
-- Context access for creation patterns
-- Abstractions access for the rest of the code
-
-3 main Layers
-- Global for library dependencies 
-- Application for redefining library dependencies, and defining application dependencies
-- Factory, for defining dependencies of dynamically created objects (with lifetime less than application)
-
-Prototype principle of the dependencies.
-
-
-
-- Introducing IoC container
-- Problems that IoC containers have
-    * Access container itself
-    * Unrestricted access to all the interfaces
-    * Handling complex data structures
-    * Refactoring friendly
-
-#### Next articles:
-
-#### Introducing context as IoC container
-    (abstract, concrete, layers, closed context, factories, property injection)
-    Generics example
-    How do we think example, in context
-
-#### Usage of MinDI articles
-(simple HW, Unity application, generics application, factory context, constructions, etc)
--->
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
@@ -245,7 +204,7 @@ Prototype principle of the dependencies.
         <!--End of body content-->
 
         <footer id="footer">
-            Contents © 2016         <a href="mailto:info@innerbytes.com">Innerbytes</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2017         <a href="mailto:info@innerbytes.com">Innerbytes</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
 </div>
