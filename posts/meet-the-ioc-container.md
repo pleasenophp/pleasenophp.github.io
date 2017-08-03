@@ -20,9 +20,9 @@ Here are some common questions, that arise with an IoC container we want to crea
 - Will we support multiple layers, where we can redefine some of the dependencies for some of the parts in the application?
 
 Different IoC/DI solutions have different approaches to those problems. Here I would like to introduce how it's solved in **MinDI** and and show some examples.
-Please note, that this article is not a tutorial, but rather a methodological description of MinDI library. For the tutorial please see here (TODO)
+Please note, that this article is not a tutorial, but rather a methodological description of MinDI library. The tutorials will be posted later. 
 
-MinDI is a IoC/DI framework, that was initially started as a project to extend the [MinIOC](https://bitbucket.org/Baalrukh/minioc/wiki/Home) framework with some syntax sugar, but then quickly turned into its own project, with much more advanced features and ideology. You can read an overview of the MinDI features, structure and history here (TODO - references). 
+MinDI is a IoC/DI framework, that was initially started as a project to extend the [MinIOC](https://bitbucket.org/Baalrukh/minioc/wiki/Home) framework with some syntax sugar, but then quickly turned into its own project, with much more advanced features and ideology. 
 
 ## Dependency Injection 
 
@@ -141,7 +141,7 @@ Back to the levels of the access, our class *Earth* is an entity that functions 
 
 ## The philosophy of the context-oriented DI, and multi-layered context
 
-Making a bit more analogy with the human mind, the user level is a bit like our thoughts. You can think "plant", and you immediatelly imagine some sort of plant: you have a concrete visual image appearing immediately in your inner screen. In this analogy the word "plant" is an abstraction, an interface. It openly exists on the user-level, and you are directly aware of it. The image of plant is concrete implementation of this interface. Different people will have different images when they think the same word "plant". What exact image you will have when you think this word is the result of your individual association, that sits in your subconsious. You cannot know it until you think or say "plant", but then it appears immediately. The associations are formed in the mind as the result of life experience, and this level is not directly accessible for the "user" - the regular thinking mind. Each person have a different life experience and the different context. The same way the context initialization level in MinDI is an associative array, that is configured in a single place of the application, and is not dirrectly accessible for the user-level classes. However, as soon as we inject *IPlant* somewhere, it's immediately resolved to the concrete implementation (*WeedPlant* in our example).
+Making more analogy with the human mind, the user level is a bit like our thoughts. You can think "plant", and you immediatelly imagine some sort of plant: you have a concrete visual image appearing immediately in your inner screen. In this analogy the word "plant" is an abstraction, an interface. It openly exists on the user-level, and you are directly aware of it. The image of plant is concrete implementation of this interface. Different people will have different images when they think the same word "plant". What exact image you will have when you think this word is the result of your individual association, that sits in your subconsious. You cannot know it until you think or say "plant", but then it appears immediately. The associations are formed in the mind as the result of life experience, and this level is not directly accessible for the "user" - the regular thinking mind. Each person have a different life experience and the different context. The same way the context initialization level in MinDI is an associative array, that is configured in a single place of the application, and is not dirrectly accessible for the user-level classes. However, as soon as we inject *IPlant* somewhere, it's immediately resolved to the concrete implementation (*WeedPlant* in our example).
 
 Now if you want an analogy with the *factory level*, it's more like our imagination or an ability to think with abstractions. If you are in the room, and you have a plant on your table, it's like an [Injection], something that is already there. However, you are able to think about more plants, that don't exist here. This is like an abstract factory, which can create many instances of IPlant.  
 
@@ -262,7 +262,7 @@ Every class that depends on *IApple* will use the same instance of the Apple. Ev
 As we see, **.s()** and **.m()** methods are the special lifetime resolvers to define it. In MinDI you can extend the framework with your own liftime resolvers, so you can have more different liftime types, than just standard ingletone and multiple. This is done when you need some custom behaviour. For example, in ASP.NET MinDI uses *.ses()* lifetime to define a singletone existing in the user session. In Unity3D *.mbm()* and *.mbs()* lifetimes are used to define the MonoBehaviours. 
 
 ### Lazy construction
-By default the singletones use *lazy construction*. It means that the singletone instance will be resolved as soon as the first class that depends on it is created. However, you can also use *instant construction*. Like this you construct your class immediatly in the context intializer. That can be usefull for huge objects, that you want to create during the initialization of the application. However it's even more often used for simple objects like enums or data types, that don't have external dependencies. The limitation with the *instant construction* is obvious: no dependencies can be resolved for such object, as they are created at the moment where the context is not yet built.
+By default the singletones use *lazy construction*. It means that the singletone instance will be resolved as soon as the first class that depends on it is created. However, you can also use *instant construction*. Like this you construct your class immediatly in the context intializer. That can be usefull for huge objects, that you want to create during the initialization of the application. However it's even more often used for simple objects like enums or data types, that don't have external dependencies. The limitation with the *instant construction* is obvious: no dependencies can be resolved for such object, as they are created at the moment where the context is not yet built. However, there is another way of early instantiation, that is performed in the entry point of the application, but after the context is initialized. The instance construction is only recommended for the simple objects, like enums, etc.
 
 Here is an example of the instant construction:
 
@@ -276,26 +276,124 @@ public class LoggerLibraryGlobalContextInitializer: IGlobalContextInitializer {
 
 The instance of the *IApple* is immediately created here. Obviously, **BindInstance** method is only available for the *.s()* lifetime qualifier. 
 
-### Injection and creation Context. Subjective dependencies. Rebinding.
+### Subjective dependencies. Rebinding.
 
-- Which context the dependencies are resolved from / creational and injectional contexts. Subjectivity on dependencies. 
-- Rebindings
+In MinDI, the dependencies are resolved starting from the context on which the object is created. The concrete(singletone) is always created on the same context it is defined. The abstract(multiple) object is always created on the same context it's called from. That implements a subjectivity principle: the abstract objects dependencies are always **subjective**, i.e. they take the dependencies from the context, they are requested from. Thus, requesting the same abstract object from different context, it will have different dependencies. Doing the same with a concrete object, it will have the same dependencies, injected from the context, it's defined in. That principle is important to understand. Let's see the following example.
+
+In the global layer we have: 
+
+```csharp
+public class LoggerLibraryGlobalContextInitializer: IGlobalContextInitializer {
+	public void Initialize(IDIContext context) {
+		context.s().Bind<IAnotherLogger>(() => new SingletoneLoger());
+		context.m().Bind<ILogger>(() => new Logger());
+		context.m().Bind<ILogMessageWriter>(() => new ConsoleLogMessageWriter());
+	}
+}
+
+...
+
+internal class Logger: ContextObject, ILogger {
+	[Injection] public ILogMessageWriter writer {get; set;}
+	...
+}
+
+internal class SingletoneLogger: ContextObject, ILogger {
+	[Injection] public ILogMessageWriter writer {get; set;}
+	...
+}
+
+```
+
+In the application context that is the next layer, we define another implementaton of *ILogMessageWriter*. 
+
+```csharp
+public class AppContextInitializer: IApplicationContextInitializer {
+	public void Initialize(IDIContext context) {
+		context.m().Bind<ILogMessageWriter>(() => new MyLogMessageWriter());
+	}
+}
+```
+
+Now let's see what dependencies the objects will have if our *context* is on the application level.
+
+```csharp
+var log1 = context.Resolve<ILogger>();
+var log2 = context.Resolve<IAnotherLogger>();
+```
+
+Here the *log1* will depend on *MyLogMessageWriter*, as it picks the dependencies from the context we requested it from (and upper by the chain of prototype), even though it's defined in the parent context. But the log2 will have the dependency to the *ConsoleLogMessageWriter*! As the singletone is created on the same context, it's defined and picks the dependencies from this context (and upper by the prototype chain). That means that the first initiator of the sigletone instantiation will not be able to inject dependencies from its own context, as this singletone can be later accessed from different contexts as well.
+
+So, what if I want to have a singletone logger in my application, that uses my version of the *ILogMessageWriter*? For this there is another important context feature called *rebinding*. Let's do the following:
+
+
+```csharp
+public class AppContextInitializer: IApplicationContextInitializer {
+	public void Initialize(IDIContext context) {
+		context.m().Bind<ILogMessageWriter>(() => new MyLogMessageWriter());
+		context.s().Rebind<IAnotherLogger>();
+	}
+}
+```
+
+Notice, that we don't specify any lambda-factory in the Rebind construction. That's because we tell MinDI to look in the parent contexts for the definition of ILogger and bind the same, just on this context with the specified lifetime. 
+
+Now if I write 
+```csharp
+var log2 = context.Resolve<IAnotherLogger>();
+```
+
+The resolved logger will have the dependency on *MyLogMessageWriter*. The singletone is redefined on this context, and thus gets the dependencies from the same context it's defined, as already explained above.
+
+The rebinding is very powerfull feature, as it allows to change the lifetime of the objects. The standard approach is that the object is defined as abstract (multiple) in the class library context, as the class library should not impose the lifetime of the objects, and should let the user decide. The user can in the application context rebind all the necessary interfaces as singletone, thus decided which objects will be singletones in this application. The rebinding still doesn't need to know anything about the concrete implementation of the interface, allowing the library context to decide it.
+
+The same principle is usefull when we have multi-layered context within the application, like some of the objects can be rebound with different lifetimes within some custom context.
 
 ## Named and default dependencies
 
+One interface can be defined multiple times in the context. To do this, there must be given the name to the binding:
+```csharp
+public class AppContextInitializer: IApplicationContextInitializer {
+	public void Initialize(IDIContext context) {
+		context.m().Bind<ILogger>(() => new Logger1(), BindingName.For("logger1"), makeDefault: true);
+		context.m().Bind<ILogger>(() => new Logger2(), BindingName.For("logger2"));
+	}
+}
+```
 
+This allows to resolve the different implementations of ILogger by providing different names:
 
-That's it for now. There will be also provided a simple set of tutorials to quickly start using MinDI. As for now you can download MinDI here on GitHUB: TODO - link
-Here there are examples that tutorials will be based on. In those examples each next commit is a next step in tutorial, so they are pretty self-explaining. So if you cannot wait and wanna try this now, you can use them.
-TODO - references.
+```csharp
+var log = context.Resolve<ILogger>(BindingName.For("logger2"));
+```
 
+If no name is passed the default binding will be used (specified as makeDefault boolean).
 
+This way we can have many configurable implementations that can be switched in the runtime. The binding name can be any object (ToString is used). The binding names can also be combined using special feature of BindingName helper.
+
+In the user level we don't have access to the context, so to dynamically resolve the binding name, a **dynamic injection** is used:
+
+```csharp
+[Injection] public IDynamicInjection<ILogger> loggerInjection { get; set; }
+...
+void MyMethid(string loggerType) {
+	var logger = loggerInjection.Resolve(BindingName.For(loggerType)); 
+	...
+}
+```
+
+In this example we use the loggerType string to dynamically obtain the necessary ILogger implementation in the runtime.
+
+## What's next
+
+This is the end of this overview. Feel free to post any questions. The tutorials and more references will be added soon.
 
 
 <!--
 #### Nexti articles:
 
-1) MinDI overview (platforms, features, differences from MinIOC, etc).
+
+1) MinDI overview (platforms, features, installation, etc) + add references.
 2) Turorial: hello world, using of basic features and generics, constructions
 3) Unity tutorial: hello world, switching between scenes, load scenes as objects
 
