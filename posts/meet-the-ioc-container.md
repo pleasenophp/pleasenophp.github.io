@@ -394,9 +394,11 @@ In this example we use the loggerType string to dynamically obtain the necessary
 
 This is the end of this overview. Feel free to post any questions. The documentation and tutorials on MinDI will be added later.
 For now you can play with MinDI on GitHub here: 
-https://github.com/pleasenophp/mindi
+
+- https://github.com/pleasenophp/mindi
 
 You also have access to the following demo projects:
+
 - https://github.com/pleasenophp/mindi-demo
 - https://github.com/pleasenophp/mindi-unity-demo
 
