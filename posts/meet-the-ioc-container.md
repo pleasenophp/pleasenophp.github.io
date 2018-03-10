@@ -397,8 +397,8 @@ For now you can play with MinDI on GitHub here:
 https://github.com/pleasenophp/mindi
 
 You also have access to the following demo projects:
-* https://github.com/pleasenophp/mindi-demo
-* https://github.com/pleasenophp/mindi-unity-demo
+- https://github.com/pleasenophp/mindi-demo
+- https://github.com/pleasenophp/mindi-unity-demo
 
 
 <!--
