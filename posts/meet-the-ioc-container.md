@@ -386,11 +386,12 @@ In this example we use the loggerType string to dynamically obtain the necessary
 
 ## What's next
 
-This is the end of this overview. Feel free to post any questions. The tutorials and more references will be added soon.
+This is the end of this overview. Feel free to post any questions. The documentation and tutorials on MinDI will be added later.
+For now you can play with MinDI on GitHub here: TODO
 
 
 <!--
-#### Nexti articles:
+#### Possible next articles:
 
 
 1) MinDI overview (platforms, features, installation, etc) + add references.
