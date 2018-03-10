@@ -9,7 +9,7 @@
 .. type: text
 -->
 
-I would like to start a serie of posts about the context-oriented dependency injection and IoC in C#. This is related to my IoC container framework called **MinDI**. Before introducing MinDI and talking about usage and implementation, let's take briefly theoretical and philosophycal aspects of it. 
+I would like to start a serie of posts about the context-oriented dependency injection and IoC in C#. This is related to my IoC container framework called [MinDI](https://github.com/pleasenophp/mindi). Before introducing MinDI and talking about usage and implementation, let's take briefly theoretical and philosophycal aspects of it. 
 
 ## Coupling
 
@@ -89,5 +89,6 @@ It's ugly. Was that enough words?
 
 So basically, service locator is improved version of a singleton, that still smells. 
 
-I hope I have encouraged you to at least research information about DI/IoC containers, and maybe try some of them. The next articles will start telling about **MinDI** framework and will show some usage examples.  
+I hope I have encouraged you to at least research information about DI/IoC containers, and maybe try some of them. The next articles will start telling about [MinDI](https://github.com/pleasenophp/mindi) framework and will show some usage examples.  
 
+[Read next article](https://pleasenophp.github.io/posts/meet-the-ioc-container.html)
