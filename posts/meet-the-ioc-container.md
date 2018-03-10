@@ -19,7 +19,7 @@ Here are some common questions, that arise with an IoC container we want to crea
 - How do we define all our dependencies in one place of applications and keep those definitions refactoring-friendly?
 - Will we support multiple layers, where we can redefine some of the dependencies for some of the parts in the application?
 
-Different IoC/DI solutions have different approaches to those problems. Here I would like to introduce how it's solved in **MinDI** and and show some examples.
+Different IoC/DI solutions have different approaches to those problems. Here I would like to introduce how it's solved in [MinDI](https://github.com/pleasenophp/mindi) and and show some examples.
 Please note, that this article is not a tutorial, but rather a methodological description of MinDI library. The tutorials will be posted later. 
 
 MinDI is a IoC/DI framework, that was initially started as a project to extend the [MinIOC](https://bitbucket.org/Baalrukh/minioc/wiki/Home) framework with some syntax sugar, but then quickly turned into its own project, with much more advanced features and ideology. 
@@ -387,7 +387,12 @@ In this example we use the loggerType string to dynamically obtain the necessary
 ## What's next
 
 This is the end of this overview. Feel free to post any questions. The documentation and tutorials on MinDI will be added later.
-For now you can play with MinDI on GitHub here: TODO
+For now you can play with MinDI on GitHub here: 
+https://github.com/pleasenophp/mindi
+
+You also have access to the following demo projects:
+https://github.com/pleasenophp/mindi-demo
+https://github.com/pleasenophp/mindi-unity-demo
 
 
 <!--
