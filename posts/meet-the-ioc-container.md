@@ -11,6 +11,12 @@
 
 In the [previous](lets-talk-about-big-d.html) article there was a general talk about DI. Now let's see the basic problems and principles of the IoC container.
 
+## MinDI
+
+Please refer to GitHub repository to use the framework itself: [MinDI on GitHub](https://github.com/pleasenophp/mindi)
+
+## Introduction
+
 Here are some common questions, that arise with an IoC container we want to create:
 
 - How will we access the container itself throughout the application? Will it be one singletone? Sounds a bit crap, and similar to Service Locator then. Will there be only a single place where we create all the classes and thus have access to the container? Then how can we easily create new objects and inject dependencies during runtime?
@@ -391,8 +397,8 @@ For now you can play with MinDI on GitHub here:
 https://github.com/pleasenophp/mindi
 
 You also have access to the following demo projects:
-https://github.com/pleasenophp/mindi-demo
-https://github.com/pleasenophp/mindi-unity-demo
+* https://github.com/pleasenophp/mindi-demo
+* https://github.com/pleasenophp/mindi-unity-demo
 
 
 <!--
