@@ -402,13 +402,9 @@ You also have access to the following demo projects:
 - https://github.com/pleasenophp/mindi-demo
 - https://github.com/pleasenophp/mindi-unity-demo
 
-
 <!--
 #### Possible next articles:
-
-
-1) MinDI overview (platforms, features, installation, etc) + add references.
-2) Turorial: hello world, using of basic features and generics, constructions
-3) Unity tutorial: hello world, switching between scenes, load scenes as objects
-
+1) Turorial: hello world, using of basic features and generics, constructions
+2) Unity tutorial: hello world, switching between scenes, load scenes as objects
 -->
+
