@@ -40,7 +40,6 @@ If you are a professional JavaScript developer, or if you just love JavaScript, 
 - Handling **exceptions**
 - Setting up **Webpack** and **Babel** to have ES6 support in a fully-functional npm-based project
 - **Saving and loading** the game: a simple way to manage state of your **JavaScript** logic.
-- Make setTimeout and promises work. Integrating with the Unity coroutines.
 - Setting up unit tests for the game logic in **JavaScript**
 
 ## Prerequisites
@@ -61,22 +60,22 @@ To run JavaScript engine from .NET we will use [Jint](https://github.com/sebasti
 
 2) Get the **Jint.dll** from NuGet packages. For this do the following:
 
-* The latest stable version at the moment of writing this is *2.11.58*, so download the package from [here](https://www.nuget.org/packages/Jint/2.11.58)
+* The latest stable version at the moment of writing this is *2.11.58*, so download the package from here: [](https://www.nuget.org/packages/Jint/2.11.58)
 * Rename *jint.2.11.58.nupkg* to *jint.2.11.58.zip* and unpack it
-* Take the *Jint.dll* from the folder *lib/netstandard2.0* of the package
+* Take the Jint.dll from the folder *lib/netstandard2.0* of the package
 
-3) Make sure your projects uses *.NET Standard 2.0* in *Edit -> Project Settings -> Player*.
-This is recommended, as it has smaller size and gives the compatibility with all the platforms Unity supports.
+3) Make sure your projects uses *.NET Standard 2.0* in *Edit -> Project Settings -> Player*
+This is recommended, as it is smaller gives the compatibility with the all the platforms Unity supports.
 
-**pic1**
+![pic1](/images/unity-js/pic1.png ".NET Standard 2.0 settings")
 
-**NOTE**: if you rather want to use .NET 4.x setting than take the *Jint.dll* from the corresponding folder from the package in the previous step.
+**NOTE**: if you rather want to use .NET 4.x setting, then take the Jint.dll from the corresponding folder from the package in the previous step.
 
-4) Create a folder *Plugins* in your *Assets* and drag *Jint.dll* there.
+4) Create a folder Plugins in your Assets and drag *Jint.dll* there.
 
-**pic2**
+![pic2](/images/unity-js/pic2.png "Place Jint.dll into Plugins folder")
 
-5) Let's create a C# MonoBehavior called *JavascriptRunner.cs* on a scene object and call some JavaScript from inside of it:
+5) Let's create a C# MonoBehavior called *JavascriptRunner.cs* on a scene object and call some JavaScript from it:
 
 ```csharp
 using UnityEngine;
@@ -102,11 +101,11 @@ public class JavascriptRunner : MonoBehaviour
 ```
 
 Here we create new *Engine* object from Jint and call a very simple Hello World code in JS.
-Now attach the JavascriptRunner to the *MainCamera* on the scene and press **Play**.
+Now attach the JavascriptRunner to the MainCamera on the scene and press **Play**.
 
 You will see the following output in the console:
 
-**pic3**
+![pic3](/images/unity-js/pic3.png "Console output from JavaScript")
 
 Note how we make JavaScript call the Unity *Debug.Log* by proxying the call to *log* function in JavaScript:
 ```csharp
@@ -137,6 +136,7 @@ void Start()
 ```
 
 Now you can see on the Console:
+
 ```bash
 Response from C#: C# can see that you passed: 108
 ```
@@ -238,7 +238,8 @@ public class JavascriptRunner : MonoBehaviour
 
 Press Play and watch the fun on the Console. Here we have proxied an existing object to JavaScript. You can see that we can both read and write to C# object from the JS side. Like this you can easily expose the shared data to your JS engine.
 
-There are also several other ways of exposing the C# code to JavaScript. You can even expose the whole CLR with all namespaces, even though it's not recommended. You would rather expose only the API that your scripter or modder is supposed to call. But if you need to get more knowledge about interoperability, read the [Jint manual](https://github.com/sebastienros/jint)
+There are also several other ways of exposing the C# code to JavaScript. You can even expose the whole CLR with all namespaces, even though it's not recommended. You would rather expose only the API that your scripter or modder is supposed to call. But if you need to get more knowledge about interoperability, read the Jint manual:
+https://github.com/sebastienros/jint
 
 <a name="3-load-js-files"></a>
 ### Loading the scripts from files
