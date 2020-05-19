@@ -40,6 +40,7 @@ If you are a professional JavaScript developer, or if you just love JavaScript, 
 - Handling **exceptions**
 - Setting up **Webpack** and **Babel** to have ES6 support in a fully-functional npm-based project
 - **Saving and loading** the game: a simple way to manage state of your **JavaScript** logic.
+- setTimeout, promises and Unity coroutines.
 - Setting up unit tests for the game logic in **JavaScript**
 
 ## Prerequisites
