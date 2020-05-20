@@ -46,7 +46,7 @@ This tutorial will be also useful for non-unity developers, who just want to set
 2) NPM project and ES6 setup
 
 * [Setting up **Webpack** and **Babel** to have ES6 support in a fully-functional npm-based project](#5-setup-webpack)
-* [Extended Webpack configuration, non-minimized bundle, modules and global variables](#6-modules-webpack)
+* [Non-minimized bundle, modules and global variables](#6-modules-webpack)
 
 3) Some useful operations with Unity and JS
 
