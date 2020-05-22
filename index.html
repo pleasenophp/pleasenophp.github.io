@@ -6,75 +6,1010 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Programming</title>
 <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="https://pleasenophp.github.io/index.html">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/meet-the-ioc-container.html" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/using-real-javascript-with-unity.html" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-<!-- Menubar -->
-
-<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
-<!-- This keeps the margins nice -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+<!-- Header and menu bar -->
+<div class="container">
+      <header class="blog-header py-3"><div class="row nbb-header align-items-center">
+          <div class="col-md-3 col-xs-2 col-sm-2" style="width: auto;">
+            <button class="navbar-toggler navbar-light bg-light nbb-navbar-toggler" type="button" data-toggle="collapse" data-target=".bs-nav-collapsible" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="https://pleasenophp.github.io/">
-
-                <span id="blog-title">Programming</span>
-            </a>
+            <div class="collapse bs-nav-collapsible bootblog4-search-form-holder">
+                
+            </div>
         </div>
-<!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
-<li>
-<a href="archive.html">Archive</a>
+          <div class="col-md-6 col-xs-10 col-sm-10 bootblog4-brand" style="width: auto;">
+            <a class="navbar-brand blog-header-logo text-dark" href="https://pleasenophp.github.io/">
+
+            <span id="blog-title">Programming</span>
+        </a>
+          </div>
+            <div class="col-md-3 justify-content-end align-items-center bs-nav-collapsible collapse flex-collapse bootblog4-right-nav">
+            <nav class="navbar navbar-light bg-white"><ul class="navbar-nav bootblog4-right-nav"></ul></nav>
+</div>
+    </div>
+</header><nav class="navbar navbar-expand-md navbar-light bg-white static-top"><div class="collapse navbar-collapse bs-nav-collapsible" id="bs-navbar">
+            <ul class="navbar-nav nav-fill d-flex w-100">
+<li class="nav-item">
+<a href="archive.html" class="nav-link">Archive</a>
                 </li>
-<li>
-<a href="categories/index.html">Tags</a>
+<li class="nav-item">
+<a href="categories/index.html" class="nav-link">Tags</a>
                 </li>
-<li>
-<a href="rss.xml">RSS feed</a>
+<li class="nav-item">
+<a href="rss.xml" class="nav-link">RSS feed</a>
 
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
-    </div>
-<!-- /.container -->
-</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+</nav>
+</div>
+
+<div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
-        <div class="row">
-            
-            
+        
+        
+        
+    
+        
 
     
-<div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/meet-the-ioc-container.html" class="u-url">Meet the IoC container</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
-                Innerbytes
-            </span></p>
-            <p class="dateline"><a href="posts/meet-the-ioc-container.html" rel="bookmark"><time class="published dt-published" datetime="2017-03-06T00:01:21+01:00" title="2017-03-06 00:01">2017-03-06 00:01</time></a></p>
-                <p class="commentline">
+        
+    <div class="postindex">
+            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/using-real-javascript-with-unity.html" class="u-url">Using real JavaScript with Unity</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Innerbytes
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/using-real-javascript-with-unity.html" rel="bookmark">
+            <time class="published dt-published" datetime="2020-05-19T18:54:56+02:00" itemprop="datePublished" title="2020-05-19 18:54">2020-05-19 18:54</time></a>
+            </p>
+                        <p class="commentline">
+        
+    <a href="posts/using-real-javascript-with-unity.html#disqus_thread" data-disqus-identifier="cache/posts/using-real-javascript-with-unity.html">Comments</a>
+
+
+                </p>
+</div>
+            </header><div class="e-content entry-content">
+                    <div>
+<h3>What</h3>
+<p>This tutorial will tell you how to use <a href="https://github.com/sebastienros/jint">Jint</a> engine to write cross-platform games in a real <a href="https://www.w3schools.com/js/js_es6.asp">JavaScript ES6</a> with <a href="https://unity.com">Unity</a>.
+It's not to be confused with UnityScript language, that is .NET js-like syntax, and has little common with JavaScript.</p>
+<h3>Why</h3>
+<p>If you make relatively complicated games, like RPG-s, and so on, you probably need a good scripting language, to handle complex game story, NPC-s and object interactions, custscenes, events, and so on. Then, while C# language is good for engine logic, it's not designed for scripting. It's simply has too much verbosity and boilerplate, and too little flexibility for the creative part of the game. You will probably also need a scripting language that is easily understandable by game scripters, and modders, that are not necessary programmers. </p>
+<p>Many big projects choose <a href="https://www.lua.org/">Lua</a> for this purpose. Lua is a great dynamic language, and it has a lot of similarities with JavaScript. You can also make Lua work with Unity. However, here I want to show how to use JavaScript, because it gives the following advantages:</p>
+<ul>
+<li>It has a familiar C-like syntax, as opposite to a bit weird syntax of Lua.</li>
+<li>It has a huge developers community, and npm library with tons of open source packages, including the game development ones, like dialogs, quests, pathfinder, and anything else.</li>
+<li>It has a lot of well established development tools, including IDEs, unit test libraries, linters, etc.</li>
+</ul>
+<p>If you decide to use <strong>JavaScript</strong> in <strong>Unity</strong>, among many other features, you are able:</p>
+<ul>
+<li>Write logic of your game in a multi-paradigm, dynamically typed language with strong concepts of meta-programming, where you can both create a beautiful architecture, and unleash your creativity when coding the game world without loosing focus on technical stuff.</li>
+<li>Make your game scripts logic abstracted from lower level engine logic, also allowing to write automated tests for your story, dialogs and interactions, without even running Unity engine.</li>
+<li>Easily expose your game logic to the community, so fans can create mods and addons.</li>
+<li>Make your game portable to any other engine than Unity, if needed</li>
+<li>Have access to the <a href="https://www.npmjs.com/">npm library</a> with thousands of free javascript libraries and tools.</li>
+</ul>
+<p>If you are a professional JavaScript developer, or if you just love JavaScript, but want to make a Unity game, then this tutorial can be especially good for you.</p>
+<p>This tutorial will be also useful for non-unity developers, who just want to setup <em>Webpack/Babel</em> with <em>Jint</em>. In this case, jump directly <a href="posts/using-real-javascript-with-unity.html#5-setup-webpack">here</a>.</p>
+<h3>This tutorial will cover</h3>
+<p>1) Basic setup and usage</p>
+<ul>
+<li><a href="posts/using-real-javascript-with-unity.html#1-create-project">Setting up a simple Unity project with <strong>Jint</strong>.</a></li>
+<li><a href="posts/using-real-javascript-with-unity.html#2-call-csharp">Calling Unity <strong>C#</strong> code from <strong>JavaScript</strong></a></li>
+<li><a href="posts/using-real-javascript-with-unity.html#3-load-js-files">Loading the script from file</a></li>
+<li><a href="posts/using-real-javascript-with-unity.html#4-handle-exceptions">Handling <strong>exceptions</strong></a></li>
+</ul>
+<p>2) NPM project and ES6 setup</p>
+<ul>
+<li><a href="posts/using-real-javascript-with-unity.html#5-setup-webpack">Setting up <strong>Webpack</strong> and <strong>Babel</strong> to have ES6 support in a fully-functional npm-based project</a></li>
+<li><a href="posts/using-real-javascript-with-unity.html#6-modules-webpack">Non-minimized bundle, modules and global variables</a></li>
+</ul>
+<p>3) Some useful operations with Unity and JS</p>
+<ul>
+<li><a href="posts/using-real-javascript-with-unity.html#7-save-state"><strong>Saving and loading</strong> the game: a simple way to manage state of your <strong>JavaScript</strong> logic.</a></li>
+<li><a href="posts/using-real-javascript-with-unity.html#8-coroutines"><strong>setTimeout</strong>, and Unity <strong>coroutines</strong></a></li>
+<li><a href="posts/using-real-javascript-with-unity.html#9-promises">Add support of <em>Promises</em></a></li>
+</ul>
+<p>4) Build and automated tests</p>
+<ul>
+<li><a href="posts/using-real-javascript-with-unity.html#10-build">Include javascript bundle into the built app</a></li>
+<li><a href="posts/using-real-javascript-with-unity.html#11-unit-tests">Setting up unit tests for the game logic in <strong>JavaScript</strong></a></li>
+</ul>
+<h3>Prerequisites</h3>
+<ul>
+<li>You have some experience in both JavaScript, C# and Unity</li>
+<li>You have some experience with command line tools and npm</li>
+</ul>
+<p>This tutorial will use very simple MonoBehaviour code as example, as its goal is to show how to use Javascript in Unity, not how to create an engine architecture, or a game.</p>
+<h3>Let's do it</h3>
+<p>To run JavaScript engine from .NET we will use <a href="https://github.com/sebastienros/jint">Jint</a> library. Jint is a Javascript interpreter for .NET which provides full ECMA 5.1 compliance and can run on any .NET platform.</p>
+<p><a name="1-create-project"></a></p>
+<h4>Creating a project and setting up Jint</h4>
+<p>1) Create a project in Unity</p>
+<p>2) Get the <strong>Jint.dll</strong> from NuGet packages. For this do the following:</p>
+<ul>
+<li>The latest stable version at the moment of writing this is <em>2.11.58</em>, so download the package from here: <a href="https://www.nuget.org/packages/Jint/2.11.58"></a>
+</li>
+<li>Rename <em>jint.2.11.58.nupkg</em> to <em>jint.2.11.58.zip</em> and unpack it</li>
+<li>Take the Jint.dll from the folder <em>lib/netstandard2.0</em> of the package</li>
+</ul>
+<p>3) Make sure your projects uses <em>.NET Standard 2.0</em> in <em>Edit -&gt; Project Settings -&gt; Player</em>
+This is recommended, as it is smaller gives the compatibility with the all the platforms Unity supports.</p>
+<p><img alt="pic1" src="images/unity-js/pic1.png" title=".NET Standard 2.0 settings"></p>
+<p><strong>NOTE</strong>: if you rather want to use .NET 4.x setting, then take the Jint.dll from the corresponding folder from the package in the previous step.</p>
+<p>4) Create a folder Plugins in your Assets and drag <em>Jint.dll</em> there.</p>
+<p><img alt="pic2" src="images/unity-js/pic2.png" title="Place Jint.dll into Plugins folder"></p>
+<p>5) Let's create a C# MonoBehavior called <em>JavascriptRunner.cs</em> on a scene object and call some JavaScript from it:</p>
+<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">JavascriptRunner</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="n">Engine</span> <span class="n">engine</span><span class="p">;</span>
+
+    <span class="c1">// Start is called before the first frame update</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+
+      <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">@"</span>
+<span class="s">        var myVariable = 108;</span>
+<span class="s">        log('Hello from Javascript! myVariable = '+myVariable);</span>
+<span class="s">      "</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>Here we create new <em>Engine</em> object from Jint and call a very simple Hello World code in JS.
+Now attach the JavascriptRunner to the MainCamera on the scene and press <strong>Play</strong>.</p>
+<p>You will see the following output in the console:</p>
+<p><img alt="pic3" src="images/unity-js/pic3.png" title="Console output from JavaScript"></p>
+<p>Note how we make JavaScript call the Unity <em>Debug.Log</em> by proxying the call to <em>log</em> function in JavaScript:</p>
+<pre class="code literal-block"><span></span><code><span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+</code></pre>
+
+
+<p>This is direct function call, where you can call any C# functions from javascript. There is also other ways to call the C# code, let's see them.</p>
+<p><a name="2-call-csharp"></a></p>
+<h4>Calling Unity C# code from JavasSript</h4>
+<p>There are several ways to bind C# objects to JavaScript.
+As shown above, we can easily bind C# functions to JS. For non-void functions, that need to return value, you can use <strong>Func</strong> delegate. Change the code as following and press Play:</p>
+<pre class="code literal-block"><span></span><code><span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+  <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+  <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"myFunc"</span><span class="p">,</span> 
+    <span class="k">new</span> <span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">number</span> <span class="p">=&gt;</span> <span class="s">"C# can see that you passed: "</span><span class="p">+</span><span class="n">number</span><span class="p">));</span>
+
+  <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">@"</span>
+<span class="s">    var responseFromCsharp = myFunc(108);</span>
+<span class="s">    log('Response from C#: '+responseFromCsharp);        </span>
+<span class="s">  "</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>Now you can see on the Console:</p>
+<pre class="code literal-block"><span></span><code>Response from C#: C# can see that you passed: <span class="m">108</span>
+</code></pre>
+
+
+<p>We created a function that JavaScript can call and get some value from your C# API.</p>
+<p>But Jint would not be so powerful if it didn't allow to proxy the whole class from C# to Javascript. That's very handy when you need to give the JS engine access to part of your API.
+Let's do it. Modify the code as following and run it:</p>
+<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Jint.Runtime.Interop</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">JavascriptRunner</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="n">Engine</span> <span class="n">engine</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">class</span> <span class="nc">GameApi</span> <span class="p">{</span>
+      <span class="k">public</span> <span class="k">void</span> <span class="nf">ApiMethod1</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Called api method 1"</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="k">public</span> <span class="kt">int</span> <span class="nf">ApiMethod2</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Called api method 2"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="m">2</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Start is called before the first frame update</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"GameApi"</span><span class="p">,</span> <span class="n">TypeReference</span><span class="p">.</span><span class="n">CreateTypeReference</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">GameApi</span><span class="p">)));</span>
+
+      <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">@"</span>
+<span class="s">        var gameApi = new GameApi();</span>
+<span class="s">        gameApi.ApiMethod1();</span>
+<span class="s">        var result = gameApi.ApiMethod2();</span>
+<span class="s">        log(result);</span>
+<span class="s">      "</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>Notice, that we added a class <strong>GameApi</strong> and proxied it to Javascript. You can proxy like this any C# class, or even Enums, that is very handy:</p>
+<pre class="code literal-block"><span></span><code><span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"GameApi"</span><span class="p">,</span> <span class="n">TypeReference</span><span class="p">.</span><span class="n">CreateTypeReference</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">GameApi</span><span class="p">)));</span>
+<span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"MyEnum"</span><span class="p">,</span> <span class="n">TypeReference</span><span class="p">.</span><span class="n">CreateTypeReference</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">MyEnum</span><span class="p">)));</span>
+</code></pre>
+
+
+<p>To use it in javascript, we instantiate it using <em>new</em> operator:</p>
+<pre class="code literal-block"><span></span><code><span class="kd">var</span> <span class="nx">gameApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GameApi</span><span class="p">();</span>
+</code></pre>
+
+
+<p>Other than that, we can also proxy an existing instance of a C# class to exchange data between the Unity and Javascript engine. Let's say we have a <em>WorldModel</em> object, that has some data, and we want to proxy it to JavaScript: </p>
+<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">JavascriptRunner</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="n">Engine</span> <span class="n">engine</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">class</span> <span class="nc">WorldModel</span> <span class="p">{</span>
+      <span class="k">public</span> <span class="kt">string</span> <span class="n">PlayerName</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="s">"Alice"</span><span class="p">;</span>
+      <span class="k">public</span> <span class="kt">int</span> <span class="n">NumberOfDonuts</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+
+      <span class="k">public</span> <span class="k">void</span> <span class="nf">Msg</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"This is a function"</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Start is called before the first frame update</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+
+      <span class="kt">var</span> <span class="n">world</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WorldModel</span><span class="p">();</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"world"</span><span class="p">,</span> <span class="n">world</span><span class="p">);</span>
+      <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="err">$</span><span class="s">"{world.PlayerName} has {world.NumberOfDonuts} donuts"</span><span class="p">);</span>
+
+      <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">@"</span>
+<span class="s">        log('Javascript can see that '+world.PlayerName+' has '+world.NumberOfDonuts+' donuts');</span>
+<span class="s">        world.Msg();</span>
+<span class="s">        world.NumberOfDonuts += 3;</span>
+<span class="s">      "</span><span class="p">);</span>
+
+      <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="err">$</span><span class="s">"{world.PlayerName} has now {world.NumberOfDonuts} donuts. Thanks, JavaScript, for giving us some"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>Press Play and watch the fun on the Console. Here we have proxied an existing object to JavaScript. You can see that we can both read and write to C# object from the JS side. Like this you can easily expose the shared data to your JS engine.</p>
+<p>There are also several other ways of exposing the C# code to JavaScript. You can even expose the whole CLR with all namespaces, even though it's not recommended. You would rather expose only the API that your scripter or modder is supposed to call. But if you need to get more knowledge about interoperability, read the Jint manual:
+https://github.com/sebastienros/jint</p>
+<p><a name="3-load-js-files"></a></p>
+<h4>Loading the scripts from files</h4>
+<p>Of course we will have our JavaScript code sitting somewhere in files, not hardcoded in C# like in examples above. Let's do this, so we later can start to setup the whole JavaScript project for our game.</p>
+<p>In your Unity project, create a folder, named for example <em>Game</em> on the same level where <em>Assets</em> exists. This will be a folder for our JavaScript project. It's good to not create this folder inside of Assets, so Unity doesn't try to import javascript files and create .meta files for them.</p>
+<p><img alt="pic4" src="images/unity-js/pic4.png" title="Create Game folder for JavaScript"></p>
+<p>Let's then create a file named <em>index.js</em> and put it into this folder. This will be our main file, from which the game scripts will start. You can of course name this file how you want, but I will use <em>index.js</em> in this tutorial. Let's put there some code.</p>
+<pre class="code literal-block"><span></span><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">"Hello from JS file!"</span>
+<span class="p">}</span>
+<span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">());</span>
+</code></pre>
+
+
+<p>Let's modify the <em>JavascriptRunner.cs</em> to load code from file. Then, press Play to see how it works.</p>
+<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">JavascriptRunner</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="n">Engine</span> <span class="n">engine</span><span class="p">;</span>
+
+    <span class="c1">// Start is called before the first frame update</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"Game/index.js"</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>As you can see, it's quite simple, as we use the same method <em>engine.Execute</em>, but pass there the text, loaded from file. </p>
+<p>Here it's important to understand, that <em>SetValue</em> and <em>Execute</em> action we perform, add the objects to the same <em>JavaScript scope</em>. It means, that any code in <em>index.js</em> will have access to the <em>log</em> or any other objects we inject. Script in <em>index.js</em> will also have access to the result of any previous Execute command. For example:</p>
+<pre class="code literal-block"><span></span><code><span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">@"var myVar = 1"</span><span class="p">);</span>
+<span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"Game/index.js"</span><span class="p">));</span>
+</code></pre>
+
+
+<p>The code in <em>index.js</em> will be able to see myVar variable. This is one of the simple ways to split your code into modules that see each other, or implement sort of <em>require</em> function, that will dynamically load another file to the scope. But in the next parts of the tutorial I will show how we can use <strong>Webpack</strong>, and standard <strong>import</strong> statements.</p>
+<p>Also you can easily call <em>"hello"</em> function in JavaScript, and get result from it in C# like this:</p>
+<pre class="code literal-block"><span></span><code><span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"Game/index.js"</span><span class="p">));</span>
+<span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"hello()"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">functionResult</span> <span class="p">=</span> <span class="n">engine</span><span class="p">.</span><span class="n">GetCompletionValue</span><span class="p">().</span><span class="n">AsString</span><span class="p">();</span>
+<span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"C# got function result from Javascript: "</span><span class="p">+</span><span class="n">functionResult</span><span class="p">);</span>
+</code></pre>
+
+
+<p>If you now press Play, then you will see the following on console:</p>
+<pre class="code literal-block"><span></span><code>C# got <span class="k">function</span> result from Javascript: Hello from JS file!
+</code></pre>
+
+
+<p><a name="4-handle-exceptions"></a></p>
+<h4>Handle exceptions</h4>
+<p>Let's add the code to handle exceptions, happened in javascript and show some info. </p>
+<p>Modify your <em>JavascriptRunner.cs</em> like this.</p>
+<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Jint.Runtime</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">JavascriptRunner</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="n">Engine</span> <span class="n">engine</span><span class="p">;</span>
+
+    <span class="c1">// Start is called before the first frame update</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+      <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/index.js"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">Execute</span><span class="p">(</span><span class="kt">string</span> <span class="n">fileName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">body</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+          <span class="n">body</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="n">fileName</span><span class="p">);</span>
+          <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">body</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">JavaScriptException</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kt">var</span> <span class="n">location</span> <span class="p">=</span> <span class="n">engine</span><span class="p">.</span><span class="n">GetLastSyntaxNode</span><span class="p">().</span><span class="n">Location</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>
+          <span class="kt">var</span> <span class="n">error</span> <span class="p">=</span> <span class="err">$</span><span class="s">"Jint runtime error {ex.Error} {fileName} (Line {location.Line}, Column {location.Column})\n{PrintBody(body)}"</span><span class="p">;</span>
+          <span class="n">UnityEngine</span><span class="p">.</span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">error</span><span class="p">);</span> 
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="err">$</span><span class="s">"Error: {ex.Message} in {fileName}\n{PrintBody(body)}"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">PrintBody</span><span class="p">(</span><span class="kt">string</span> <span class="n">body</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">body</span><span class="p">))</span> <span class="k">return</span> <span class="s">""</span><span class="p">;</span>
+      <span class="kt">string</span><span class="p">[]</span> <span class="n">lines</span> <span class="p">=</span> <span class="n">body</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"\r\n"</span><span class="p">,</span> <span class="s">"\r"</span><span class="p">,</span> <span class="s">"\n"</span> <span class="p">},</span> <span class="n">StringSplitOptions</span><span class="p">.</span><span class="n">None</span><span class="p">);</span>
+      <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"\n"</span><span class="p">,</span> <span class="n">Enumerable</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">lines</span><span class="p">.</span><span class="n">Length</span><span class="p">).</span><span class="n">Select</span><span class="p">(</span><span class="n">i</span> <span class="p">=&gt;</span> <span class="err">$</span><span class="s">"{i+1:D3} {lines[i]}"</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>We added <em>Execute</em> private function that executes a script and handles <em>JavaScriptException</em> for runtime error, and general <em>Exception</em> for parsing and IO errors. It prints the line and column information, and also the code body with line numbers. Try it by adding some wrong code or unknown variable to <em>index.js</em> and see how it works:</p>
+<pre class="code literal-block"><span></span><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">"Hello from JS file! "</span><span class="o">+</span><span class="nx">someVar</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">());</span>
+</code></pre>
+
+
+<p>On console you will see:</p>
+<pre class="code literal-block"><span></span><code>Jint runtime error ReferenceError: someVar is not defined Game/index.js <span class="o">(</span>Line <span class="m">3</span>, Column <span class="m">32</span><span class="o">)</span>
+<span class="m">001</span> 
+<span class="m">002</span> <span class="k">function</span> hello<span class="o">()</span> <span class="o">{</span>
+<span class="m">003</span>   <span class="k">return</span> <span class="s2">"Hello from JS file! "</span>+someVar<span class="p">;</span>
+<span class="m">004</span> <span class="o">}</span>
+<span class="m">005</span> 
+<span class="m">006</span> log<span class="o">(</span>hello<span class="o">())</span><span class="p">;</span>
+UnityEngine.Debug:LogError<span class="o">(</span>Object<span class="o">)</span>
+JavascriptRunner:Execute<span class="o">(</span>String<span class="o">)</span> <span class="o">(</span>at Assets/JavascriptRunner.cs:29<span class="o">)</span>
+JavascriptRunner:Start<span class="o">()</span> <span class="o">(</span>at Assets/JavascriptRunner.cs:17<span class="o">)</span>
+</code></pre>
+
+
+<p>Now you have a fully working JavaScript ES5 project with Unity. In the next chapters we will see more advanced topics - how to use the <em>JavaScript ES6</em> with Jint, how to setup <em>npm</em>, <em>unit tests</em>, etc.</p>
+<p><a name="5-setup-webpack"></a></p>
+<h4>Setting up Webpack and Babel to enable ES6 and npm packages support</h4>
+<p>In this part of tutorial we will add a basic npm project structure (similar to React or Vue.js). Here we will do 3 things:</p>
+<ul>
+<li>enable npm packages support so you can use any npm packages in your code</li>
+<li>add Babel so you can use all advantages of ES6 JavaScript, that will be converted to ES5, which for is fully supported by Jint at the moment.</li>
+<li>add Webpack to support modules and pack your code in a single bundle file</li>
+</ul>
+<p>For this part of tutorial you will need command line. I will show examples with <em>Terminal</em> command line in <em>Mac</em>, but in <em>Windows</em> you can use <em>WSL</em> or <em>Powershell</em>. Also you will need to install <em>Node.js</em> and <em>npm</em> before you start. If you need help on how to do it, see <a href="https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/">here</a>.</p>
+<p>In command line <em>cd</em> to the <em>Game</em> folder of your project, where index.js is located:
+<img alt="pic5" src="images/unity-js/pic5.png" title="Game folder in command line"></p>
+<p>Now run </p>
+<pre class="code literal-block"><span></span><code>npm init -y
+</code></pre>
+
+
+<p><img alt="pic6" src="images/unity-js/pic6.png" title="Initializing npm project"></p>
+<p>This will initialize empty npm project in your folder by creating a <em>package.json</em> file. Open this file in a text editor, delete its contents and put the following to it:</p>
+<pre class="code literal-block"><span></span><code><span class="p">{</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"my-cool-game"</span><span class="p">,</span>
+  <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"0.0.1"</span><span class="p">,</span>
+  <span class="nt">"author"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="nt">"scripts"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"webpack --mode production"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>We can specify the name of the project, version, author and other fields here. The important though is the <em>scripts</em> section, where we have our webpack build target, that will pack our ES6 code and convert it to ES5. Also note, that the name of the project must be <em>dashes-separated</em>.</p>
+<p>To make it work, we need to install Webpack and Babel. Run the following 2 commands in your command line, being in <em>Game</em> folder:</p>
+<pre class="code literal-block"><span></span><code>npm i webpack webpack-cli --save-dev
+npm i @babel/core babel-loader @babel/preset-env --save-dev
+</code></pre>
+
+
+<p>After installation is finished, your <em>package.json</em> content will look like this:</p>
+<pre class="code literal-block"><span></span><code><span class="p">{</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"my-cool-game"</span><span class="p">,</span>
+  <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"0.0.1"</span><span class="p">,</span>
+  <span class="nt">"author"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="nt">"scripts"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"webpack --mode production"</span>
+  <span class="p">},</span>
+  <span class="nt">"devDependencies"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"@babel/core"</span><span class="p">:</span> <span class="s2">"^7.9.6"</span><span class="p">,</span>
+    <span class="nt">"@babel/preset-env"</span><span class="p">:</span> <span class="s2">"^7.9.6"</span><span class="p">,</span>
+    <span class="nt">"babel-loader"</span><span class="p">:</span> <span class="s2">"^8.1.0"</span><span class="p">,</span>
+    <span class="nt">"webpack"</span><span class="p">:</span> <span class="s2">"^4.43.0"</span><span class="p">,</span>
+    <span class="nt">"webpack-cli"</span><span class="p">:</span> <span class="s2">"^3.3.11"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>The versions of packages can be different, but if they are there, it means, that babel and webpack are successfully installed. You will also see that <em>package-lock.json</em> file, and <em>node_modules</em> folder are created. You don't need to care about those, as they managed by npm. However, if you are using version control, then ignore <strong>node_modules</strong>, because it contains all the downloaded npm packages and should not be versioned. You can delete the <em>node_modules</em> folder at any time, and restore it again by running <code>npm install</code></p>
+<p>The next step is to enable Babel, that will transpose JavaScript code to ES5. Create a file named <em>.babelrc</em> in your <em>Game</em> folder and put the following inside:</p>
+<pre class="code literal-block"><span></span><code><span class="p">{</span>
+  <span class="nt">"presets"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"@babel/preset-env"</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>And the last step is to configure Webpack. For this create a file named <em>webpack.config.js</em> in your <em>Game</em> folder and put the following inside:</p>
+<pre class="code literal-block"><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">env</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">app</span><span class="o">:</span> <span class="s1">'./index.js'</span>
+    <span class="p">},</span>
+    <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.js$/</span><span class="p">,</span> <span class="nx">loader</span><span class="o">:</span> <span class="s1">'babel-loader'</span> <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nx">optimization</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">minimize</span><span class="o">:</span> <span class="nx">env</span> <span class="o">!=</span> <span class="s1">'dev'</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre>
+
+
+<p>This tells Webpack to read your <em>index.js</em> and convert it to the bundle. Your should now have the following items in the Game folder:</p>
+<pre class="code literal-block"><span></span><code>.babelrc
+index.js
+node_modules
+package-lock.json
+package.json
+webpack.config.js
+</code></pre>
+
+
+<p>Let's try now how the conversion works. Put some <em>ES6</em> code in our <em>index.js</em></p>
+<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">"Hello from JS ES6 file!"</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">());</span>
+</code></pre>
+
+
+<p>This contains <em>const</em> and an <em>arrow function</em> that is ES6 only features. If you try to run your Unity project, you will see the following error:</p>
+<pre class="code literal-block"><span></span><code>ApplicationException: Error: Line <span class="m">2</span>: Unexpected token <span class="o">)</span> in Game/index.js
+<span class="m">001</span> 
+<span class="m">002</span> const <span class="nv">hello</span> <span class="o">=</span> <span class="o">()</span> <span class="o">=</span>&gt; <span class="o">{</span>
+<span class="m">003</span>   <span class="k">return</span> <span class="s2">"Hello from JS ES6 file!"</span><span class="p">;</span>
+<span class="m">004</span> <span class="o">}</span><span class="p">;</span>
+<span class="m">005</span> 
+<span class="m">006</span> log<span class="o">(</span>hello<span class="o">())</span><span class="p">;</span>
+JavascriptRunner.Execute <span class="o">(</span>System.String fileName<span class="o">)</span> <span class="o">(</span>at Assets/JavascriptRunner.cs:32<span class="o">)</span>
+JavascriptRunner.Start <span class="o">()</span> <span class="o">(</span>at Assets/JavascriptRunner.cs:17<span class="o">)</span>
+</code></pre>
+
+
+<p>That's because the current version of <em>Jint</em> supports only JS version ES5. Later <em>Jint</em> will also add full ES6 support and the conversion step might not be needed. Let's now run Webpack to convert and bundle our code.</p>
+<p>In command line run the following</p>
+<pre class="code literal-block"><span></span><code>npm run build
+</code></pre>
+
+
+<p>After the command is run successfully, you should see a new <strong>dist</strong> folder in the Game folder. That's a folder where Webpack will put the "compiled" version of the Javascript. 
+If you now open <em>Game/dist/app.js</em> file, you will see a minimized JavaScript text. This is the file, openable by Jint, as it has only ES5-compatible code. </p>
+<p>Let's now change our Start method in <em>JavascriptRunner.cs</em> to open it:</p>
+<pre class="code literal-block"><span></span><code><span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+  <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+  <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/dist/app.js"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>Now press <em>Play</em> and see output on Unity console, received from originally ES6 code.</p>
+<pre class="code literal-block"><span></span><code>Hello from JS ES6 file!
+</code></pre>
+
+
+<p>Now we have set up the full npm-powered project, where you can also add any npm package! </p>
+<p>Note, that every time after you change your JavaScript and before to test it in Unity, you will have to run <code>npm run build</code> (or <code>npm run dev</code> as will be shown next) in order for your ES6 scripts to compile to <em>dist/app.js</em></p>
+<p><a name="6-modules-webpack"></a></p>
+<h4>Non-minimized bundle setup and modules</h4>
+<p>Let's have a look at some handy features of Webpack. As you noticed, <em>app.js</em> contains the minimized javascript. It has little size and is good for production, but for debugging errors, where you want to see the code line-by-line it's not very useful. For this we can tell webpack to disable the minimizing. Let's make another npm command that will produce a similar <em>app.js</em> but will not minimize it.</p>
+<p>Add <strong>dev</strong> target to your <em>package.json</em> in <em>"scripts"</em> section:</p>
+<pre class="code literal-block"><span></span><code>  <span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"webpack --mode production"</span><span class="p">,</span>
+    <span class="nt">"dev"</span><span class="p">:</span> <span class="s2">"webpack --mode production --env dev"</span>
+  <span class="p">}</span><span class="err">,</span>
+</code></pre>
+
+
+<p>This will make now Webpack to produce not minimized script, if you run the <strong>dev</strong> target instead of <em>build</em>. Try it. In command line, run</p>
+<pre class="code literal-block"><span></span><code>npm run dev
+</code></pre>
+
+
+<p>Now see the contents of your <em>dist/app.js</em>. It's not minimized anymore! You can press Play in Unity and make sure it still works.</p>
+<p>Let's now see how to split your JavaScript code by modules and use them. Let's create another file, named <em>MyModule.js</em> in <em>Game</em> folder with the following:</p>
+<pre class="code literal-block"><span></span><code><span class="kr">export</span> <span class="kr">const</span> <span class="nx">myFunction1</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">"This is function 1 from my module"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">myFunction2</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">"This is function 2 from my module"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>We have created a module that exports 2 functions. Now in our <em>index.js</em> or in any other javascript file, we can import those functions. Replace the code in <em>index.js</em> with the following:</p>
+<pre class="code literal-block"><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">myFunction1</span><span class="p">,</span> <span class="nx">myFunction2</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">"Hello from JS ES6 file!"</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">());</span>
+<span class="nx">log</span><span class="p">(</span><span class="nx">myFunction1</span><span class="p">());</span>
+<span class="nx">log</span><span class="p">(</span><span class="nx">myFunction2</span><span class="p">());</span>
+</code></pre>
+
+
+<p>Now run <code>npm run dev</code> to build the bundle, and then press <em>Play</em> in Unity. You will see the output from module functions. Like this you can decompose your code to files very easily. Of course, you can also put your modules in different subfolders. 
+You can read more about ES6 modules system <a href="https://www.sitepoint.com/understanding-es6-modules/">here</a>.</p>
+<h5>Webpack, and global variables</h5>
+<p>When webpack creates a bundle, it's run in a closed function scope. It means, that from this scope, you cannot create variables in global scope. So, if you execute several bundles from your <em>Engine</em> they cannot communicate with each other, and also C# cannot call the JavaScript functions from your bundles scope. When you need to write to global scope from your module, let me show an easy way to do it with Jint.</p>
+<p>Modify the <em>JavascriptRunner.cs</em> to have code like this in Start:</p>
+<pre class="code literal-block"><span></span><code>    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"var window = this"</span><span class="p">);</span>
+      <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/dist/app.js"</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre>
+
+
+<p>Before running our bundle, we have injected <em>window</em> variable that references the global scope. Now you can do the following. Add code to your <em>index.js</em>:</p>
+<pre class="code literal-block"><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">thisIsGlobalVariable</span> <span class="o">=</span> <span class="mi">108</span><span class="p">;</span>
+
+<span class="nx">log</span><span class="p">(</span><span class="s2">"I can see global variable: "</span><span class="o">+</span><span class="nx">thisIsGlobalVariable</span><span class="p">);</span>
+</code></pre>
+
+
+<p>Build the code with <code>npm run dev</code>, press <em>Play</em> and see the result. Variables in the global context are accessible anywhere in your Javascript code. Use them rare: only when you really need it.
+Of course instead of <em>window</em> you can use <em>global</em>, or any other variable name to hold reference to the global scope.</p>
+<p>Let's now try to call the function <em>hello()</em> from C# side. </p>
+<pre class="code literal-block"><span></span><code>    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span><span class="n">df</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"var window = this"</span><span class="p">);</span>
+      <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/dist/app.js"</span><span class="p">);</span>
+
+      <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"hello()"</span><span class="p">);</span>
+      <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"C# got result from function: "</span><span class="p">+</span><span class="n">engine</span><span class="p">.</span><span class="n">GetCompletionValue</span><span class="p">());</span>
+    <span class="p">}</span>
+</code></pre>
+
+
+<p>If you press Play() now, then you will have the following error on unity console:</p>
+<pre class="code literal-block"><span></span><code>JavaScriptException: hello is not defined
+</code></pre>
+
+
+<p>That's because the generated code in app.js is placed in a closed function scope. So, to make a function accessible from Jint, we need to make it global. Open your <em>index.js</em> and add the following line after <em>hello()</em> function:</p>
+<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">"Hello from JS ES6 file!"</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">hello</span> <span class="o">=</span> <span class="nx">hello</span><span class="p">;</span>
+</code></pre>
+
+
+<p>Now run <code>npm run dev</code> and press Play. And voilà:</p>
+<pre class="code literal-block"><span></span><code>C# got result from <span class="k">function</span>: Hello from JS ES6 file!
+</code></pre>
+
+
+<p>Like this, you can decide, which of js functions you want to expose to your C# engine.</p>
+<p><a name="7-save-state"></a></p>
+<h4>Saving javascript state of the game</h4>
+<p>Since your gameplay logic is going to be in JavaScript, all the state, like player parameters, inventory, quest states, etc, will be contained there. When your game needs to be saved and loaded, the state must be somehow passed to Unity C# code, so that it could save/load it. There is many ways to organize the state in JavaScript. Let's take a look at a simple and recommended one, where all our game state that is intended to be saved is contained in a single object. The other javascript game objects can by one or other way read this state, and modify it when needed. </p>
+<p>Write the following to <em>index.js</em></p>
+<pre class="code literal-block"><span></span><code><span class="kd">var</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">"Alice"</span><span class="p">,</span>
+  <span class="nx">level</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">printState</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">log</span><span class="p">(</span><span class="sb">`JS state name: </span><span class="si">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">; level: </span><span class="si">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">level</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">printState</span><span class="p">();</span>
+</code></pre>
+
+
+<p>If you build it and press Play, you will see the state of your game in the unity console. Now, let's add a global function to <em>index.js</em>, called <em>getGameState</em>, that will pass this state to Unity in <em>json</em> format.</p>
+<pre class="code literal-block"><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">getGameState</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">state</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+
+
+<p>Now let's add a button to our Unity project that will save the game state. In <em>JavascriptRunner.cs</em> add the following function:</p>
+<pre class="code literal-block"><span></span><code>    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnGUI</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">GUILayout</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s">"Save game"</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="n">jsGameState</span> <span class="p">=</span> <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"getGameState()"</span><span class="p">).</span><span class="n">GetCompletionValue</span><span class="p">().</span><span class="n">AsString</span><span class="p">();</span>
+        <span class="n">File</span><span class="p">.</span><span class="n">WriteAllText</span><span class="p">(</span><span class="s">"savegame.json"</span><span class="p">,</span> <span class="n">jsGameState</span><span class="p">);</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Game saved"</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+
+
+<p>You can see that we also can get the result of called js function in one line, because Jint returns instance of <em>Engine</em> from <em>Execute()</em> call. This is very handy.
+Compile the js with <code>npm run dev</code> and press <em>Play</em>. Now you will see <em>Save game</em> button on the screen. Press it, and then have a look at your Unity project folder.
+There will be a file named <em>savegame.json</em>
+<img alt="pic7" src="images/unity-js/pic7.png" title="Saved game file"></p>
+<p>As you can see, the contents of this file represent the <em>state</em> object from JavaScript.</p>
+<p>Now, let's modify our <em>savegame.json</em>. Open this file in the text editor and write:</p>
+<pre class="code literal-block"><span></span><code><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Alice"</span><span class="p">,</span><span class="nt">"level"</span><span class="p">:</span><span class="mi">80</span><span class="p">}</span>
+</code></pre>
+
+
+<p>So, we cheated and gave Alice level 80. Now we can load the game and see our changes. Let's create a <em>setGameState</em> function in <em>index.js</em></p>
+<pre class="code literal-block"><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">setGameState</span> <span class="o">=</span> <span class="p">(</span><span class="nx">stateString</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">state</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">stateString</span><span class="p">);</span>
+  <span class="nx">printState</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre>
+
+
+<p>This function will update the <em>state</em> object from the passed json string and will print it. Let's add <em>Load game</em> button to the <em>OnGUI</em> function in <em>JavascriptRunner.cs</em>:</p>
+<pre class="code literal-block"><span></span><code>  <span class="k">if</span> <span class="p">(</span><span class="n">GUILayout</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s">"Load game"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="n">stateString</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"savegame.json"</span><span class="p">);</span>
+    <span class="n">engine</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="s">"setGameState"</span><span class="p">,</span> <span class="n">stateString</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+
+
+<p>This will read our saved game and pass it to JavaScript by calling <em>setGameState</em>. Notice, that we use <strong>Invoke</strong> here instead of <strong>Execute</strong>. Invoke is a method of Jint that allows to execute a javascript function with given arguments. Since json string can contain line breaks, we can not simply concatenate it in the <em>Execute</em> method.</p>
+<p>Now build and run the game as usual, then press <em>Load game</em> button. You will see the following on console:</p>
+<pre class="code literal-block"><span></span><code>JS state name: Alice<span class="p">;</span> level: <span class="m">80</span>
+</code></pre>
+
+
+<p><a name="8-coroutines"></a></p>
+<h4>
+<strong>setTimeout</strong> and Unity <strong>coroutines</strong>
+</h4>
+<p>Let's now see something more interesting. <em>Jint</em> doesn't provide you with <em>setTimeout</em> function, leaving the implementation to the client. By default all the calls that you make to your JavaScript code, and everything, that Jint calls back to C# happen in the same thread. In our case it's main Unity thread. Thus it's up to you how you want to implement the <em>setTimeout</em> and promises behavior, and how you want to manage the multi-threads and synchronization. </p>
+<p>In this section I will show how to implement <em>setTimeout</em> and some promises using Unity <em>coroutines</em> mechanism. This mechanism allows user to schedule parallel execution in the Unity main thread without the need to deal with multi-threading. This is very powerful for handling game animations, sequences of events, etc.</p>
+<p>Let's start with trying to call <em>setTimeout</em> in <em>index.js</em>, that will do some game action. For example, will change the label in our game UI. In your <em>index.js</em> write the following:</p>
+<pre class="code literal-block"><span></span><code><span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
+<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it is changed"</span><span class="p">),</span> <span class="mi">5000</span><span class="p">);</span>
+</code></pre>
+
+
+<p>In <em>JavascriptRunner.cs</em> let's add a code that outputs the text label to UI, so the beginning of this file will look like this:</p>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">JavascriptRunner</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="n">Engine</span> <span class="n">engine</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="kt">string</span> <span class="n">labelText</span><span class="p">;</span>
+
+    <span class="c1">// Start is called before the first frame update</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"setText"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="n">text</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">labelText</span> <span class="p">=</span> <span class="n">text</span><span class="p">));</span>
+      <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"var window = this"</span><span class="p">);</span>
+      <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/dist/app.js"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnGUI</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">GUILayout</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="n">labelText</span><span class="p">);</span>
+      <span class="p">...</span>
+</code></pre>
+
+
+<p>Here we added a <code>private string labelText;</code>, and a function that can set it from js: <code>engine.SetValue("setText", new Action&lt;string&gt;(text =&gt; this.labelText = text));</code>
+Finally, we have added a Label of the text to display in the UI: <code>GUILayout.Label(labelText);</code></p>
+<p>We expect the text <em>"This is a text"</em> to appear first. And then, in 5 seconds, it should be changed to <em>"And now it is changed"</em>. Let's check if it's so. Build the scripts using <code>npm run dev</code> and press <em>Play</em>. You will see something like this:
+<img alt="pic8" src="images/unity-js/pic8.png" title="Error because there is no setTimeout"></p>
+<p>The first part of text is set, but then, there is an error on console. This is expected, as <em>Jint</em> has no <em>setTimeout</em> implementation. Let's make a simple version of it. In your <em>JavascriptRunner.cs</em> in <em>Start()</em> function, before we execute <em>app.js</em>, add the following:</p>
+<pre class="code literal-block"><span></span><code>      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"setTimeout"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="n">Delegate</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;((</span><span class="n">callback</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">TimeoutCoroutine</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">interval</span><span class="p">));</span>
+      <span class="p">}));</span>
+</code></pre>
+
+
+<p>Now, add the coroutine function to <em>JavascriptRunner</em> class:</p>
+<pre class="code literal-block"><span></span><code>    <span class="k">private</span> <span class="n">IEnumerator</span> <span class="nf">TimeoutCoroutine</span><span class="p">(</span><span class="n">Delegate</span> <span class="n">callback</span><span class="p">,</span> <span class="kt">int</span> <span class="n">intervalMilliseconds</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">WaitForSeconds</span><span class="p">(</span><span class="n">intervalMilliseconds</span> <span class="p">/</span> <span class="m">1000.0f</span><span class="p">);</span>
+      <span class="n">callback</span><span class="p">.</span><span class="n">DynamicInvoke</span><span class="p">(</span><span class="n">JsValue</span><span class="p">.</span><span class="n">Undefined</span><span class="p">,</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="n">JsValue</span><span class="p">.</span><span class="n">Undefined</span> <span class="p">});</span>
+    <span class="p">}</span>
+</code></pre>
+
+
+<p>This coroutine does 2 following actions:</p>
+<ul>
+<li>Waits for the given timeout (note that we divide by 1000 as <em>WaitForSeconds</em> instruction in Unity requires time in seconds)</li>
+<li>Dynamically executes the callback, that JavaScript code passed to the <em>setTimeout</em> function.</li>
+</ul>
+<p>Also, for this code to build, you will need to add 2 using instructions in <em>JavascriptRunner.cs</em>:</p>
+<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">Jint.Native</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+</code></pre>
+
+
+<p>Now, build using <code>npm run dev</code> and press <em>Play</em>. See how text is being changed in 5 seconds. We have just made a setTimeout function work. If you need, you can likewise also implement <em>clearTimeout</em>, <em>setInterval</em>, and any other API functions. You can also expose functions that call any other Unity coroutine, for example call animation from your JavaScript.  </p>
+<p><a name="9-promises"></a></p>
+<h4>Implementing promises</h4>
+<p><em>setTimeout</em> is not always very convenient function, as it uses callback. To not break the code flow, it's nice to use <em>promises</em>. Let's implement a promise that waits for some time.</p>
+<p>Let's remove 2 lines that call <em>setText</em> and <em>setTimeout</em> from <em>index.js</em> and add instead the following logic:</p>
+<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">wait</span> <span class="o">=</span> <span class="p">(</span><span class="nx">milliseconds</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">resolve</span><span class="p">(),</span> <span class="nx">milliseconds</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
+  <span class="nx">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+  <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">asyncFunction</span><span class="p">();</span>
+</code></pre>
+
+
+<p>Here we added a promise, that uses our setTimeout in order to wait for the given amount milliseconds, and <em>asyncFunction</em> that sets initial text, awaits 5 seconds, and changes the text.
+This way is much more elegant, than callback, as it allows to use asynchronous logic and avoid callbacks. </p>
+<p>However, to make it work, we need to install an extension to <em>Babel</em>, that will simulate <em>Promises</em>, <em>generators</em>, and other ES6 API. Here, in <em>Jint</em> it's not supported yet.</p>
+<p>Open your command line in <em>Game</em> folder and add the following:</p>
+<pre class="code literal-block"><span></span><code>npm install --save @babel/polyfill
+</code></pre>
+
+
+<p>Now open your <em>.babelrc</em> file and change it, so the content is like this:</p>
+<pre class="code literal-block"><span></span><code><span class="p">{</span>
+  <span class="nt">"presets"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s2">"@babel/preset-env"</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="nt">"useBuiltIns"</span><span class="p">:</span> <span class="s2">"usage"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+
+<p>This basically tells Babel to use emulation of Promises and other API, provided in <em>polyfill</em> package, as much as the JavaScript code requires it. </p>
+<p>Now run <code>npm run dev</code> and press <em>Play</em>. Watch how the text changes in 5 seconds, by the effect of <em>Promise</em>.</p>
+<p><a name="10-build"></a></p>
+<h4>Include javascript files into the built app</h4>
+<p>When we build the game, we need it to contain our javascript bundle inside, to have access to it. Unity has a good cross-platform way to do it, through built-in <em>Resources system</em>. Any file, put in <em>Assets/Resources</em> folder will be included into build. </p>
+<p>Let's change our <em>webpack.config.js</em> so it write the output into the <em>Assets/Resources</em> instead of <em>dist</em> by default.</p>
+<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">env</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">app</span><span class="o">:</span> <span class="s1">'./index.js'</span>
+    <span class="p">},</span>
+    <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.js$/</span><span class="p">,</span> <span class="nx">loader</span><span class="o">:</span> <span class="s1">'babel-loader'</span> <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">filename</span><span class="o">:</span> <span class="s1">'app.js'</span><span class="p">,</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'../Assets/Resources'</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="nx">optimization</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">minimize</span><span class="o">:</span> <span class="nx">env</span> <span class="o">!=</span> <span class="s1">'dev'</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre>
+
+
+<p>Now run <code>npm run dev</code>, and see that <em>Resources</em> folder appeared, containing our bundle:
+<img alt="pic9" src="images/unity-js/pic9.png" title="Resources folder"></p>
+<p>Let's now make changes to <em>JavascriptRunner.cs</em> in order to load our script from resources. In <em>Execute</em> method replace the line <code>body = File.ReadAllText(fileName);</code> with</p>
+<pre class="code literal-block"><span></span><code><span class="n">body</span> <span class="p">=</span> <span class="n">Resources</span><span class="p">.</span><span class="n">Load</span><span class="p">&lt;</span><span class="n">TextAsset</span><span class="p">&gt;(</span><span class="n">fileName</span><span class="p">).</span><span class="n">text</span><span class="p">;</span>
+</code></pre>
+
+
+<p>Then in <em>Start</em> function replace the line <code>Execute("app.js");</code> with</p>
+<pre class="code literal-block"><span></span><code><span class="n">Execute</span><span class="p">(</span><span class="s">"app"</span><span class="p">);</span>
+</code></pre>
+
+
+<p>That's because Unity Resources.Load method expects filename only, without extension.</p>
+<p>Now press <em>Play</em> and check the application works. After that let's make a build. In command line run:</p>
+<pre class="code literal-block"><span></span><code>npm run build
+</code></pre>
+
+
+<p>This will make a minimized version of <em>app.js</em>, that has much less size and is good for production. Now build project in Unity to your platform. Run the result application and check it works.</p>
+<p><a name="11-unit-tests"></a></p>
+<h4>Setting up unit tests for the game logic in <strong>JavaScript</strong>
+</h4>
+<p>Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write both tests that check individual parts of code, but also integration tests, that simulate the whole game and tests all the actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. </p>
+<p>If you are interested in automated tests for your game logic, let me here show how to easily make one. There are quite a few good test frameworks for JavaScript. In this tutorial I will use a very popular one, called <a href="https://jestjs.io/">jest</a>.</p>
+<p>Open command line in <em>Game</em> folder and add jest package:</p>
+<pre class="code literal-block"><span></span><code>npm install --save-dev jest
+</code></pre>
+
+
+<p>Let's test the logic of <em>asyncFunction</em>:</p>
+<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
+  <span class="nx">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+  <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+
+
+<p>We will test that it calls first setText with some text, and then, second time calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock functions for the unit tests. Before we start testing, we need to move asyncFunction in the module, that exports it. Let's move it together with the <em>wait</em> function out of <em>index.js</em> to <em>MyModule.js</em>:</p>
+<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">wait</span> <span class="o">=</span> <span class="p">(</span><span class="nx">milliseconds</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">resolve</span><span class="p">(),</span> <span class="nx">milliseconds</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
+  <span class="nx">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+  <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+
+
+<p>In <em>index.js</em> keep only the call to the function and import statement:</p>
+<pre class="code literal-block"><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">asyncFunction</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="nx">asyncFunction</span><span class="p">();</span>
+</code></pre>
+
+
+<p>Run <code>npm run dev</code> and press <em>Play</em> to check everything is done right and still works.</p>
+<p>Now, in the same place where you have <em>MyModule.js</em>, create a file, named <em>MyModule.test.js</em>. There is a convention in JavaScript world to put the test file near the tested one. It's very handy. Put the following contents into <em>MyModule.test.js</em></p>
+<pre class="code literal-block"><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">asyncFunction</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
+
+<span class="nx">test</span><span class="p">(</span><span class="s1">'sets initial text'</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// arrange</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">setText</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span>
+
+  <span class="c1">// act</span>
+  <span class="nx">asyncFunction</span><span class="p">();</span>
+
+  <span class="c1">// assert</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">setText</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">test</span><span class="p">(</span><span class="s1">'sets second text'</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// arrange</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">setText</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span>
+
+  <span class="c1">// act</span>
+  <span class="nx">await</span> <span class="nx">asyncFunction</span><span class="p">();</span>
+
+  <span class="c1">// assert</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">setText</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+
+
+<p>Here we made 2 tests, that mock function <em>setText</em> and check it's called with a given argument. <code>setText.mock.calls[0][0]</code> means take the first call of the function, and the first argument.
+Like this you can easily check the called function arguments and results. Jest is very simple and powerful at the same time. You can read more about its features <a href="https://jestjs.io/docs/en/getting-started">here</a></p>
+<p>Now let's run our tests. We need to add <em>"test"</em> target to the <em>packages.json</em>:</p>
+<pre class="code literal-block"><span></span><code>  <span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"webpack --mode production"</span><span class="p">,</span>
+    <span class="nt">"dev"</span><span class="p">:</span> <span class="s2">"webpack --mode production --env dev"</span><span class="p">,</span>
+    <span class="nt">"test"</span><span class="p">:</span> <span class="s2">"jest"</span>
+  <span class="p">}</span><span class="err">,</span>
+</code></pre>
+
+
+<p>Now, in command line in <em>Game</em> folder run:</p>
+<pre class="code literal-block"><span></span><code>npm run <span class="nb">test</span>
+</code></pre>
+
+
+<p>After tests are finished, you will see the following result:</p>
+<pre class="code literal-block"><span></span><code> PASS  ./MyModule.test.js <span class="o">(</span><span class="m">6</span>.151 s<span class="o">)</span>
+  ✓ sets initial text <span class="o">(</span><span class="m">4</span> ms<span class="o">)</span>
+  ✓ sets second text <span class="o">(</span><span class="m">5002</span> ms<span class="o">)</span>
+
+Test Suites: <span class="m">1</span> passed, <span class="m">1</span> total
+Tests:       <span class="m">2</span> passed, <span class="m">2</span> total
+Snapshots:   <span class="m">0</span> total
+Time:        <span class="m">6</span>.912 s
+Ran all <span class="nb">test</span> suites.
+</code></pre>
+
+
+<p>This draws the end of this tutorial for now. Enjoy writing your games in Unity and JavaScript! In case you need, find the full code of this tutorial project <a href="https://github.com/pleasenophp/unity-js-tutorial">here</a>. 
+In the <em>git log</em> you will see different commits, that match its different stages.</p>
+</div>
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/meet-the-ioc-container.html" class="u-url">Meet the IoC container</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Innerbytes
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/meet-the-ioc-container.html" rel="bookmark">
+            <time class="published dt-published" datetime="2017-03-06T00:01:21+01:00" itemprop="datePublished" title="2017-03-06 00:01">2017-03-06 00:01</time></a>
+            </p>
+                        <p class="commentline">
         
     <a href="posts/meet-the-ioc-container.html#disqus_thread" data-disqus-identifier="cache/posts/meet-the-ioc-container.html">Comments</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <p>In the <a href="posts/lets-talk-about-big-d.html">previous</a> article there was a general talk about DI. Now let's see the basic problems and principles of the IoC container.</p>
 <h3>MinDI</h3>
 <p>Please refer to GitHub repository to use the framework itself: <a href="https://github.com/pleasenophp/mindi">MinDI on GitHub</a></p>
@@ -102,11 +1037,11 @@ MinDI uses reflection to make such dependency injection automatic. </p>
 The constructor automatic dependency injection is dropped. The reason of it is because the constructor dependency injection doesn't allow us to use complex object-graph with the circular dependencies. Even though the circular dependeincies are most of the time not good, they are quite usable in some data structures (graphs, trees, DOM, etc). </p>
 <p>There is also usability reason why Property-based DI is recommended: it allows to easily specify the dependency contract, and refactor the amount of dependencies in the class. Using constructors or methods, it becomes quite bulky.</p>
 <p>So, here is an example of class <strong>Earth</strong> that has dependencies on <em>ISun</em> and <em>IMoon</em> interfaces:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">Earth</span> <span class="p">:</span> <span class="n">ContextObject</span><span class="p">,</span> <span class="n">IEarth</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Earth</span> <span class="p">:</span> <span class="n">ContextObject</span><span class="p">,</span> <span class="n">IEarth</span> <span class="p">{</span>
 <span class="na">    [Injection]</span> <span class="k">public</span> <span class="n">ISun</span> <span class="n">sun</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
 <span class="na">    [Injection]</span> <span class="k">public</span> <span class="n">IMoon</span> <span class="n">moon</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>In this simple example, the <strong>Injection</strong> attribute tells that those dependencies will be resolved automatically when an instance of <em>Earth</em> is created. An exception will occur, if those dependencies could not be resolved. </p>
@@ -119,27 +1054,27 @@ Using interface-based approach in your programs is very important principle that
 <h3>IoC container and context-oriented approach</h3>
 <p>The IoC container, or <strong>the Context</strong>, how it's called in MinDi, is basically a dictionary, that has interface type at minimum as a key and the factory that specifies how we create the object for this interface as a value. Additional features of the container is to control the lifetime of the objects. Even more advanced feature, is to provide the multi-layer context for the dependency injection.</p>
 <p>Let's see a simple example:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="n">MyContextInitializer</span> <span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="n">MyContextInitializer</span> <span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ISun</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Sun</span><span class="p">());</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">IMoon</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Moon</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>Here we defined 2 bindings: each injection of <em>ISun</em> will resolve itself to new instance of class <em>Sun</em>, and the same with <em>Moon</em>. Now whenever the new instance of <em>Earth</em> is created, the Injection of <em>ISun</em> will be resolved to the new <em>Sun()</em>, and so on with <em>IMoon</em>. Of course for this to work, the class <em>Earth</em> itself should be resolved from the same dependency injection container. When any of the classes is created from the context, its dependencies are fulfilled automatically from the same context. So the IoC container is the context of the possible dependencies. Each class provides the set of [Injection] attributes, that is called in MinDI <strong>contract on dependencies</strong>. Like this we can easily see which exactly dependencies this or that class uses. Having an explicit contract is very benefitial when refactoring and analyzing the code, trying to minimize the amount of the entities each class depends on.</p>
 <p>As we can see, if we want <em>ISun</em> to resolve to some <em>MySuperSun</em> instance instead of <em>Sun</em>, it's very easy to change this only in one place of the application: in the context initializer. All the objects, that depend on <em>ISun</em> will now use another class as implementor:</p>
-<pre class="code literal-block"><span></span><span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ISun</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">MySuperSun</span><span class="p">());</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ISun</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">MySuperSun</span><span class="p">());</span>
+</code></pre>
 
 
 <p>Let's now see how we can access the context in the application to resolve our instances, and what special usage and phylosophical meaning the context has.</p>
 <h3>3 levels of the application</h3>
 <p>Unlike some other DI frameworks, that use XML to define the dependencies, MinDI uses the lambda-syntax. That allows the code to be easily refactorable. If we rename a class or an interface, it will be automatically reflected in the context initializers. Another benefits of lambda-factories, is that instantiating such objects uses new operator, and is much faster, than reflection, that some of the popular DI frameworks use. </p>
 <p>Let's now talk a little about the access to our context in the application. Unlike the class, which has strictly access to only its own dependencies, the the context is a universal factory, which can be used to resolve any of the interfaces used in the application. To obtain directly any concrete instance using the context it's enough to call the following:</p>
-<pre class="code literal-block"><span></span><span class="kt">var</span> <span class="n">sun</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">ISun</span><span class="p">&gt;();</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="kt">var</span> <span class="n">sun</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">ISun</span><span class="p">&gt;();</span>
+</code></pre>
 
 
 <p>So this code will find a corresponding factory in the context and will create an object that implements interface <em>ISun</em>. If the user classes have direct access to the context, it creates problems - we can suddenly anywhere in the code resolve any interface, and thus create implicit dependencies, bypassing the contract on dependencies. It becomes impossible to easily say which dependencies are used in the class. So, to avoid this problem, MinDI doesn't allow a direct access to the context for the user-level classes. </p>
@@ -154,12 +1089,12 @@ Using interface-based approach in your programs is very important principle that
 </ol>
 <p>To demonstrate how the factories work in MinDI, let's see a simple example. Let's say we want the class Earth to dynamically create some plants, using interface IPlant. It can create many instances of IPlant and it knows nothing about what concrete class will be used for the IPlant interface, as it should be defined only on the context initialization level.</p>
 <p>So, somewhere in <em>MyContextInitializer</em> we define:</p>
-<pre class="code literal-block"><span></span><span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">IPlant</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">WeedPlant</span><span class="p">());</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">IPlant</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">WeedPlant</span><span class="p">());</span>
+</code></pre>
 
 
 <p>Now in our class Earth we wanna have some code that spawns 3 plants:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">Earth</span><span class="p">:</span> <span class="n">ContextObject</span><span class="p">,</span> <span class="n">IEarth</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Earth</span><span class="p">:</span> <span class="n">ContextObject</span><span class="p">,</span> <span class="n">IEarth</span> <span class="p">{</span>
     <span class="p">...</span>
 <span class="na">    [Injection]</span> <span class="k">public</span> <span class="n">IDIFactory</span><span class="p">&lt;</span><span class="n">IPlant</span><span class="p">&gt;</span> <span class="n">plantFactory</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
     <span class="p">...</span>
@@ -172,7 +1107,7 @@ Using interface-based approach in your programs is very important principle that
     <span class="p">}</span>
     <span class="p">...</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>We use a factory instead of creating the <em>WeedPlant</em> directly by new operator, which would make our <em>Earth</em> class tightly coupled with class WeedPlant. That would violate the <strong>big D</strong>, and make the instance of class Earth always depend on concrete instance of class WeedPlant. With using <strong>IDIFactory</strong> interface provided by MinDI, we easily resolved this problem. Now the class <em>Earth</em> knows that it will create some of the instances of <em>IPlant</em>, and doesn't know anything about which exactly IPlant implementation is used.</p>
@@ -192,7 +1127,7 @@ Using interface-based approach in your programs is very important principle that
 </ol>
 <p>There can be also more layers, for example in the ASP.NET we can have a request level of dependencies, that are particular for each web request. In Unity3D application we have a scene layer of dependencies, that exist for every particular scene, and are not valid for others.</p>
 <p>Let's see a short practical example. In a dll we have a <em>Logger</em> class, that implements <em>ILogger</em> interface. This logger uses <em>ILogMessageWriter</em> to specify how exactly we write the message.   </p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">interface</span> <span class="n">ILogger</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">interface</span> <span class="n">ILogger</span> <span class="p">{</span>
     <span class="k">void</span> <span class="nf">LogDebug</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">);</span>
     <span class="k">void</span> <span class="nf">LogError</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">);</span>
 <span class="p">}</span>
@@ -208,11 +1143,11 @@ Using interface-based approach in your programs is very important principle that
         <span class="n">writer</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"[ERROR] "</span><span class="p">+</span><span class="n">message</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>The standard LogMessageWriter, our library provides, will use Console.WriteLine method:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">interface</span> <span class="n">ILogMessageWriter</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">interface</span> <span class="n">ILogMessageWriter</span> <span class="p">{</span>
     <span class="k">void</span> <span class="nf">Write</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -221,42 +1156,42 @@ Using interface-based approach in your programs is very important principle that
         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>We can bind our classes, library provides, in the global context initializer of the library:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">LoggerLibraryGlobalContextInitializer</span><span class="p">:</span> <span class="n">IGlobalContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">LoggerLibraryGlobalContextInitializer</span><span class="p">:</span> <span class="n">IGlobalContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Logger</span><span class="p">());</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ILogMessageWriter</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">ConsoleLogMessageWriter</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>Now, if we import the dll or code with the logger into our application, the standard bindings will be available: wherever we inject <em>ILogger</em> in our application classes, using [Injection] attribute, it will just work, and write messages to the console. We derive from the standard MinDI interface: <em>IGlobalContextInitializer</em>, which means that those bindings will be put in the top-level context: the global layer.</p>
 <p>Let's say we have a Unity3D application, where we want to output all our log messages not to the console, but to the Debug.Log() method, Unity provides, which will show them in the editor UI. We can do it very easy, withou chanhing the behaviour of any classes that use ILogger. Let's just create a UnityLogMessageWriter in our application:</p>
-<pre class="code literal-block"><span></span><span class="k">internal</span> <span class="k">class</span> <span class="nc">UnityLogMessageWriter</span> <span class="p">:</span> <span class="n">ILogMessageWriter</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">internal</span> <span class="k">class</span> <span class="nc">UnityLogMessageWriter</span> <span class="p">:</span> <span class="n">ILogMessageWriter</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Write</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>Now we need to bind it in the Application context layer, overriding the standard library binding:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">MyUnity3DApplicationContextInitializer</span><span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">MyUnity3DApplicationContextInitializer</span><span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ILogMessageWriter</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">UnityLogMessageWriter</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>Notice, that we don't need to bind <em>ILogger</em> again. We just specified: in this application I want to use my own <em>UnityLogMessageWriter</em> to write Log messages, but I still want to use whatever logic the dll provides for the <em>ILogger</em>. We use <em>IApplicationContextInitializer</em>, which is another standard MinDI interface, specifying that this context initializer will populate the application layer. Application layer has the global context layer as the parent reference.  </p>
 <p>What now happens if we write </p>
-<pre class="code literal-block"><span></span><span class="na">[Injection]</span> <span class="k">public</span> <span class="n">ILogger</span> <span class="n">logger</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="na">[Injection]</span> <span class="k">public</span> <span class="n">ILogger</span> <span class="n">logger</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
+</code></pre>
 
 
 <p>in one of our Unity3D application classes. </p>
@@ -271,13 +1206,13 @@ Using interface-based approach in your programs is very important principle that
 <p>There is 2 principal types of objects lifetime in the context: <strong>concrete</strong> and <strong>abstract</strong>. Speaking in the programming terms, concrete means a <em>singletone</em> - an object that exists as the same concrete instance for anybody who depends on it. And the abstract is a <em>multiple</em> binding - any class, that depends on this object, will have a new instance created automatically. The <em>concrete</em> or <em>singletone</em> type of lifetime should not be confused with the <em>Singletone</em> anti-pattern. The common between them, is that we provide a way for an object to exist only as one instance. In the concrete lifetime binding there doesn't exist any global singletones though. Any singletone binding is only global within the context layer, it's defined. </p>
 <p>On the human mind analogy level, the singletone binding matches the article "the". It means a concrete one entity, we are talking about in this context. That's why in the terms of the context it's called "concrete". The multiple binding matches the article "a". It means any entity of this type, not existing known instance yet. The concrete and abstract bidnings in the context match the singletone and multiple lifetime in the DI/IoC patterns and is indeed one of the fundamental principles of the programming logic and the human logic in general.</p>
 <p>This is an example of concrete and abstract bindings:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">LoggerLibraryGlobalContextInitializer</span><span class="p">:</span> <span class="n">IGlobalContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">LoggerLibraryGlobalContextInitializer</span><span class="p">:</span> <span class="n">IGlobalContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">s</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">IApple</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Apple</span><span class="p">());</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">IOrange</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Orange</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>Every class that depends on <em>IApple</em> will use the same instance of the Apple. Every class that depends on <em>IOrange</em> will have it's own, new instance of the Orange.
@@ -285,19 +1220,19 @@ As we see, <strong>.s()</strong> and <strong>.m()</strong> methods are the speci
 <h4>Lazy construction</h4>
 <p>By default the singletones use <em>lazy construction</em>. It means that the singletone instance will be resolved as soon as the first class that depends on it is created. However, you can also use <em>instant construction</em>. Like this you construct your class immediatly in the context intializer. That can be usefull for huge objects, that you want to create during the initialization of the application. However it's even more often used for simple objects like enums or data types, that don't have external dependencies. The limitation with the <em>instant construction</em> is obvious: no dependencies can be resolved for such object, as they are created at the moment where the context is not yet built. However, there is another way of early instantiation, that is performed in the entry point of the application, but after the context is initialized. The instance construction is only recommended for the simple objects, like enums, etc.</p>
 <p>Here is an example of the instant construction:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">LoggerLibraryGlobalContextInitializer</span><span class="p">:</span> <span class="n">IGlobalContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">LoggerLibraryGlobalContextInitializer</span><span class="p">:</span> <span class="n">IGlobalContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">s</span><span class="p">().</span><span class="n">BindInstance</span><span class="p">&lt;</span><span class="n">IApple</span><span class="p">&gt;(</span><span class="k">new</span> <span class="n">Apple</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>The instance of the <em>IApple</em> is immediately created here. Obviously, <strong>BindInstance</strong> method is only available for the <em>.s()</em> lifetime qualifier. </p>
 <h4>Subjective dependencies. Rebinding.</h4>
 <p>In MinDI, the dependencies are resolved starting from the context on which the object is created. The concrete(singletone) is always created on the same context it is defined. The abstract(multiple) object is always created on the same context it's called from. That implements a subjectivity principle: the abstract objects dependencies are always <strong>subjective</strong>, i.e. they take the dependencies from the context, they are requested from. Thus, requesting the same abstract object from different context, it will have different dependencies. Doing the same with a concrete object, it will have the same dependencies, injected from the context, it's defined in. That principle is important to understand. Let's see the following example.</p>
 <p>In the global layer we have: </p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">LoggerLibraryGlobalContextInitializer</span><span class="p">:</span> <span class="n">IGlobalContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">LoggerLibraryGlobalContextInitializer</span><span class="p">:</span> <span class="n">IGlobalContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">s</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">IAnotherLogger</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">SingletoneLoger</span><span class="p">());</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Logger</span><span class="p">());</span>
@@ -316,39 +1251,39 @@ As we see, <strong>.s()</strong> and <strong>.m()</strong> methods are the speci
 <span class="na">    [Injection]</span> <span class="k">public</span> <span class="n">ILogMessageWriter</span> <span class="n">writer</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
     <span class="p">...</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>In the application context that is the next layer, we define another implementaton of <em>ILogMessageWriter</em>. </p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">AppContextInitializer</span><span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">AppContextInitializer</span><span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ILogMessageWriter</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">MyLogMessageWriter</span><span class="p">());</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>Now let's see what dependencies the objects will have if our <em>context</em> is on the application level.</p>
-<pre class="code literal-block"><span></span><span class="kt">var</span> <span class="n">log1</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;();</span>
+<pre class="code literal-block"><span></span><code><span class="kt">var</span> <span class="n">log1</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;();</span>
 <span class="kt">var</span> <span class="n">log2</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">IAnotherLogger</span><span class="p">&gt;();</span>
-</pre>
+</code></pre>
 
 
 <p>Here the <em>log1</em> will depend on <em>MyLogMessageWriter</em>, as it picks the dependencies from the context we requested it from (and upper by the chain of prototype), even though it's defined in the parent context. But the log2 will have the dependency to the <em>ConsoleLogMessageWriter</em>! As the singletone is created on the same context, it's defined and picks the dependencies from this context (and upper by the prototype chain). That means that the first initiator of the sigletone instantiation will not be able to inject dependencies from its own context, as this singletone can be later accessed from different contexts as well.</p>
 <p>So, what if I want to have a singletone logger in my application, that uses my version of the <em>ILogMessageWriter</em>? For this there is another important context feature called <em>rebinding</em>. Let's do the following:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">AppContextInitializer</span><span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">AppContextInitializer</span><span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ILogMessageWriter</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">MyLogMessageWriter</span><span class="p">());</span>
         <span class="n">context</span><span class="p">.</span><span class="n">s</span><span class="p">().</span><span class="n">Rebind</span><span class="p">&lt;</span><span class="n">IAnotherLogger</span><span class="p">&gt;();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>Notice, that we don't specify any lambda-factory in the Rebind construction. That's because we tell MinDI to look in the parent contexts for the definition of ILogger and bind the same, just on this context with the specified lifetime. </p>
 <p>Now if I write </p>
-<pre class="code literal-block"><span></span><span class="kt">var</span> <span class="n">log2</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">IAnotherLogger</span><span class="p">&gt;();</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="kt">var</span> <span class="n">log2</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">IAnotherLogger</span><span class="p">&gt;();</span>
+</code></pre>
 
 
 <p>The resolved logger will have the dependency on <em>MyLogMessageWriter</em>. The singletone is redefined on this context, and thus gets the dependencies from the same context it's defined, as already explained above.</p>
@@ -356,30 +1291,30 @@ As we see, <strong>.s()</strong> and <strong>.m()</strong> methods are the speci
 <p>The same principle is usefull when we have multi-layered context within the application, like some of the objects can be rebound with different lifetimes within some custom context.</p>
 <h3>Named and default dependencies</h3>
 <p>One interface can be defined multiple times in the context. To do this, there must be given the name to the binding:</p>
-<pre class="code literal-block"><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">AppContextInitializer</span><span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">AppContextInitializer</span><span class="p">:</span> <span class="n">IApplicationContextInitializer</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">IDIContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Logger1</span><span class="p">(),</span> <span class="n">BindingName</span><span class="p">.</span><span class="n">For</span><span class="p">(</span><span class="s">"logger1"</span><span class="p">),</span> <span class="n">makeDefault</span><span class="p">:</span> <span class="k">true</span><span class="p">);</span>
         <span class="n">context</span><span class="p">.</span><span class="n">m</span><span class="p">().</span><span class="n">Bind</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">Logger2</span><span class="p">(),</span> <span class="n">BindingName</span><span class="p">.</span><span class="n">For</span><span class="p">(</span><span class="s">"logger2"</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>This allows to resolve the different implementations of ILogger by providing different names:</p>
-<pre class="code literal-block"><span></span><span class="kt">var</span> <span class="n">log</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;(</span><span class="n">BindingName</span><span class="p">.</span><span class="n">For</span><span class="p">(</span><span class="s">"logger2"</span><span class="p">));</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="kt">var</span> <span class="n">log</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Resolve</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;(</span><span class="n">BindingName</span><span class="p">.</span><span class="n">For</span><span class="p">(</span><span class="s">"logger2"</span><span class="p">));</span>
+</code></pre>
 
 
 <p>If no name is passed the default binding will be used (specified as makeDefault boolean).</p>
 <p>This way we can have many configurable implementations that can be switched in the runtime. The binding name can be any object (ToString is used). The binding names can also be combined using special feature of BindingName helper.</p>
 <p>In the user level we don't have access to the context, so to dynamically resolve the binding name, a <strong>dynamic injection</strong> is used:</p>
-<pre class="code literal-block"><span></span><span class="na">[Injection]</span> <span class="k">public</span> <span class="n">IDynamicInjection</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;</span> <span class="n">loggerInjection</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<pre class="code literal-block"><span></span><code><span class="na">[Injection]</span> <span class="k">public</span> <span class="n">IDynamicInjection</span><span class="p">&lt;</span><span class="n">ILogger</span><span class="p">&gt;</span> <span class="n">loggerInjection</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">...</span>
 <span class="k">void</span> <span class="nf">MyMethid</span><span class="p">(</span><span class="kt">string</span> <span class="n">loggerType</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">var</span> <span class="n">logger</span> <span class="p">=</span> <span class="n">loggerInjection</span><span class="p">.</span><span class="n">Resolve</span><span class="p">(</span><span class="n">BindingName</span><span class="p">.</span><span class="n">For</span><span class="p">(</span><span class="n">loggerType</span><span class="p">));</span> 
     <span class="p">...</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>In this example we use the loggerType string to dynamically obtain the necessary ILogger implementation in the runtime.</p>
@@ -400,29 +1335,32 @@ For now you can play with MinDI on GitHub here: </p>
 2) Unity tutorial: hello world, switching between scenes, load scenes as objects
 -->
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/prune-folder.html" class="u-url">Prune folder</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
-                Innerbytes
-            </span></p>
-            <p class="dateline"><a href="posts/prune-folder.html" rel="bookmark"><time class="published dt-published" datetime="2016-11-17T10:24:38+01:00" title="2016-11-17 10:24">2016-11-17 10:24</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/prune-folder.html" class="u-url">Prune folder</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Innerbytes
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/prune-folder.html" rel="bookmark">
+            <time class="published dt-published" datetime="2016-11-17T10:24:38+01:00" itemprop="datePublished" title="2016-11-17 10:24">2016-11-17 10:24</time></a>
+            </p>
+                        <p class="commentline">
         
     <a href="posts/prune-folder.html#disqus_thread" data-disqus-identifier="cache/posts/prune-folder.html">Comments</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <h3>Prune / clear folder with a strategy</h3>
 <p>Sometimes there is a typical task: automated builds are copied to a folder every hour. We need to schedule a task to remove extra files from time to time.
 But it's still good to do it with custom strategy. It can be simple: if file is older then N days, then keep only one last file per day, and if file is older than M days where M &gt; N, then keep only one last file per month.
 I didn't find any similar script in the internet, so made one myself. It can be modified to achieve slightly different strategies when needed.</p>
 <p>This scripts works if all the files or folders named following the format: </p>
-<pre class="code literal-block"><span></span>text1-yyyy-mm-dd-text2
-</pre>
+<pre class="code literal-block"><span></span><code><span class="err">text1-yyyy-mm-dd-text2</span>
+</code></pre>
 
 
 <p>where <em>text1</em> and <em>text2</em> can be anything not starting with digits, and <em>text1</em> is the same for all the files in the folder. The <em>yyyy-mm-dd</em> is the build date in the file name. The date must be the part of the file name, 
@@ -430,22 +1368,25 @@ because sorting by date of creation is dangerous - it's easy to change the date 
 <p>Read the beginning of the script for the usage example: <a href="https://github.com/pleasenophp/scripts/blob/master/prune.sh">prune.sh</a></p>
 <p>Note, that you also need to install <strong>ruby</strong> for this script to work, because it was more convenient to use ruby for the cross-platform date calculations.  </p>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/lets-talk-about-big-d.html" class="u-url">Let's talk about big D</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
-                Innerbytes
-            </span></p>
-            <p class="dateline"><a href="posts/lets-talk-about-big-d.html" rel="bookmark"><time class="published dt-published" datetime="2016-11-15T22:14:54+01:00" title="2016-11-15 22:14">2016-11-15 22:14</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/lets-talk-about-big-d.html" class="u-url">Let's talk about big D</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Innerbytes
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/lets-talk-about-big-d.html" rel="bookmark">
+            <time class="published dt-published" datetime="2016-11-15T22:14:54+01:00" itemprop="datePublished" title="2016-11-15 22:14">2016-11-15 22:14</time></a>
+            </p>
+                        <p class="commentline">
         
     <a href="posts/lets-talk-about-big-d.html#disqus_thread" data-disqus-identifier="cache/posts/lets-talk-about-big-d.html">Comments</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <p>I would like to start a serie of posts about the context-oriented dependency injection and IoC in C#. This is related to my IoC container framework called <a href="https://github.com/pleasenophp/mindi">MinDI</a>. Before introducing MinDI and talking about usage and implementation, let's take briefly theoretical and philosophycal aspects of it. </p>
 <h3>Coupling</h3>
 <p>I suppose you are familiar with the <a href="http://goo.gl/9b6xB6">SOLID</a> principles. If not yet, go now and read, and apply it in your programming life, and then come back. SOLID is a must have for any OO design. </p>
@@ -453,7 +1394,7 @@ because sorting by date of creation is dangerous - it's easy to change the date 
 <p>So, to begin, the largest problem that arises in a more or less complex project, is dependencies and coupling. Generally we should try to minimize the both between modules as much as possible. </p>
 <p>The tight coupling means that class A directly knows class B. This doesn't allow the class A to be tested independently of class B, nor it allows to mock class B, and also if we need a different implementation of class B, we cannot easily substitute it. That also violates big O principle for class A, as it will require changes during the project lifetime. That's why big D says, that entities should not depend on each other, but on abstractions. Such abstraction in C# is called <em>interface</em>. Let's see a few examples of coupling:</p>
 <p><strong>a.</strong> Tight coupling where class A directly knows class B:</p>
-<pre class="code literal-block"><span></span>    <span class="k">class</span> <span class="nc">B</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code>    <span class="k">class</span> <span class="nc">B</span> <span class="p">{</span>
         <span class="p">...</span>
     <span class="p">}</span>
 
@@ -463,17 +1404,17 @@ because sorting by date of creation is dangerous - it's easy to change the date 
             <span class="n">doSomethingWith</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>As described above, this structure creates major problem and violates SOLID. Any medium and large projects, that are using tight coupling, become insupportable quite fast.</p>
 <p><strong>b.</strong> Another example of very bad using of tight coupling is Singleton anti-pattern.</p>
-<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
     <span class="k">void</span> <span class="nf">Action</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">B</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">DoSomething</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
+</code></pre>
 
 
 <p>This is terrible, because in such code many classes start to use singletons inside of the obscured calls, then singletons use other singletons, then everything is tight coupled and explodes when you need to change something. Unfortunately such a bad code can be encountered quite often.</p>
@@ -515,90 +1456,96 @@ We can easily susbtitute the concrete implementations of the interfaces, keeping
 <p>I hope I have encouraged you to at least research information about DI/IoC containers, and maybe try some of them. The next articles will start telling about <a href="https://github.com/pleasenophp/mindi">MinDI</a> framework and will show some usage examples.  </p>
 <p><a href="https://pleasenophp.github.io/posts/meet-the-ioc-container.html">Read next article</a></p>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/conque-vim-powered-command-line.html" class="u-url">Conque: vim-powered command line</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
-                Innerbytes
-            </span></p>
-            <p class="dateline"><a href="posts/conque-vim-powered-command-line.html" rel="bookmark"><time class="published dt-published" datetime="2016-11-07T21:06:29+01:00" title="2016-11-07 21:06">2016-11-07 21:06</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/conque-vim-powered-command-line.html" class="u-url">Conque: vim-powered command line</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Innerbytes
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/conque-vim-powered-command-line.html" rel="bookmark">
+            <time class="published dt-published" datetime="2016-11-07T21:06:29+01:00" itemprop="datePublished" title="2016-11-07 21:06">2016-11-07 21:06</time></a>
+            </p>
+                        <p class="commentline">
         
     <a href="posts/conque-vim-powered-command-line.html#disqus_thread" data-disqus-identifier="cache/posts/conque-vim-powered-command-line.html">Comments</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <p>I'm doing most actions in the command line. Recently I enabled vim mode in bash, which helped me to easily navigate in the command I'm typing. However, I was quite frustrated that whenever I need to select something from the console output, I need to use mouse. I would like to be able to use Vim for selecting the previous text in the console and pasting it into the command. And here Conque comes to help! It's a plugin that allows to run shell inside of vim, with full output into the current buffer.</p>
 <p>Install it from <a href="https://code.google.com/archive/p/conque/downloads">here</a>.</p>
 <p>After it, run vim, and you can test it works with the following command:</p>
-<pre class="code literal-block"><span></span><span class="p">:</span>ConqueTerm bash
-</pre>
+<pre class="code literal-block"><span></span><code><span class="p">:</span>ConqueTerm bash
+</code></pre>
 
 
 <p>But of course we can improve it a little with a script. Add the following to the .bash_profile:</p>
-<pre class="code literal-block"><span></span><span class="nb">alias</span> <span class="nv">vimc</span><span class="o">=</span><span class="s1">'vim -c "ConqueTerm bash" -c "set nu"'</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="nb">alias</span> <span class="nv">vimc</span><span class="o">=</span><span class="s1">'vim -c "ConqueTerm bash" -c "set nu"'</span>
+</code></pre>
 
 
 <p>This will enable the <strong>vimc</strong> alias that will just start vim in conque mode, and will also enable the line numbers (even if you put <strong>set nu</strong> into your .vimrc, Conque ignores it for some reason).</p>
 <p>As I'm on Mac, I also had to create a symlink to my .bash_profile, as Conque reads .bashrc by default.
 Run this from the home folder:</p>
-<pre class="code literal-block"><span></span>$ ln -s .bash_profile .bashrc
-</pre>
+<pre class="code literal-block"><span></span><code>$ ln -s .bash_profile .bashrc
+</code></pre>
 
 
 <p>Also you might notice that Conque doesn't display the system user and folder name in the command line. For this just do the following trick (while still in the regular console):</p>
-<pre class="code literal-block"><span></span>$ <span class="nb">echo</span> <span class="s2">"export PS1='</span><span class="nv">$PS1</span><span class="s2">'"</span> &gt;&gt; ~/.bash_profile
-</pre>
+<pre class="code literal-block"><span></span><code>$ <span class="nb">echo</span> <span class="s2">"export PS1='</span><span class="nv">$PS1</span><span class="s2">'"</span> &gt;&gt; ~/.bash_profile
+</code></pre>
 
 
 <p>This will add your regular settings of the shell prompt to the bash initialization script, and Conque will read it.</p>
 <p>Voilà! Now just run:</p>
-<pre class="code literal-block"><span></span>$ vimc
-</pre>
+<pre class="code literal-block"><span></span><code>$ vimc
+</code></pre>
 
 
 <p>And you can have a lot of fun with command line and your favorite vim! Just better don't try to run vim inside vim, looks a bit ugly :-P
 <img alt="OMG" src="images/vim-in-vim.jpg" title="WTF??"></p>
 </div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/i-have-installed-nikola.html" class="u-url">I have installed Nikola</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
-                Innerbytes
-            </span></p>
-            <p class="dateline"><a href="posts/i-have-installed-nikola.html" rel="bookmark"><time class="published dt-published" datetime="2016-11-06T08:42:39+01:00" title="2016-11-06 08:42">2016-11-06 08:42</time></a></p>
-                <p class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/i-have-installed-nikola.html" class="u-url">I have installed Nikola</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        Innerbytes
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/i-have-installed-nikola.html" rel="bookmark">
+            <time class="published dt-published" datetime="2016-11-06T08:42:39+01:00" itemprop="datePublished" title="2016-11-06 08:42">2016-11-06 08:42</time></a>
+            </p>
+                        <p class="commentline">
         
     <a href="posts/i-have-installed-nikola.html#disqus_thread" data-disqus-identifier="cache/posts/i-have-installed-nikola.html">Comments</a>
 
 
-        </p>
+                </p>
 </div>
-    </header><div class="e-content entry-content">
-    <div>
+            </header><div class="e-content entry-content">
+                    <div>
 <h3>I'm happy</h3>
 <p>I can now write all my blog posts in vim, using markdown, without distracting from the command line.
 <a href="https://getnikola.com">Nikola</a> rules! It allows you to store blog locally, commit it under git, and generate static html whenever you wish to deploy. You can use your favorite web hosting or github pages to host the blog. 
 <del>The only thing that frustrates me so far is the default styles of the code blocks, I wanna black background as in the terminal.</del>
 It appeared Nikola supports many code themes just in the configuration file! So I have set a good black one called "monokai" to start with (might change it later).</p>
-<pre class="code literal-block"><span></span><span class="n">CODE_COLOR_SCHEME</span> <span class="o">=</span> <span class="s1">'monokai'</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="n">CODE_COLOR_SCHEME</span> <span class="o">=</span> <span class="s1">'monokai'</span>
+</code></pre>
 
 
 <p>in the <em>conf.py</em></p>
 <p>And my old blog on Blogger is still <a href="https://pleasenophp.blogspot.dk">here</a>. There is only a few posts.</p>
 <hr>
 <p>For those who already installed Nikola, there might be helpfull some scripts. I have added this to my .bash_profile:</p>
-<pre class="code literal-block"><span></span><span class="nb">alias</span> <span class="nv">nstart</span><span class="o">=</span><span class="s2">"cd ~/nikola &amp;&amp; source bin/activate &amp;&amp; source .rc"</span>
-</pre>
+<pre class="code literal-block"><span></span><code><span class="nb">alias</span> <span class="nv">nstart</span><span class="o">=</span><span class="s2">"cd ~/nikola &amp;&amp; source bin/activate &amp;&amp; source .rc"</span>
+</code></pre>
 
 
 <p>This will enable nstart alias that automatically opens your nikola path, and activates the virtual environment. Then it reads my .rc file that I put under nikola folder:</p>
-<pre class="code literal-block"><span></span><span class="nb">eval</span> <span class="s2">"`nikola tabcompletion`"</span>
+<pre class="code literal-block"><span></span><code><span class="nb">eval</span> <span class="s2">"`nikola tabcompletion`"</span>
 
 <span class="nb">alias</span> <span class="nv">nnew</span><span class="o">=</span><span class="s2">"nikola new_post -f markdown"</span>
 <span class="nb">alias</span> <span class="nv">nbuild</span><span class="o">=</span><span class="s2">"nikola build"</span>
@@ -606,14 +1553,14 @@ It appeared Nikola supports many code themes just in the configuration file! So 
 <span class="nb">alias</span> <span class="nv">ndeploy</span><span class="o">=</span><span class="s2">"nikola github_deploy"</span>
 
 <span class="nb">alias</span> <span class="nv">nstop</span><span class="o">=</span><span class="s2">"deactivate &amp;&amp; cd ~"</span>
-</pre>
+</code></pre>
 
 
 <p>It adds some handy short aliases for build, serve and deploy, and the first line also enables the tabcompletion.
 When I finish working in the Nikola virtual environment I type nstop.</p>
 <p>And ofc you should enable markdown in Nikola, because by default is uses somethin else <em>(maybe what it uses is better, I didn't check, but I didn't either feel like learning one more not so popular markup standard).</em></p>
 <p>To enable markdown, just add .md extension in POSTS and PAGES in <em>conf.py</em> like this:</p>
-<pre class="code literal-block"><span></span><span class="n">POSTS</span> <span class="o">=</span> <span class="p">(</span>
+<pre class="code literal-block"><span></span><code><span class="n">POSTS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="p">(</span><span class="s2">"posts/*.rst"</span><span class="p">,</span> <span class="s2">"posts"</span><span class="p">,</span> <span class="s2">"post.tmpl"</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">"posts/*.txt"</span><span class="p">,</span> <span class="s2">"posts"</span><span class="p">,</span> <span class="s2">"post.tmpl"</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">"posts/*.html"</span><span class="p">,</span> <span class="s2">"posts"</span><span class="p">,</span> <span class="s2">"post.tmpl"</span><span class="p">),</span>
@@ -625,30 +1572,30 @@ When I finish working in the Nikola virtual environment I type nstop.</p>
     <span class="p">(</span><span class="s2">"pages/*.html"</span><span class="p">,</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="s2">"story.tmpl"</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">"pages/*.md"</span><span class="p">,</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="s2">"story.tmpl"</span><span class="p">)</span>
 <span class="p">)</span>
-</pre>
+</code></pre>
 </div>
-    </div>
-    </article>
+                </div>
+            </article>
 </div>
+    
 
-
-
+    
         
-       <script>var disqus_shortname="pleasenophp";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-</div>
-        <!--End of body content-->
-
-        <footer id="footer">
-            Contents © 2018         <a href="mailto:info@innerbytes.com">Innerbytes</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+       <script>var disqus_shortname="pleasenophp";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+            Contents © 2020         <a href="mailto:info@innerbytes.com">Innerbytes</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
             
         </footer>
 </div>
 </div>
 
 
-            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
-    moment.locale("en");
-    fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates -->
+        <script src="assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
 </body>
 </html>

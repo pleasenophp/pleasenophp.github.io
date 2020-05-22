@@ -7,58 +7,78 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/agile.xml</loc>
-  <lastmod>2018-03-18T21:52:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/c.xml</loc>
-  <lastmod>2018-03-18T21:52:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/cat_bash.xml</loc>
-  <lastmod>2018-03-10T23:23:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/cat_make-it-easy.xml</loc>
-  <lastmod>2018-03-10T23:23:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/cat_programming.xml</loc>
-  <lastmod>2018-03-18T21:52:00Z</lastmod>
+  <lastmod>2020-05-22T20:36:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/cli.xml</loc>
-  <lastmod>2018-03-10T23:23:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/conque.xml</loc>
-  <lastmod>2018-03-10T23:23:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://pleasenophp.github.io/categories/javascript.xml</loc>
+  <lastmod>2020-05-22T20:36:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://pleasenophp.github.io/categories/jint.xml</loc>
+  <lastmod>2020-05-22T20:36:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/mindi.xml</loc>
-  <lastmod>2018-03-18T21:52:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/nikola.xml</loc>
-  <lastmod>2018-03-10T23:23:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://pleasenophp.github.io/categories/npm.xml</loc>
+  <lastmod>2020-05-22T20:36:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/philosophy.xml</loc>
-  <lastmod>2018-03-18T21:52:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/scripts.xml</loc>
-  <lastmod>2018-03-10T23:23:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://pleasenophp.github.io/categories/unity.xml</loc>
+  <lastmod>2020-05-22T20:36:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/categories/vim.xml</loc>
-  <lastmod>2018-03-10T23:23:00Z</lastmod>
+  <lastmod>2020-05-20T23:33:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://pleasenophp.github.io/categories/webpack.xml</loc>
+  <lastmod>2020-05-22T20:36:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/rss.xml</loc>
-  <lastmod>2018-03-18T21:52:00Z</lastmod>
+  <lastmod>2020-05-22T20:36:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://pleasenophp.github.io/sitemap.xml</loc>
-  <lastmod>2018-03-18T21:52:00Z</lastmod>
+  <lastmod>2020-05-22T20:36:00Z</lastmod>
  </sitemap>
 </sitemapindex>

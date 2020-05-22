@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about Bash)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/cat_bash.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 10 Mar 2018 23:23:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Prune folder</title><link>https://pleasenophp.github.io/posts/prune-folder.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;Prune / clear folder with a strategy&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about Bash)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/cat_bash.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Wed, 20 May 2020 23:33:47 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Prune folder</title><link>https://pleasenophp.github.io/posts/prune-folder.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;Prune / clear folder with a strategy&lt;/h3&gt;
 &lt;p&gt;Sometimes there is a typical task: automated builds are copied to a folder every hour. We need to schedule a task to remove extra files from time to time.
 But it's still good to do it with custom strategy. It can be simple: if file is older then N days, then keep only one last file per day, and if file is older than M days where M &amp;gt; N, then keep only one last file per month.
 I didn't find any similar script in the internet, so made one myself. It can be modified to achieve slightly different strategies when needed.&lt;/p&gt;
 &lt;p&gt;This scripts works if all the files or folders named following the format: &lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;text1-yyyy-mm-dd-text2
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;text1-yyyy-mm-dd-text2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;where &lt;em&gt;text1&lt;/em&gt; and &lt;em&gt;text2&lt;/em&gt; can be anything not starting with digits, and &lt;em&gt;text1&lt;/em&gt; is the same for all the files in the folder. The &lt;em&gt;yyyy-mm-dd&lt;/em&gt; is the build date in the file name. The date must be the part of the file name, 

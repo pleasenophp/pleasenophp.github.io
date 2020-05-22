@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about vim)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/vim.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 10 Mar 2018 23:23:21 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Conque: vim-powered command line</title><link>https://pleasenophp.github.io/posts/conque-vim-powered-command-line.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;p&gt;I'm doing most actions in the command line. Recently I enabled vim mode in bash, which helped me to easily navigate in the command I'm typing. However, I was quite frustrated that whenever I need to select something from the console output, I need to use mouse. I would like to be able to use Vim for selecting the previous text in the console and pasting it into the command. And here Conque comes to help! It's a plugin that allows to run shell inside of vim, with full output into the current buffer.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about vim)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/vim.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Wed, 20 May 2020 23:33:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Conque: vim-powered command line</title><link>https://pleasenophp.github.io/posts/conque-vim-powered-command-line.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;p&gt;I'm doing most actions in the command line. Recently I enabled vim mode in bash, which helped me to easily navigate in the command I'm typing. However, I was quite frustrated that whenever I need to select something from the console output, I need to use mouse. I would like to be able to use Vim for selecting the previous text in the console and pasting it into the command. And here Conque comes to help! It's a plugin that allows to run shell inside of vim, with full output into the current buffer.&lt;/p&gt;
 &lt;p&gt;Install it from &lt;a href="https://code.google.com/archive/p/conque/downloads"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;After it, run vim, and you can test it works with the following command:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;ConqueTerm bash
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;:&lt;/span&gt;ConqueTerm bash
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;But of course we can improve it a little with a script. Add the following to the .bash_profile:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;vimc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'vim -c "ConqueTerm bash" -c "set nu"'&lt;/span&gt;
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;vimc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'vim -c "ConqueTerm bash" -c "set nu"'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;This will enable the &lt;strong&gt;vimc&lt;/strong&gt; alias that will just start vim in conque mode, and will also enable the line numbers (even if you put &lt;strong&gt;set nu&lt;/strong&gt; into your .vimrc, Conque ignores it for some reason).&lt;/p&gt;
 &lt;p&gt;As I'm on Mac, I also had to create a symlink to my .bash_profile, as Conque reads .bashrc by default.
 Run this from the home folder:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ ln -s .bash_profile .bashrc
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ln -s .bash_profile .bashrc
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Also you might notice that Conque doesn't display the system user and folder name in the command line. For this just do the following trick (while still in the regular console):&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"export PS1='&lt;/span&gt;&lt;span class="nv"&gt;$PS1&lt;/span&gt;&lt;span class="s2"&gt;'"&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"export PS1='&lt;/span&gt;&lt;span class="nv"&gt;$PS1&lt;/span&gt;&lt;span class="s2"&gt;'"&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;This will add your regular settings of the shell prompt to the bash initialization script, and Conque will read it.&lt;/p&gt;
 &lt;p&gt;Voilà! Now just run:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ vimc
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ vimc
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;And you can have a lot of fun with command line and your favorite vim! Just better don't try to run vim inside vim, looks a bit ugly :-P
@@ -35,20 +35,20 @@ Run this from the home folder:&lt;/p&gt;
 &lt;a href="https://getnikola.com"&gt;Nikola&lt;/a&gt; rules! It allows you to store blog locally, commit it under git, and generate static html whenever you wish to deploy. You can use your favorite web hosting or github pages to host the blog. 
 &lt;del&gt;The only thing that frustrates me so far is the default styles of the code blocks, I wanna black background as in the terminal.&lt;/del&gt;
 It appeared Nikola supports many code themes just in the configuration file! So I have set a good black one called "monokai" to start with (might change it later).&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;CODE_COLOR_SCHEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'monokai'&lt;/span&gt;
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;CODE_COLOR_SCHEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'monokai'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;in the &lt;em&gt;conf.py&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;And my old blog on Blogger is still &lt;a href="https://pleasenophp.blogspot.dk"&gt;here&lt;/a&gt;. There is only a few posts.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;For those who already installed Nikola, there might be helpfull some scripts. I have added this to my .bash_profile:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;nstart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"cd ~/nikola &amp;amp;&amp;amp; source bin/activate &amp;amp;&amp;amp; source .rc"&lt;/span&gt;
-&lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;nstart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"cd ~/nikola &amp;amp;&amp;amp; source bin/activate &amp;amp;&amp;amp; source .rc"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;This will enable nstart alias that automatically opens your nikola path, and activates the virtual environment. Then it reads my .rc file that I put under nikola folder:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="s2"&gt;"`nikola tabcompletion`"&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="s2"&gt;"`nikola tabcompletion`"&lt;/span&gt;
 
 &lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;nnew&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"nikola new_post -f markdown"&lt;/span&gt;
 &lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;nbuild&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"nikola build"&lt;/span&gt;
@@ -56,14 +56,14 @@ It appeared Nikola supports many code themes just in the configuration file! So 
 &lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;ndeploy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"nikola github_deploy"&lt;/span&gt;
 
 &lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;nstop&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"deactivate &amp;amp;&amp;amp; cd ~"&lt;/span&gt;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;It adds some handy short aliases for build, serve and deploy, and the first line also enables the tabcompletion.
 When I finish working in the Nikola virtual environment I type nstop.&lt;/p&gt;
 &lt;p&gt;And ofc you should enable markdown in Nikola, because by default is uses somethin else &lt;em&gt;(maybe what it uses is better, I didn't check, but I didn't either feel like learning one more not so popular markup standard).&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;To enable markdown, just add .md extension in POSTS and PAGES in &lt;em&gt;conf.py&lt;/em&gt; like this:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;POSTS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;POSTS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"posts/*.rst"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"posts"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"post.tmpl"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"posts/*.txt"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"posts"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"post.tmpl"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"posts/*.html"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"posts"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"post.tmpl"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
@@ -75,4 +75,4 @@ When I finish working in the Nikola virtual environment I type nstop.&lt;/p&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"pages/*.html"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"pages"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"story.tmpl"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"pages/*.md"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"pages"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"story.tmpl"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>cli</category><category>nikola</category><category>vim</category><guid>https://pleasenophp.github.io/posts/i-have-installed-nikola.html</guid><pubDate>Sun, 06 Nov 2016 07:42:39 GMT</pubDate></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><category>cli</category><category>nikola</category><category>vim</category><guid>https://pleasenophp.github.io/posts/i-have-installed-nikola.html</guid><pubDate>Sun, 06 Nov 2016 07:42:39 GMT</pubDate></item></channel></rss>
