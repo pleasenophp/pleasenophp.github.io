@@ -886,7 +886,7 @@ This will make a minimized version of *app.js*, that has much less size and is g
 <a name="11-unit-tests"></a>
 ### Setting up unit tests for the game logic in **JavaScript**
 
-Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write tests that check individual parts of code, but also integration tests, that simulate the whole game and test all the actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. 
+Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write tests that check individual parts of code, but also integration tests, that simulate the whole game level and test actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. 
 
 If you are interested in automated tests for your game logic, let me here show how to easily make one. There are quite a few good test frameworks for JavaScript. In this tutorial I will use a very popular one, called [jest](https://jestjs.io/).
 
