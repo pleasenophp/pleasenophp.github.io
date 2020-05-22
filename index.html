@@ -637,7 +637,7 @@ You can read more about ES6 modules system <a href="https://www.sitepoint.com/un
 
 
 <p>Build the code with <code>npm run dev</code>, press <em>Play</em> and see the result. Variables in the global context are accessible anywhere in your Javascript code. Use them rare: only when you really need it.
-Of course instead of <em>window</em> you can use <em>global</em>, or any other variable name to hold reference to the global scope.</p>
+Of course instead of <em>window</em> you can use <em>global</em>, or any other variable name to hold reference to the global scope, but keeping <em>window</em> one is very recommended, as it's standard, and some libraries will use it too.</p>
 <p>Let's now try to call the function <em>hello()</em> from C# side. </p>
 <pre class="code literal-block"><span></span><code>    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
     <span class="p">{</span>
