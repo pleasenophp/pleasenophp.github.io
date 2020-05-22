@@ -908,7 +908,7 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
 </code></pre>
 
 
-<p>We will test that it calls first setText with some text, and then, second time calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock functions for the unit tests. Before we start testing, we need to move asyncFunction in the module, that exports it. Let's move it together with the <em>wait</em> function out of <em>index.js</em> to <em>MyModule.js</em>:</p>
+<p>We will test that it calls first setText with some text, and then, second time calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock functions for the unit tests. Before we start testing, we need to move asyncFunction to the module, that exports it. Let's move it together with the <em>wait</em> function out of <em>index.js</em> to <em>MyModule.js</em>:</p>
 <pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">wait</span> <span class="o">=</span> <span class="p">(</span><span class="nx">milliseconds</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">resolve</span><span class="p">(),</span> <span class="nx">milliseconds</span><span class="p">);</span>
 <span class="p">});</span>

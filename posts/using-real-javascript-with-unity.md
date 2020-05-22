@@ -904,7 +904,7 @@ const asyncFunction = async () => {
 };
 ```
 
-We will test that it calls first setText with some text, and then, second time calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock functions for the unit tests. Before we start testing, we need to move asyncFunction in the module, that exports it. Let's move it together with the *wait* function out of *index.js* to *MyModule.js*:
+We will test that it calls first setText with some text, and then, second time calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock functions for the unit tests. Before we start testing, we need to move asyncFunction to the module, that exports it. Let's move it together with the *wait* function out of *index.js* to *MyModule.js*:
 ```js
 const wait = (milliseconds) => new Promise(resolve => {
   setTimeout(() => resolve(), milliseconds);
