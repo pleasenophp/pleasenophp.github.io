@@ -400,7 +400,7 @@ Now you have a fully working JavaScript ES5 project with Unity. In the next chap
 In this part of tutorial we will add a basic npm project structure (similar to React or Vue.js). Here we will do 3 things:
 
 - enable npm packages support so you can use any npm packages in your code
-- add Babel so you can use all advantages of ES6 JavaScript, that will be converted to ES5, which for is fully supported by Jint at the moment.
+- add Babel so you can use all advantages of ES6 JavaScript, that will be converted to ES5, which is fully supported by Jint at the moment.
 - add Webpack to support modules and pack your code in a single bundle file
 
 For this part of tutorial you will need command line. I will show examples with *Terminal* command line in *Mac*, but in *Windows* you can use *WSL* or *Powershell*. Also you will need to install *Node.js* and *npm* before you start. If you need help on how to do it, see [here](https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/).
