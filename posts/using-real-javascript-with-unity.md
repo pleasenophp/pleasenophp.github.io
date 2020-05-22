@@ -53,13 +53,14 @@ This tutorial will be also useful for non-unity developers, who just want to set
 
 3) Some useful operations with Unity and JS
 
-* [**Saving and loading** the game: a simple way to manage state of your **JavaScript** logic.](7-save-state)
-* [**setTimeout**, and Unity **coroutines**](8-coroutines)
-* [Add support of *Promises*](9-promises)
+* [**Saving and loading** the game: a simple way to manage state of your **JavaScript** logic.](#7-save-state)
+* [**setTimeout**, and Unity **coroutines**](#8-coroutines)
+* [Add support of *Promises*](#9-promises)
 
 4) Build and automated tests
-* [Include javascript bundle into the built app](10-build)
-* [Setting up unit tests for the game logic in **JavaScript**](11-unit-tests)
+
+* [Include javascript bundle into the built app](#10-build)
+* [Setting up unit tests for the game logic in **JavaScript**](#11-unit-tests)
 
 ## Prerequisites
 
@@ -648,7 +649,7 @@ Like this, you can decide, which of js functions you want to expose to your C# e
 <a name="7-save-state"></a>
 ### Saving javascript state of the game
 
-Since your gameplay logic is going to be in JavaScript, all the state, like player parameters, inventory, quest states, etc, will be contained there. When your game needs to be saved and loaded, the state must be somehow passed to Unity C# code, so that it could save/load it. There is many way to organize the state in JavaScript. Let's take a look at a simple and recommended one, where all our game state that is intended to be saved is contained in a single object. The other javascript game objects can by one or other way read this state, and modify it when needed. 
+Since your gameplay logic is going to be in JavaScript, all the state, like player parameters, inventory, quest states, etc, will be contained there. When your game needs to be saved and loaded, the state must be somehow passed to Unity C# code, so that it could save/load it. There is many ways to organize the state in JavaScript. Let's take a look at a simple and recommended one, where all our game state that is intended to be saved is contained in a single object. The other javascript game objects can by one or other way read this state, and modify it when needed. 
 
 Write the following to *index.js*
 ```js
@@ -671,7 +672,7 @@ window.getGameState = () => {
 ```
 
 Now let's add a button to our Unity project that will save the game state. In *JavascriptRunner.cs* add the following function:
-```cs
+```csharp
     private void OnGUI() {
       if (GUILayout.Button("Save game")) {
         string jsGameState = engine.Execute("getGameState()").GetCompletionValue().AsString();
@@ -684,7 +685,7 @@ Now let's add a button to our Unity project that will save the game state. In *J
 You can see that we also can get the result of called js function in one line, because Jint returns instance of *Engine* from *Execute()* call. This is very handy.
 Compile the js with ```npm run dev``` and press *Play*. Now you will see *Save game* button on the screen. Press it, and then have a look at your Unity project folder.
 There will be a file named *savegame.json*
-**pic7**
+![pic7](/images/unity-js/pic7.png "Saved game file")
 
 As you can see, the contents of this file represent the *state* object from JavaScript.
 
@@ -702,14 +703,14 @@ window.setGameState = (stateString) => {
 ```
 
 This function will update the *state* object from the passed json string and will print it. Let's add *Load game* button to the *OnGUI* function in *JavascriptRunner.cs*:
-```cs
+```csharp
   if (GUILayout.Button("Load game")) {
     string stateString = File.ReadAllText("savegame.json");
     engine.Invoke("setGameState", stateString);
   }
 ```
 
-This will real our saved game and pass it to JavaScript by calling *setGameState*. Notice, that we use **Invoke** here instead of **Execute**. Invoke is a method of Jint that allows to execute a javascript function with given arguments. Since json string can contain line breaks, we can not simply concatenate it in the *Execute* method.
+This will read our saved game and pass it to JavaScript by calling *setGameState*. Notice, that we use **Invoke** here instead of **Execute**. Invoke is a method of Jint that allows to execute a javascript function with given arguments. Since json string can contain line breaks, we can not simply concatenate it in the *Execute* method.
 
 Now build and run the game as usual, then press *Load game* button. You will see the following on console:
 ```bash
@@ -729,8 +730,8 @@ setText("This is a text");
 setTimeout(() => setText("And now it is changed"), 5000);
 ```
 
-In *JavascriptRunner.cs* let's add a code that outputs the text label to UI, so the beginning og this file will look like this:
-```cs
+In *JavascriptRunner.cs* let's add a code that outputs the text label to UI, so the beginning of this file will look like this:
+```csharp
 public class JavascriptRunner : MonoBehaviour
 {
     private Engine engine;
@@ -753,20 +754,20 @@ public class JavascriptRunner : MonoBehaviour
 ```
 
 Here we added a ```private string labelText;```, and a function that can set it from js: ```engine.SetValue("setText", new Action<string>(text => this.labelText = text));```
-Finally, we have added a Label of the text to display in the UI: ```GUILayout.Label(labelText);`
+Finally, we have added a Label of the text to display in the UI: ```GUILayout.Label(labelText);```
 
 We expect the text *"This is a text"* to appear first. And then, in 5 seconds, it should be changed to *"And now it is changed"*. Let's check if it's so. Build the scripts using ```npm run dev``` and press *Play*. You will see something like this:
-**pic8**
+![pic8](/images/unity-js/pic8.png "Error because there is no setTimeout")
 
 The first part of text is set, but then, there is an error on console. This is expected, as *Jint* has no *setTimeout* implementation. Let's make a simple version of it. In your *JavascriptRunner.cs* in *Start()* function, before we execute *app.js*, add the following:
-```cs
+```csharp
       engine.SetValue("setTimeout", new Action<Delegate, int>((callback, interval) => {
         StartCoroutine(TimeoutCoroutine(callback, interval));
       }));
 ```
 
 Now, add the coroutine function to *JavascriptRunner* class:
-```cs
+```csharp
     private IEnumerator TimeoutCoroutine(Delegate callback, int intervalMilliseconds) {
       yield return new WaitForSeconds(intervalMilliseconds / 1000.0f);
       callback.DynamicInvoke(JsValue.Undefined, new[] { JsValue.Undefined });
@@ -775,23 +776,23 @@ Now, add the coroutine function to *JavascriptRunner* class:
 
 This coroutine does 2 following actions:
 
-* Waits for the given timeout (note that we divide by 1000 as *WaitForSeconds* instruction in Unity requires time in seconds.
-* Dynamically executes the callback, that JavaScript code passed to the setTimeout function.
+* Waits for the given timeout (note that we divide by 1000 as *WaitForSeconds* instruction in Unity requires time in seconds)
+* Dynamically executes the callback, that JavaScript code passed to the *setTimeout* function.
 
 Also, for this code to build, you will need to add 2 using instructions in *JavascriptRunner.cs*:
-```cs
+```csharp
 using Jint.Native;
 using System.Collections;
 ```
 
-Now, build using ```npm run dev``` and press *Play*. See how text is being changed in 5 seconds. We have just made a setTimeout function work. If you need, you can likewise also implement *clearTimeout*, *setInterval*, and any other API functions. You can also expose functions that call any other Unity coroutine to, for example call animation from your JavaScript.  
+Now, build using ```npm run dev``` and press *Play*. See how text is being changed in 5 seconds. We have just made a setTimeout function work. If you need, you can likewise also implement *clearTimeout*, *setInterval*, and any other API functions. You can also expose functions that call any other Unity coroutine, for example call animation from your JavaScript.  
 
 <a name="9-promises"></a>
 ### Implementing promises
 
-*setTimeout* is not always very convenient function, as it has callback. To not break the code flow, it's nice to use *promises*. Let's implement a promise that waits for some time.
+*setTimeout* is not always very convenient function, as it uses callback. To not break the code flow, it's nice to use *promises*. Let's implement a promise that waits for some time.
 
-Let's remove out *setText* and *setTimeout* calls from *index.js* and add instead the following logic:
+Let's remove 2 lines that call *setText* and *setTimeout* from *index.js* and add instead the following logic:
 ```js
 const wait = (milliseconds) => new Promise(resolve => {
   setTimeout(() => resolve(), milliseconds);
@@ -809,7 +810,7 @@ asyncFunction();
 Here we added a promise, that uses our setTimeout in order to wait for the given amount milliseconds, and *asyncFunction* that sets initial text, awaits 5 seconds, and changes the text.
 This way is much more elegant, than callback, as it allows to use asynchronous logic and avoid callbacks. 
 
-However, for make it work, we need to install an extension to *Babel*, that will simulate *Promises*, *generators*, and other ES6 API. Here, in *Jint* it's not supported yet.
+However, to make it work, we need to install an extension to *Babel*, that will simulate *Promises*, *generators*, and other ES6 API. Here, in *Jint* it's not supported yet.
 
 Open your command line in *Game* folder and add the following:
 ```bash
@@ -863,15 +864,15 @@ module.exports = env => {
 ```
 
 Now run ```npm run dev```, and see that *Resources* folder appeared, containing our bundle:
-**pic9**
+![pic9](/images/unity-js/pic9.png "Resources folder")
 
 Let's now make changes to *JavascriptRunner.cs* in order to load our script from resources. In *Execute* method replace the line ```body = File.ReadAllText(fileName);``` with
-```cs
+```csharp
 body = Resources.Load<TextAsset>(fileName).text;
 ```
 
 Then in *Start* function replace the line ```Execute("app.js");``` with
-```cs
+```csharp
 Execute("app");
 ```
 That's because Unity Resources.Load method expects filename only, without extension.
@@ -880,21 +881,21 @@ Now press *Play* and check the application works. After that let's make a build.
 ```bash
 npm run build
 ```
-This will make a minimized version of *app.js*, that has much less size. After that, build in Unity to your platform. Run the result application and check it works.
+This will make a minimized version of *app.js*, that has much less size and is good for production. Now build project in Unity to your platform. Run the result application and check it works.
 
 <a name="11-unit-tests"></a>
- ### Setting up unit tests for the game logic in **JavaScript**
+### Setting up unit tests for the game logic in **JavaScript**
 
-Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write both tests that test individual parts of code, but also integration test that simulate the whole game and tests all the actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. 
+Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write both tests that check individual parts of code, but also integration tests, that simulate the whole game and tests all the actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. 
 
-If you are interested in automated tests for your game logic, let me here show how to easily make one. There are quite a few good test frameworks for JavaScript. In this tutorial I will use quite popular once, called [jest](https://jestjs.io/).
+If you are interested in automated tests for your game logic, let me here show how to easily make one. There are quite a few good test frameworks for JavaScript. In this tutorial I will use a very popular one, called [jest](https://jestjs.io/).
 
 Open command line in *Game* folder and add jest package:
 ```bash
 npm install --save-dev jest
 ```
 
-Let's test the logic of *asyncFunction* for example:
+Let's test the logic of *asyncFunction*:
 ```js
 const asyncFunction = async () => {
   setText("This is a text");
@@ -903,7 +904,7 @@ const asyncFunction = async () => {
 };
 ```
 
-We will test that it calls first setText with some text, and then, after a pause calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock *setText* function for the unit test. Before we start test, we need to move asyncFunction in the module, that exports it. Let's move it, and *wait* function out of *index.js* to *MyModule.js*:
+We will test that it calls first setText with some text, and then, second time calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock functions for the unit tests. Before we start testing, we need to move asyncFunction in the module, that exports it. Let's move it together with the *wait* function out of *index.js* to *MyModule.js*:
 ```js
 const wait = (milliseconds) => new Promise(resolve => {
   setTimeout(() => resolve(), milliseconds);
@@ -927,7 +928,7 @@ asyncFunction();
 
 Run ```npm run dev``` and press *Play* to check everything is done right and still works.
 
-Now, in the same place where you have *MyModule.js*, create a file, named *MyModule.test.js*. There is a convention in JavaScript world to put the test file near the tested one. Put the following contents into *MyModule.test.js*
+Now, in the same place where you have *MyModule.js*, create a file, named *MyModule.test.js*. There is a convention in JavaScript world to put the test file near the tested one. It's very handy. Put the following contents into *MyModule.test.js*
 ```js
 import { asyncFunction } from './MyModule';
 
@@ -954,7 +955,7 @@ test('sets second text', async () => {
 });
 ```
 
-Here we made to tests, that mock function *setText* and check it's called with a given argument. ```setText.mock.calls[0][0]``` means take the first call of the function, and the first argument.
+Here we made 2 tests, that mock function *setText* and check it's called with a given argument. ```setText.mock.calls[0][0]``` means take the first call of the function, and the first argument.
 Like this you can easily check the called function arguments and results. Jest is very simple and powerful at the same time. You can read more about its features [here](https://jestjs.io/docs/en/getting-started)
 
 Now let's run our tests. We need to add *"test"* target to the *packages.json*:
@@ -984,5 +985,5 @@ Time:        6.912 s
 Ran all test suites.
 ```
 
-That draws an end of this tutorial for now. Enjoy writing your games in Unity and JavaScript! In case you need, find the full code of this tutorial project [here](https://github.com/pleasenophp/unity-js-tutorial). 
+This draws the end of this tutorial for now. Enjoy writing your games in Unity and JavaScript! In case you need, find the full code of this tutorial project [here](https://github.com/pleasenophp/unity-js-tutorial). 
 In the *git log* you will see different commits, that match its different stages.
