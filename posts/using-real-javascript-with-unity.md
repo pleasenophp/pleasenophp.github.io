@@ -16,23 +16,26 @@ It's not to be confused with UnityScript language, that is .NET js-like syntax, 
 
 ## Why
 
-If you make relatively complex games, like RPG-s, and so on, you probably need a good scripting language, to handle complex game story, NPC-s and object interactions, custscenes, events, and so on. Then, while C# is good for engine logic, it's not designed for scripting. It's simply has too much boilerplate, and too little flexibility for the creative part of the game. You will probably also need a scripting language that is easily understandable by game scripters, and modders, that are not necessary programmers. Many big projects choose [Lua](https://www.lua.org/) for this purpose. Lua is a great language, and has a lot of similarities with JavaScript. You can also make Lua work with Unity. However, here I want to show how to use JavaScript, because it gives the following advantages:
+If you make relatively complicated games, like RPG-s, and so on, you probably need a good scripting language, to handle complex game story, NPC-s and object interactions, custscenes, events, and so on. Then, while C# language is good for engine logic, it's not designed for scripting. It's simply has too much verbosity and boilerplate, and too little flexibility for the creative part of the game. You will probably also need a scripting language that is easily understandable by game scripters, and modders, that are not necessary programmers. 
+
+Many big projects choose [Lua](https://www.lua.org/) for this purpose. Lua is a great dynamic language, and it has a lot of similarities with JavaScript. You can also make Lua work with Unity. However, here I want to show how to use JavaScript, because it gives the following advantages:
 
 - It has a familiar C-like syntax, as opposite to a bit weird syntax of Lua.
 - It has a huge developers community, and npm library with tons of open source packages, including the game development ones, like dialogs, quests, pathfinder, and anything else.
-- It has a lot of good established development tools, including unit test libraries, linters, etc.
+- It has a lot of well established development tools, including IDEs, unit test libraries, linters, etc.
 
 If you decide to use **JavaScript** in **Unity**, among many other features, you are able:
 
-- Write logic of your game in a multi-paradigm, dynamically typed, language with strong concepts of meta-programming, where you can both create a beautiful architecture, and unleash your creativity when coding the game world without loosing focus on technical stuff.
+- Write logic of your game in a multi-paradigm, dynamically typed language with strong concepts of meta-programming, where you can both create a beautiful architecture, and unleash your creativity when coding the game world without loosing focus on technical stuff.
 - Make your game scripts logic abstracted from lower level engine logic, also allowing to write automated tests for your story, dialogs and interactions, without even running Unity engine.
 - Easily expose your game logic to the community, so fans can create mods and addons.
 - Make your game portable to any other engine than Unity, if needed
-- Have access to npm library, webpack, babel, and any other mainstream javascript tools and packages.
+- Have access to the [npm library](https://www.npmjs.com/) with thousands of free javascript libraries and tools.
+
 
 If you are a professional JavaScript developer, or if you just love JavaScript, but want to make a Unity game, then this tutorial can be especially good for you.
 
-This tutorial will be also useful for non-unity developers, who just want to setup *Webpack* with *Jint*. In this case, jump directly [here](#5-setup-webpack).
+This tutorial will be also useful for non-unity developers, who just want to setup *Webpack/Babel* with *Jint*. In this case, jump directly [here](#5-setup-webpack).
 
 ## This tutorial will cover
 
@@ -50,10 +53,13 @@ This tutorial will be also useful for non-unity developers, who just want to set
 
 3) Some useful operations with Unity and JS
 
-* **Saving and loading** the game: a simple way to manage state of your **JavaScript** logic.
-* **setTimeout**, **promises** and Unity **coroutines**.
-* Setting up unit tests for the game logic in **JavaScript**
-* Building the game and exporting the scripts
+* [**Saving and loading** the game: a simple way to manage state of your **JavaScript** logic.](7-save-state)
+* [**setTimeout**, and Unity **coroutines**](8-coroutines)
+* [Add support of *Promises*](9-promises)
+
+4) Build and automated tests
+* [Include javascript bundle into the built app](10-build)
+* [Setting up unit tests for the game logic in **JavaScript**](11-unit-tests)
 
 ## Prerequisites
 
@@ -300,12 +306,18 @@ engine.Execute(File.ReadAllText("Game/index.js"));
 ```
 The code in *index.js* will be able to see myVar variable. This is one of the simple ways to split your code into modules that see each other, or implement sort of *require* function, that will dynamically load another file to the scope. But in the next parts of the tutorial I will show how we can use **Webpack**, and standard **import** statements.
 
-Also you can easily call *"hello"* function in JavaScript from C# like this:
+Also you can easily call *"hello"* function in JavaScript, and get result from it in C# like this:
 ```csharp
 engine.Execute(File.ReadAllText("Game/index.js"));
-engine.Execute("log(hello())");
+engine.Execute("hello()");
+var functionResult = engine.GetCompletionValue().AsString();
+Debug.Log("C# got function result from Javascript: "+functionResult);
 ```
-**TODO** - get result
+
+If you now press Play, then you will see the following on console:
+```bash
+C# got function result from Javascript: Hello from JS file!
+```
 
 <a name="4-handle-exceptions"></a>
 ### Handle exceptions 
@@ -530,15 +542,12 @@ Hello from JS ES6 file!
 ```
 Now we have set up the full npm-powered project, where you can also add any npm package! 
 
+Note, that every time after you change your JavaScript and before to test it in Unity, you will have to run ```npm run build``` (or ```npm run dev``` as will be shown next) in order for your ES6 scripts to compile to *dist/app.js*
 
 <a name="6-modules-webpack"></a>
 ### Non-minimized bundle setup and modules
 
-For now, every time you change your JavaScript, you will have to run ```npm run build``` (or ```npm run dev``` as will be shown next) in order for your ES6 scripts to compile to *dist/app.js*
-
-In the end of this tutorial I will show how to make this action automatic when we press *Play* or build the game. 
-
-For now let's have a look at some handy features of Webpack. As you noticed, *app.js* contains the minimized javascript. It has little size and is good for production, but for debugging errors, where you want to see the code line-by-line it's not very useful. For this we can tell webpack to disable the minimizing. Let's make another npm command that will produce a similar *app.js* but will not minimize it.
+Let's have a look at some handy features of Webpack. As you noticed, *app.js* contains the minimized javascript. It has little size and is good for production, but for debugging errors, where you want to see the code line-by-line it's not very useful. For this we can tell webpack to disable the minimizing. Let's make another npm command that will produce a similar *app.js* but will not minimize it.
 
 Add **dev** target to your *package.json* in *"scripts"* section:
 ```json
@@ -602,44 +611,378 @@ window.thisIsGlobalVariable = 108;
 log("I can see global variable: "+thisIsGlobalVariable);
 ```
 Build the code with ```npm run dev```, press *Play* and see the result. Variables in the global context are accessible anywhere in your Javascript code. Use them rare: only when you really need it.
+Of course instead of *window* you can use *global*, or any other variable name to hold reference to the global scope.
 
-**TODO** - usecase - expose javascript API to C#
+Let's now try to call the function *hello()* from C# side. 
+```csharp
+    void Start()
+    {df
+      engine.Execute("var window = this");
+      Execute("Game/dist/app.js");
 
+      engine.Execute("hello()");
+      Debug.Log("C# got result from function: "+engine.GetCompletionValue());
+    }
+```
 
+If you press Play() now, then you will have the following error on unity console:
+```bash
+JavaScriptException: hello is not defined
+```
 
+That's because the generated code in app.js is placed in a closed function scope. So, to make a function accessible from Jint, we need to make it global. Open your *index.js* and add the following line after *hello()* function:
+```js
+const hello = () => {
+  return "Hello from JS ES6 file!";
+};
+window.hello = hello;
+```
 
+Now run ```npm run dev``` and press Play. And voilà:
+```bash
+C# got result from function: Hello from JS ES6 file!
+```
 
+Like this, you can decide, which of js functions you want to expose to your C# engine.
 
+<a name="7-save-state"></a>
+### Saving javascript state of the game
 
+Since your gameplay logic is going to be in JavaScript, all the state, like player parameters, inventory, quest states, etc, will be contained there. When your game needs to be saved and loaded, the state must be somehow passed to Unity C# code, so that it could save/load it. There is many way to organize the state in JavaScript. Let's take a look at a simple and recommended one, where all our game state that is intended to be saved is contained in a single object. The other javascript game objects can by one or other way read this state, and modify it when needed. 
 
+Write the following to *index.js*
+```js
+var state = {
+  name: "Alice",
+  level: 2,
+};
 
+const printState = () => {
+  log(`JS state name: ${state.name}; level: ${state.level}`);
+};
+printState();
+```
 
+If you build it and press Play, you will see the state of your game in the unity console. Now, let's add a global function to *index.js*, called *getGameState*, that will pass this state to Unity in *json* format.
+```js
+window.getGameState = () => {
+  return JSON.stringify(state);
+};
+```
 
+Now let's add a button to our Unity project that will save the game state. In *JavascriptRunner.cs* add the following function:
+```cs
+    private void OnGUI() {
+      if (GUILayout.Button("Save game")) {
+        string jsGameState = engine.Execute("getGameState()").GetCompletionValue().AsString();
+        File.WriteAllText("savegame.json", jsGameState);
+        Debug.Log("Game saved");
+      }
+    }
+```
 
+You can see that we also can get the result of called js function in one line, because Jint returns instance of *Engine* from *Execute()* call. This is very handy.
+Compile the js with ```npm run dev``` and press *Play*. Now you will see *Save game* button on the screen. Press it, and then have a look at your Unity project folder.
+There will be a file named *savegame.json*
+**pic7**
 
+As you can see, the contents of this file represent the *state* object from JavaScript.
 
+Now, let's modify our *savegame.json*. Open this file in the text editor and write:
+```json
+{"name":"Alice","level":80}
+```
 
+So, we cheated and gave Alice level 80. Now we can load the game and see our changes. Let's create a *setGameState* function in *index.js*
+```js
+window.setGameState = (stateString) => {
+  state = JSON.parse(stateString);
+  printState();
+};
+```
 
+This function will update the *state* object from the passed json string and will print it. Let's add *Load game* button to the *OnGUI* function in *JavascriptRunner.cs*:
+```cs
+  if (GUILayout.Button("Load game")) {
+    string stateString = File.ReadAllText("savegame.json");
+    engine.Invoke("setGameState", stateString);
+  }
+```
 
+This will real our saved game and pass it to JavaScript by calling *setGameState*. Notice, that we use **Invoke** here instead of **Execute**. Invoke is a method of Jint that allows to execute a javascript function with given arguments. Since json string can contain line breaks, we can not simply concatenate it in the *Execute* method.
 
+Now build and run the game as usual, then press *Load game* button. You will see the following on console:
+```bash
+JS state name: Alice; level: 80
+```
 
+<a name="8-coroutines"></a>
+### **setTimeout** and Unity **coroutines**
 
+Let's now see something more interesting. *Jint* doesn't provide you with *setTimeout* function, leaving the implementation to the client. By default all the calls that you make to your JavaScript code, and everything, that Jint calls back to C# happen in the same thread. In our case it's main Unity thread. Thus it's up to you how you want to implement the *setTimeout* and promises behavior, and how you want to manage the multi-threads and synchronization. 
 
+In this section I will show how to implement *setTimeout* and some promises using Unity *coroutines* mechanism. This mechanism allows user to schedule parallel execution in the Unity main thread without the need to deal with multi-threading. This is very powerful for handling game animations, sequences of events, etc.
 
+Let's start with trying to call *setTimeout* in *index.js*, that will do some game action. For example, will change the label in our game UI. In your *index.js* write the following:
+```js
+setText("This is a text");
+setTimeout(() => setText("And now it is changed"), 5000);
+```
 
+In *JavascriptRunner.cs* let's add a code that outputs the text label to UI, so the beginning og this file will look like this:
+```cs
+public class JavascriptRunner : MonoBehaviour
+{
+    private Engine engine;
 
+    private string labelText;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+      engine = new Engine();
+      engine.SetValue("log", new Action<object>(msg => Debug.Log(msg)));
+      engine.SetValue("setText", new Action<string>(text => this.labelText = text));
+      engine.Execute("var window = this");
+      Execute("Game/dist/app.js");
+    }
 
+    private void OnGUI() {
+      GUILayout.Label(labelText);
+      ...
+```
 
+Here we added a ```private string labelText;```, and a function that can set it from js: ```engine.SetValue("setText", new Action<string>(text => this.labelText = text));```
+Finally, we have added a Label of the text to display in the UI: ```GUILayout.Label(labelText);`
 
+We expect the text *"This is a text"* to appear first. And then, in 5 seconds, it should be changed to *"And now it is changed"*. Let's check if it's so. Build the scripts using ```npm run dev``` and press *Play*. You will see something like this:
+**pic8**
 
+The first part of text is set, but then, there is an error on console. This is expected, as *Jint* has no *setTimeout* implementation. Let's make a simple version of it. In your *JavascriptRunner.cs* in *Start()* function, before we execute *app.js*, add the following:
+```cs
+      engine.SetValue("setTimeout", new Action<Delegate, int>((callback, interval) => {
+        StartCoroutine(TimeoutCoroutine(callback, interval));
+      }));
+```
 
+Now, add the coroutine function to *JavascriptRunner* class:
+```cs
+    private IEnumerator TimeoutCoroutine(Delegate callback, int intervalMilliseconds) {
+      yield return new WaitForSeconds(intervalMilliseconds / 1000.0f);
+      callback.DynamicInvoke(JsValue.Undefined, new[] { JsValue.Undefined });
+    }
+```
 
+This coroutine does 2 following actions:
 
+* Waits for the given timeout (note that we divide by 1000 as *WaitForSeconds* instruction in Unity requires time in seconds.
+* Dynamically executes the callback, that JavaScript code passed to the setTimeout function.
 
+Also, for this code to build, you will need to add 2 using instructions in *JavascriptRunner.cs*:
+```cs
+using Jint.Native;
+using System.Collections;
+```
 
+Now, build using ```npm run dev``` and press *Play*. See how text is being changed in 5 seconds. We have just made a setTimeout function work. If you need, you can likewise also implement *clearTimeout*, *setInterval*, and any other API functions. You can also expose functions that call any other Unity coroutine to, for example call animation from your JavaScript.  
 
+<a name="9-promises"></a>
+### Implementing promises
 
+*setTimeout* is not always very convenient function, as it has callback. To not break the code flow, it's nice to use *promises*. Let's implement a promise that waits for some time.
 
+Let's remove out *setText* and *setTimeout* calls from *index.js* and add instead the following logic:
+```js
+const wait = (milliseconds) => new Promise(resolve => {
+  setTimeout(() => resolve(), milliseconds);
+});
 
+const asyncFunction = async () => {
+  setText("This is a text");
+  await wait(5000);
+  setText("And now it's changed after await");
+};
 
+asyncFunction();
+```
+
+Here we added a promise, that uses our setTimeout in order to wait for the given amount milliseconds, and *asyncFunction* that sets initial text, awaits 5 seconds, and changes the text.
+This way is much more elegant, than callback, as it allows to use asynchronous logic and avoid callbacks. 
+
+However, for make it work, we need to install an extension to *Babel*, that will simulate *Promises*, *generators*, and other ES6 API. Here, in *Jint* it's not supported yet.
+
+Open your command line in *Game* folder and add the following:
+```bash
+npm install --save @babel/polyfill
+```
+
+Now open your *.babelrc* file and change it, so the content is like this:
+```json
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage"
+      }
+    ]
+  ]
+}
+```
+This basically tells Babel to use emulation of Promises and other API, provided in *polyfill* package, as much as the JavaScript code requires it. 
+
+Now run ```npm run dev``` and press *Play*. Watch how the text changes in 5 seconds, by the effect of *Promise*.
+
+<a name="10-build"></a>
+### Include javascript files into the built app
+
+When we build the game, we need it to contain our javascript bundle inside, to have access to it. Unity has a good cross-platform way to do it, through built-in *Resources system*. Any file, put in *Assets/Resources* folder will be included into build. 
+
+Let's change our *webpack.config.js* so it write the output into the *Assets/Resources* instead of *dist* by default.
+```js
+const path = require('path');
+module.exports = env => {
+  return {
+    entry: {
+        app: './index.js'
+    },
+    module: {
+        rules: [
+          { test: /\.js$/, loader: 'babel-loader' }
+        ]
+    },
+    output: {
+      filename: 'app.js',
+      path: path.resolve(__dirname, '../Assets/Resources')
+    },
+    optimization: {
+        minimize: env != 'dev'
+    }
+  };
+};
+```
+
+Now run ```npm run dev```, and see that *Resources* folder appeared, containing our bundle:
+**pic9**
+
+Let's now make changes to *JavascriptRunner.cs* in order to load our script from resources. In *Execute* method replace the line ```body = File.ReadAllText(fileName);``` with
+```cs
+body = Resources.Load<TextAsset>(fileName).text;
+```
+
+Then in *Start* function replace the line ```Execute("app.js");``` with
+```cs
+Execute("app");
+```
+That's because Unity Resources.Load method expects filename only, without extension.
+
+Now press *Play* and check the application works. After that let's make a build. In command line run:
+```bash
+npm run build
+```
+This will make a minimized version of *app.js*, that has much less size. After that, build in Unity to your platform. Run the result application and check it works.
+
+<a name="11-unit-tests"></a>
+ ### Setting up unit tests for the game logic in **JavaScript**
+
+Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write both tests that test individual parts of code, but also integration test that simulate the whole game and tests all the actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. 
+
+If you are interested in automated tests for your game logic, let me here show how to easily make one. There are quite a few good test frameworks for JavaScript. In this tutorial I will use quite popular once, called [jest](https://jestjs.io/).
+
+Open command line in *Game* folder and add jest package:
+```bash
+npm install --save-dev jest
+```
+
+Let's test the logic of *asyncFunction* for example:
+```js
+const asyncFunction = async () => {
+  setText("This is a text");
+  await wait(5000);
+  setText("And now it's changed after await");
+};
+```
+
+We will test that it calls first setText with some text, and then, after a pause calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock *setText* function for the unit test. Before we start test, we need to move asyncFunction in the module, that exports it. Let's move it, and *wait* function out of *index.js* to *MyModule.js*:
+```js
+const wait = (milliseconds) => new Promise(resolve => {
+  setTimeout(() => resolve(), milliseconds);
+});
+
+export const asyncFunction = async () => {
+  setText("This is a text");
+  await wait(5000);
+  setText("And now it's changed after await");
+};
+```
+
+In *index.js* keep only the call to the function and import statement:
+```js
+import { asyncFunction } from './MyModule';
+
+...
+
+asyncFunction();
+```
+
+Run ```npm run dev``` and press *Play* to check everything is done right and still works.
+
+Now, in the same place where you have *MyModule.js*, create a file, named *MyModule.test.js*. There is a convention in JavaScript world to put the test file near the tested one. Put the following contents into *MyModule.test.js*
+```js
+import { asyncFunction } from './MyModule';
+
+test('sets initial text', () => {
+  // arrange
+  window.setText = jest.fn();
+
+  // act
+  asyncFunction();
+  
+  // assert
+  expect(setText.mock.calls[0][0]).toBe("This is a text");
+});
+
+test('sets second text', async () => {
+  // arrange
+  window.setText = jest.fn();
+
+  // act
+  await asyncFunction();
+  
+  // assert
+  expect(setText.mock.calls[1][0]).toBe("And now it's changed after await");
+});
+```
+
+Here we made to tests, that mock function *setText* and check it's called with a given argument. ```setText.mock.calls[0][0]``` means take the first call of the function, and the first argument.
+Like this you can easily check the called function arguments and results. Jest is very simple and powerful at the same time. You can read more about its features [here](https://jestjs.io/docs/en/getting-started)
+
+Now let's run our tests. We need to add *"test"* target to the *packages.json*:
+```json
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode production --env dev",
+    "test": "jest"
+  },
+```
+
+Now, in command line in *Game* folder run:
+```bash
+npm run test
+```
+
+After tests are finished, you will see the following result:
+```bash
+ PASS  ./MyModule.test.js (6.151 s)
+  ✓ sets initial text (4 ms)
+  ✓ sets second text (5002 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        6.912 s
+Ran all test suites.
+```
+
+That draws an end of this tutorial for now. Enjoy writing your games in Unity and JavaScript! In case you need, find the full code of this tutorial project [here](https://github.com/pleasenophp/unity-js-tutorial). 
+In the *git log* you will see different commits, that match its different stages.
