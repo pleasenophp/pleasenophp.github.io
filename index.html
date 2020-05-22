@@ -803,7 +803,7 @@ Finally, we have added a Label of the text to display in the UI: <code>GUILayout
 
 <p>Now, build using <code>npm run dev</code> and press <em>Play</em>. See how text is being changed in 5 seconds. We have just made a setTimeout function work. If you need, you can likewise also implement <em>clearTimeout</em>, <em>setInterval</em>, and any other API functions. You can also expose functions that call any other Unity coroutine, for example call animation from your JavaScript.  </p>
 <p><a name="9-promises"></a></p>
-<h4>Implementing promises</h4>
+<h4>Using promises</h4>
 <p><em>setTimeout</em> is not always very convenient function, as it uses callback. To not break the code flow, it's nice to use <em>promises</em>. Let's implement a promise that waits for some time.</p>
 <p>Let's remove 2 lines that call <em>setText</em> and <em>setTimeout</em> from <em>index.js</em> and add instead the following logic:</p>
 <pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">wait</span> <span class="o">=</span> <span class="p">(</span><span class="nx">milliseconds</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>

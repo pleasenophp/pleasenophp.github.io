@@ -788,7 +788,7 @@ using System.Collections;
 Now, build using ```npm run dev``` and press *Play*. See how text is being changed in 5 seconds. We have just made a setTimeout function work. If you need, you can likewise also implement *clearTimeout*, *setInterval*, and any other API functions. You can also expose functions that call any other Unity coroutine, for example call animation from your JavaScript.  
 
 <a name="9-promises"></a>
-### Implementing promises
+### Using promises
 
 *setTimeout* is not always very convenient function, as it uses callback. To not break the code flow, it's nice to use *promises*. Let's implement a promise that waits for some time.
 
