@@ -807,7 +807,7 @@ const asyncFunction = async () => {
 asyncFunction();
 ```
 
-Here we added a promise, that uses our setTimeout in order to wait for the given amount milliseconds, and *asyncFunction* that sets initial text, awaits 5 seconds, and changes the text.
+Here we added a promise, that uses our setTimeout in order to wait for the given amount of milliseconds, and *asyncFunction* that sets initial text, awaits 5 seconds, and changes the text.
 This way is much more elegant, than callback, as it allows to use asynchronous logic and avoid callbacks. 
 
 However, to make it work, we need to install an extension to *Babel*, that will simulate *Promises*, *generators*, and other ES6 API. Here, in *Jint* it's not supported yet.
