@@ -258,8 +258,7 @@ public class JavascriptRunner : MonoBehaviour
 
 Press Play and watch the fun on the Console. Here we have proxied an existing object to JavaScript. You can see that we can both read and write to C# object from the JS side. Like this you can easily expose the shared data to your JS engine.
 
-There are also several other ways of exposing the C# code to JavaScript. You can even expose the whole CLR with all namespaces, even though it's not recommended. You would rather expose only the API that your scripter or modder is supposed to call. But if you need to get more knowledge about interoperability, read the Jint manual:
-https://github.com/sebastienros/jint
+There are also several other ways of exposing the C# code to JavaScript. You can even expose the whole CLR with all namespaces, even though it's not recommended. You would rather expose only the API that your scripter or modder is supposed to call. But if you need to get more knowledge about interoperability, read the Jint [manual](https://github.com/sebastienros/jint)
 
 <a name="3-load-js-files"></a>
 ### Loading the scripts from files
