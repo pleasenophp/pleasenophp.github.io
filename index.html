@@ -819,7 +819,7 @@ Finally, we have added a Label of the text to display in the UI: <code>GUILayout
 </code></pre>
 
 
-<p>Here we added a promise, that uses our setTimeout in order to wait for the given amount milliseconds, and <em>asyncFunction</em> that sets initial text, awaits 5 seconds, and changes the text.
+<p>Here we added a promise, that uses our setTimeout in order to wait for the given amount of milliseconds, and <em>asyncFunction</em> that sets initial text, awaits 5 seconds, and changes the text.
 This way is much more elegant, than callback, as it allows to use asynchronous logic and avoid callbacks. </p>
 <p>However, to make it work, we need to install an extension to <em>Babel</em>, that will simulate <em>Promises</em>, <em>generators</em>, and other ES6 API. Here, in <em>Jint</em> it's not supported yet.</p>
 <p>Open your command line in <em>Game</em> folder and add the following:</p>
