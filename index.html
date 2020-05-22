@@ -640,7 +640,7 @@ You can read more about ES6 modules system <a href="https://www.sitepoint.com/un
 Of course instead of <em>window</em> you can use <em>global</em>, or any other variable name to hold reference to the global scope.</p>
 <p>Let's now try to call the function <em>hello()</em> from C# side. </p>
 <pre class="code literal-block"><span></span><code>    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
-    <span class="p">{</span><span class="n">df</span>
+    <span class="p">{</span>
       <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"var window = this"</span><span class="p">);</span>
       <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/dist/app.js"</span><span class="p">);</span>
 

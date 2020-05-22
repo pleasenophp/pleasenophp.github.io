@@ -616,7 +616,7 @@ Of course instead of *window* you can use *global*, or any other variable name t
 Let's now try to call the function *hello()* from C# side. 
 ```csharp
     void Start()
-    {df
+    {
       engine.Execute("var window = this");
       Execute("Game/dist/app.js");
 
