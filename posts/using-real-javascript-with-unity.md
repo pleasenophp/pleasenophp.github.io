@@ -611,7 +611,7 @@ window.thisIsGlobalVariable = 108;
 log("I can see global variable: "+thisIsGlobalVariable);
 ```
 Build the code with ```npm run dev```, press *Play* and see the result. Variables in the global context are accessible anywhere in your Javascript code. Use them rare: only when you really need it.
-Of course instead of *window* you can use *global*, or any other variable name to hold reference to the global scope.
+Of course instead of *window* you can use *global*, or any other variable name to hold reference to the global scope, but keeping *window* one is very recommended, as it's standard, and some libraries will use it too.
 
 Let's now try to call the function *hello()* from C# side. 
 ```csharp
