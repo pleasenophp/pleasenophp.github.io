@@ -135,7 +135,7 @@ engine.SetValue("log", new Action<object>(msg => Debug.Log(msg)));
 This is direct function call, where you can call any C# functions from javascript. There is also other ways to call the C# code, let's see them.
 
 <a name="2-call-csharp"></a>
-### Calling Unity C# code from JavasSript
+### Calling Unity C# code from JavaScript
 
 There are several ways to bind C# objects to JavaScript.
 As shown above, we can easily bind C# functions to JS. For non-void functions, that need to return value, you can use **Func** delegate. Change the code as following and press Play:
