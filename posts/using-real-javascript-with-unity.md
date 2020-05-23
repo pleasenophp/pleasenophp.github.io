@@ -16,7 +16,7 @@ It's not to be confused with UnityScript language, that is .NET js-like syntax, 
 
 ## Why
 
-If you make relatively complicated games, like RPG-s, and so on, you probably need a good scripting language, to handle complex game story, NPC-s and object interactions, custscenes, events, and so on. Then, while C# language is good for engine logic, it's not designed for scripting. It's simply has too much verbosity and boilerplate, and too little flexibility for the creative part of the game. You will probably also need a scripting language that is easily understandable by game scripters, and modders, that are not necessary programmers. 
+If you make relatively complicated games, like RPG-s, and so on, you probably need a good scripting language, to handle complex game story, NPC-s and object interactions, custscenes, events, etc. Then, while C# language is good for engine logic, it's not designed for scripting. It's simply has too much verbosity and boilerplate, and too little flexibility for the creative part of the game. You will probably also need a scripting language that is easily understandable by game scripters, and modders, that are not necessary programmers. 
 
 Many big projects choose [Lua](https://www.lua.org/) for this purpose. Lua is a great dynamic language, and it has a lot of similarities with JavaScript. You can also make Lua work with Unity. However, here I want to show how to use JavaScript, because it gives the following advantages:
 
