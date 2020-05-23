@@ -824,7 +824,8 @@ Now open your *.babelrc* file and change it, so the content is like this:
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "usage"
+        "useBuiltIns": "usage",
+        "corejs": 2
       }
     ]
   ]
