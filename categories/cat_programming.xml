@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about Programming)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/cat_programming.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 22 May 2020 23:07:56 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using real JavaScript with Unity</title><link>https://pleasenophp.github.io/posts/using-real-javascript-with-unity.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;What&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about Programming)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/cat_programming.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 23 May 2020 12:17:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using real JavaScript with Unity</title><link>https://pleasenophp.github.io/posts/using-real-javascript-with-unity.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;What&lt;/h3&gt;
 &lt;p&gt;This tutorial will tell you how to use &lt;a href="https://github.com/sebastienros/jint"&gt;Jint&lt;/a&gt; engine to write cross-platform games in a real &lt;a href="https://www.w3schools.com/js/js_es6.asp"&gt;JavaScript ES6&lt;/a&gt; with &lt;a href="https://unity.com"&gt;Unity&lt;/a&gt;.
 It's not to be confused with UnityScript language, that is .NET js-like syntax, and has little common with JavaScript.&lt;/p&gt;
 &lt;h3&gt;Why&lt;/h3&gt;
@@ -743,7 +743,8 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
     &lt;span class="p"&gt;[&lt;/span&gt;
       &lt;span class="s2"&gt;"@babel/preset-env"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
       &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nt"&gt;"useBuiltIns"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"usage"&lt;/span&gt;
+        &lt;span class="nt"&gt;"useBuiltIns"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"usage"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nt"&gt;"corejs"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
       &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="p"&gt;]&lt;/span&gt;
   &lt;span class="p"&gt;]&lt;/span&gt;
