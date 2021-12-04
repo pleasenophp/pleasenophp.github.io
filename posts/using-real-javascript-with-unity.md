@@ -80,7 +80,7 @@ To run JavaScript engine from .NET we will use [Jint](https://github.com/sebasti
 
 2) Get the **Jint.dll** from NuGet packages. For this do the following:
 
-* The latest stable version at the moment of writing this is *2.11.58*, so download the package from here: [](https://www.nuget.org/packages/Jint/2.11.58)
+* The latest stable version at the moment of writing this is *2.11.58*, so download the package from [https://www.nuget.org/packages/Jint](https://www.nuget.org/packages/Jint/)
 * Rename *jint.2.11.58.nupkg* to *jint.2.11.58.zip* and unpack it
 * Take the Jint.dll from the folder *lib/netstandard2.0* of the package
 
