@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../rss.xml">
 <link rel="canonical" href="https://pleasenophp.github.io/posts/using-real-javascript-with-unity.html">
 <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Innerbytes">
 <link rel="prev" href="meet-the-ioc-container.html" title="Meet the IoC container" type="text/html">
@@ -41,7 +41,7 @@ It's not to be confused with UnityScript language, that is .NET js-like synta">
             </div>
         </div>
           <div class="col-md-6 col-xs-10 col-sm-10 bootblog4-brand" style="width: auto;">
-            <a class="navbar-brand blog-header-logo text-dark" href="https://pleasenophp.github.io/">
+            <a class="navbar-brand blog-header-logo text-dark" href="../">
 
             <span id="blog-title">Programming</span>
         </a>
@@ -164,7 +164,7 @@ It's not to be confused with UnityScript language, that is .NET js-like syntax, 
 <p>1) Create a project in Unity</p>
 <p>2) Get the <strong>Jint.dll</strong> from NuGet packages. For this do the following:</p>
 <ul>
-<li>The latest stable version at the moment of writing this is <em>2.11.58</em>, so download the package from here: <a href="https://www.nuget.org/packages/Jint/2.11.58"></a>
+<li>The latest stable version at the moment of writing this is <em>2.11.58</em>, so download the package from <a href="https://www.nuget.org/packages/Jint/">https://www.nuget.org/packages/Jint</a>
 </li>
 <li>Rename <em>jint.2.11.58.nupkg</em> to <em>jint.2.11.58.zip</em> and unpack it</li>
 <li>Take the Jint.dll from the folder <em>lib/netstandard2.0</em> of the package</li>
@@ -176,7 +176,7 @@ This is recommended, as it is smaller gives the compatibility with the all the p
 <p>4) Create a folder Plugins in your Assets and drag <em>Jint.dll</em> there.</p>
 <p><img alt="pic2" src="../images/unity-js/pic2.png" title="Place Jint.dll into Plugins folder"></p>
 <p>5) Let's create a C# MonoBehavior called <em>JavascriptRunner.cs</em> on a scene object and call some JavaScript from it:</p>
-<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
@@ -196,24 +196,20 @@ This is recommended, as it is smaller gives the compatibility with the all the p
 <span class="s">      "</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>Here we create new <em>Engine</em> object from Jint and call a very simple Hello World code in JS.
 Now attach the JavascriptRunner to the MainCamera on the scene and press <strong>Play</strong>.</p>
 <p>You will see the following output in the console:</p>
 <p><img alt="pic3" src="../images/unity-js/pic3.png" title="Console output from JavaScript"></p>
 <p>Note how we make JavaScript call the Unity <em>Debug.Log</em> by proxying the call to <em>log</em> function in JavaScript:</p>
-<pre class="code literal-block"><span></span><code><span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
-</code></pre>
-
-
+<pre class="code literal-block"><span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
+</pre>
 <p>This is direct function call, where you can call any C# functions from javascript. There is also other ways to call the C# code, let's see them.</p>
 <p><a name="2-call-csharp"></a></p>
 <h4>Calling Unity C# code from JavaScript</h4>
 <p>There are several ways to bind C# objects to JavaScript.
 As shown above, we can easily bind C# functions to JS. For non-void functions, that need to return value, you can use <strong>Func</strong> delegate. Change the code as following and press Play:</p>
-<pre class="code literal-block"><span></span><code><span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<pre class="code literal-block"><span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
   <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
@@ -225,18 +221,14 @@ As shown above, we can easily bind C# functions to JS. For non-void functions, t
 <span class="s">    log('Response from C#: '+responseFromCsharp);        </span>
 <span class="s">  "</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>Now you can see on the Console:</p>
-<pre class="code literal-block"><span></span><code>Response from C#: C# can see that you passed: <span class="m">108</span>
-</code></pre>
-
-
+<pre class="code literal-block">Response from C#: C# can see that you passed: <span class="m">108</span>
+</pre>
 <p>We created a function that JavaScript can call and get some value from your C# API.</p>
 <p>But Jint would not be so powerful if it didn't allow to proxy the whole class from C# to Javascript. That's very handy when you need to give the JS engine access to part of your API.
 Let's do it. Modify the code as following and run it:</p>
-<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">Jint.Runtime.Interop</span><span class="p">;</span>
@@ -272,22 +264,16 @@ Let's do it. Modify the code as following and run it:</p>
 <span class="s">      "</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>Notice, that we added a class <strong>GameApi</strong> and proxied it to Javascript. You can proxy like this any C# class, or even Enums, that is very handy:</p>
-<pre class="code literal-block"><span></span><code><span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"GameApi"</span><span class="p">,</span> <span class="n">TypeReference</span><span class="p">.</span><span class="n">CreateTypeReference</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">GameApi</span><span class="p">)));</span>
+<pre class="code literal-block"><span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"GameApi"</span><span class="p">,</span> <span class="n">TypeReference</span><span class="p">.</span><span class="n">CreateTypeReference</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">GameApi</span><span class="p">)));</span>
 <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"MyEnum"</span><span class="p">,</span> <span class="n">TypeReference</span><span class="p">.</span><span class="n">CreateTypeReference</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">MyEnum</span><span class="p">)));</span>
-</code></pre>
-
-
+</pre>
 <p>To use it in javascript, we instantiate it using <em>new</em> operator:</p>
-<pre class="code literal-block"><span></span><code><span class="kd">var</span> <span class="nx">gameApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GameApi</span><span class="p">();</span>
-</code></pre>
-
-
+<pre class="code literal-block"><span class="kd">var</span> <span class="nx">gameApi</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">GameApi</span><span class="p">();</span>
+</pre>
 <p>Other than that, we can also proxy an existing instance of a C# class to exchange data between the Unity and Javascript engine. Let's say we have a <em>WorldModel</em> object, that has some data, and we want to proxy it to JavaScript: </p>
-<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
@@ -312,7 +298,7 @@ Let's do it. Modify the code as following and run it:</p>
 
       <span class="kt">var</span> <span class="n">world</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WorldModel</span><span class="p">();</span>
       <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"world"</span><span class="p">,</span> <span class="n">world</span><span class="p">);</span>
-      <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="err">$</span><span class="s">"{world.PlayerName} has {world.NumberOfDonuts} donuts"</span><span class="p">);</span>
+      <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{world.PlayerName} has {world.NumberOfDonuts} donuts"</span><span class="p">);</span>
 
       <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">@"</span>
 <span class="s">        log('Javascript can see that '+world.PlayerName+' has '+world.NumberOfDonuts+' donuts');</span>
@@ -320,12 +306,10 @@ Let's do it. Modify the code as following and run it:</p>
 <span class="s">        world.NumberOfDonuts += 3;</span>
 <span class="s">      "</span><span class="p">);</span>
 
-      <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="err">$</span><span class="s">"{world.PlayerName} has now {world.NumberOfDonuts} donuts. Thanks, JavaScript, for giving us some"</span><span class="p">);</span>
+      <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{world.PlayerName} has now {world.NumberOfDonuts} donuts. Thanks, JavaScript, for giving us some"</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>Press Play and watch the fun on the Console. Here we have proxied an existing object to JavaScript. You can see that we can both read and write to C# object from the JS side. Like this you can easily expose the shared data to your JS engine.</p>
 <p>There are also several other ways of exposing the C# code to JavaScript. You can even expose the whole CLR with all namespaces, even though it's not recommended. You would rather expose only the API that your scripter or modder is supposed to call. But if you need to get more knowledge about interoperability, read the Jint <a href="https://github.com/sebastienros/jint">manual</a></p>
 <p><a name="3-load-js-files"></a></p>
@@ -334,15 +318,13 @@ Let's do it. Modify the code as following and run it:</p>
 <p>In your Unity project, create a folder, named for example <em>Game</em> on the same level where <em>Assets</em> exists. This will be a folder for our JavaScript project. It's good to not create this folder inside of Assets, so Unity doesn't try to import javascript files and create .meta files for them.</p>
 <p><img alt="pic4" src="../images/unity-js/pic4.png" title="Create Game folder for JavaScript"></p>
 <p>Let's then create a file named <em>index.js</em> and put it into this folder. This will be our main file, from which the game scripts will start. You can of course name this file how you want, but I will use <em>index.js</em> in this tutorial. Let's put there some code.</p>
-<pre class="code literal-block"><span></span><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s2">"Hello from JS file!"</span>
 <span class="p">}</span>
 <span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">());</span>
-</code></pre>
-
-
+</pre>
 <p>Let's modify the <em>JavascriptRunner.cs</em> to load code from file. Then, press Play to see how it works.</p>
-<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
@@ -359,35 +341,27 @@ Let's do it. Modify the code as following and run it:</p>
       <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"Game/index.js"</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>As you can see, it's quite simple, as we use the same method <em>engine.Execute</em>, but pass there the text, loaded from file. </p>
 <p>Here it's important to understand, that <em>SetValue</em> and <em>Execute</em> action we perform, add the objects to the same <em>JavaScript scope</em>. It means, that any code in <em>index.js</em> will have access to the <em>log</em> or any other objects we inject. Script in <em>index.js</em> will also have access to the result of any previous Execute command. For example:</p>
-<pre class="code literal-block"><span></span><code><span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">@"var myVar = 1"</span><span class="p">);</span>
+<pre class="code literal-block"><span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">@"var myVar = 1"</span><span class="p">);</span>
 <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"Game/index.js"</span><span class="p">));</span>
-</code></pre>
-
-
+</pre>
 <p>The code in <em>index.js</em> will be able to see myVar variable. This is one of the simple ways to split your code into modules that see each other, or implement sort of <em>require</em> function, that will dynamically load another file to the scope. But in the next parts of the tutorial I will show how we can use <strong>Webpack</strong>, and standard <strong>import</strong> statements.</p>
 <p>Also you can easily call <em>"hello"</em> function in JavaScript, and get result from it in C# like this:</p>
-<pre class="code literal-block"><span></span><code><span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"Game/index.js"</span><span class="p">));</span>
+<pre class="code literal-block"><span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"Game/index.js"</span><span class="p">));</span>
 <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"hello()"</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">functionResult</span> <span class="p">=</span> <span class="n">engine</span><span class="p">.</span><span class="n">GetCompletionValue</span><span class="p">().</span><span class="n">AsString</span><span class="p">();</span>
 <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"C# got function result from Javascript: "</span><span class="p">+</span><span class="n">functionResult</span><span class="p">);</span>
-</code></pre>
-
-
+</pre>
 <p>If you now press Play, then you will see the following on console:</p>
-<pre class="code literal-block"><span></span><code>C# got <span class="k">function</span> result from Javascript: Hello from JS file!
-</code></pre>
-
-
+<pre class="code literal-block">C# got <span class="k">function</span> result from Javascript: Hello from JS file!
+</pre>
 <p><a name="4-handle-exceptions"></a></p>
 <h4>Handle exceptions</h4>
 <p>Let's add the code to handle exceptions, happened in javascript and show some info. </p>
 <p>Modify your <em>JavascriptRunner.cs</em> like this.</p>
-<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">Jint</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
@@ -414,11 +388,11 @@ Let's do it. Modify the code as following and run it:</p>
         <span class="p">}</span>
         <span class="k">catch</span><span class="p">(</span><span class="n">JavaScriptException</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
           <span class="kt">var</span> <span class="n">location</span> <span class="p">=</span> <span class="n">engine</span><span class="p">.</span><span class="n">GetLastSyntaxNode</span><span class="p">().</span><span class="n">Location</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>
-          <span class="kt">var</span> <span class="n">error</span> <span class="p">=</span> <span class="err">$</span><span class="s">"Jint runtime error {ex.Error} {fileName} (Line {location.Line}, Column {location.Column})\n{PrintBody(body)}"</span><span class="p">;</span>
+          <span class="kt">var</span> <span class="n">error</span> <span class="p">=</span> <span class="s">$"Jint runtime error {ex.Error} {fileName} (Line {location.Line}, Column {location.Column})\n{PrintBody(body)}"</span><span class="p">;</span>
           <span class="n">UnityEngine</span><span class="p">.</span><span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">error</span><span class="p">);</span> 
         <span class="p">}</span>
         <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="err">$</span><span class="s">"Error: {ex.Message} in {fileName}\n{PrintBody(body)}"</span><span class="p">);</span>
+          <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="s">$"Error: {ex.Message} in {fileName}\n{PrintBody(body)}"</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
@@ -426,22 +400,18 @@ Let's do it. Modify the code as following and run it:</p>
     <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">body</span><span class="p">))</span> <span class="k">return</span> <span class="s">""</span><span class="p">;</span>
       <span class="kt">string</span><span class="p">[]</span> <span class="n">lines</span> <span class="p">=</span> <span class="n">body</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"\r\n"</span><span class="p">,</span> <span class="s">"\r"</span><span class="p">,</span> <span class="s">"\n"</span> <span class="p">},</span> <span class="n">StringSplitOptions</span><span class="p">.</span><span class="n">None</span><span class="p">);</span>
-      <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"\n"</span><span class="p">,</span> <span class="n">Enumerable</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">lines</span><span class="p">.</span><span class="n">Length</span><span class="p">).</span><span class="n">Select</span><span class="p">(</span><span class="n">i</span> <span class="p">=&gt;</span> <span class="err">$</span><span class="s">"{i+1:D3} {lines[i]}"</span><span class="p">));</span>
+      <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"\n"</span><span class="p">,</span> <span class="n">Enumerable</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">lines</span><span class="p">.</span><span class="n">Length</span><span class="p">).</span><span class="n">Select</span><span class="p">(</span><span class="n">i</span> <span class="p">=&gt;</span> <span class="s">$"{i+1:D3} {lines[i]}"</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>We added <em>Execute</em> private function that executes a script and handles <em>JavaScriptException</em> for runtime error, and general <em>Exception</em> for parsing and IO errors. It prints the line and column information, and also the code body with line numbers. Try it by adding some wrong code or unknown variable to <em>index.js</em> and see how it works:</p>
-<pre class="code literal-block"><span></span><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s2">"Hello from JS file! "</span><span class="o">+</span><span class="nx">someVar</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">());</span>
-</code></pre>
-
-
+</pre>
 <p>On console you will see:</p>
-<pre class="code literal-block"><span></span><code>Jint runtime error ReferenceError: someVar is not defined Game/index.js <span class="o">(</span>Line <span class="m">3</span>, Column <span class="m">32</span><span class="o">)</span>
+<pre class="code literal-block">Jint runtime error ReferenceError: someVar is not defined Game/index.js <span class="o">(</span>Line <span class="m">3</span>, Column <span class="m">32</span><span class="o">)</span>
 <span class="m">001</span> 
 <span class="m">002</span> <span class="k">function</span> hello<span class="o">()</span> <span class="o">{</span>
 <span class="m">003</span>   <span class="k">return</span> <span class="s2">"Hello from JS file! "</span>+someVar<span class="p">;</span>
@@ -451,9 +421,7 @@ Let's do it. Modify the code as following and run it:</p>
 UnityEngine.Debug:LogError<span class="o">(</span>Object<span class="o">)</span>
 JavascriptRunner:Execute<span class="o">(</span>String<span class="o">)</span> <span class="o">(</span>at Assets/JavascriptRunner.cs:29<span class="o">)</span>
 JavascriptRunner:Start<span class="o">()</span> <span class="o">(</span>at Assets/JavascriptRunner.cs:17<span class="o">)</span>
-</code></pre>
-
-
+</pre>
 <p>Now you have a fully working JavaScript ES5 project with Unity. In the next chapters we will see more advanced topics - how to use the <em>JavaScript ES6</em> with Jint, how to setup <em>npm</em>, <em>unit tests</em>, etc.</p>
 <p><a name="5-setup-webpack"></a></p>
 <h4>Setting up Webpack and Babel to enable ES6 and npm packages support</h4>
@@ -467,13 +435,11 @@ JavascriptRunner:Start<span class="o">()</span> <span class="o">(</span>at Asset
 <p>In command line <em>cd</em> to the <em>Game</em> folder of your project, where index.js is located:
 <img alt="pic5" src="../images/unity-js/pic5.png" title="Game folder in command line"></p>
 <p>Now run </p>
-<pre class="code literal-block"><span></span><code>npm init -y
-</code></pre>
-
-
+<pre class="code literal-block">npm init -y
+</pre>
 <p><img alt="pic6" src="../images/unity-js/pic6.png" title="Initializing npm project"></p>
 <p>This will initialize empty npm project in your folder by creating a <em>package.json</em> file. Open this file in a text editor, delete its contents and put the following to it:</p>
-<pre class="code literal-block"><span></span><code><span class="p">{</span>
+<pre class="code literal-block"><span class="p">{</span>
   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"my-cool-game"</span><span class="p">,</span>
   <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"0.0.1"</span><span class="p">,</span>
   <span class="nt">"author"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
@@ -481,18 +447,14 @@ JavascriptRunner:Start<span class="o">()</span> <span class="o">(</span>at Asset
     <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"webpack --mode production"</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>We can specify the name of the project, version, author and other fields here. The important though is the <em>scripts</em> section, where we have our webpack build target, that will pack our ES6 code and convert it to ES5. Also note, that the name of the project must be <em>dashes-separated</em>.</p>
 <p>To make it work, we need to install Webpack and Babel. Run the following 2 commands in your command line, being in <em>Game</em> folder:</p>
-<pre class="code literal-block"><span></span><code>npm i webpack webpack-cli --save-dev
+<pre class="code literal-block">npm i webpack webpack-cli --save-dev
 npm i @babel/core babel-loader @babel/preset-env --save-dev
-</code></pre>
-
-
+</pre>
 <p>After installation is finished, your <em>package.json</em> content will look like this:</p>
-<pre class="code literal-block"><span></span><code><span class="p">{</span>
+<pre class="code literal-block"><span class="p">{</span>
   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"my-cool-game"</span><span class="p">,</span>
   <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"0.0.1"</span><span class="p">,</span>
   <span class="nt">"author"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
@@ -507,19 +469,15 @@ npm i @babel/core babel-loader @babel/preset-env --save-dev
     <span class="nt">"webpack-cli"</span><span class="p">:</span> <span class="s2">"^3.3.11"</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>The versions of packages can be different, but if they are there, it means, that babel and webpack are successfully installed. You will also see that <em>package-lock.json</em> file, and <em>node_modules</em> folder are created. You don't need to care about those, as they managed by npm. However, if you are using version control, then ignore <strong>node_modules</strong>, because it contains all the downloaded npm packages and should not be versioned. You can delete the <em>node_modules</em> folder at any time, and restore it again by running <code>npm install</code></p>
 <p>The next step is to enable Babel, that will transpose JavaScript code to ES5. Create a file named <em>.babelrc</em> in your <em>Game</em> folder and put the following inside:</p>
-<pre class="code literal-block"><span></span><code><span class="p">{</span>
+<pre class="code literal-block"><span class="p">{</span>
   <span class="nt">"presets"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"@babel/preset-env"</span><span class="p">]</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>And the last step is to configure Webpack. For this create a file named <em>webpack.config.js</em> in your <em>Game</em> folder and put the following inside:</p>
-<pre class="code literal-block"><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">env</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">env</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">app</span><span class="o">:</span> <span class="s1">'./index.js'</span>
@@ -534,29 +492,23 @@ npm i @babel/core babel-loader @babel/preset-env --save-dev
     <span class="p">}</span>
   <span class="p">};</span>
 <span class="p">};</span>
-</code></pre>
-
-
+</pre>
 <p>This tells Webpack to read your <em>index.js</em> and convert it to the bundle. Your should now have the following items in the Game folder:</p>
-<pre class="code literal-block"><span></span><code>.babelrc
+<pre class="code literal-block">.babelrc
 index.js
 node_modules
 package-lock.json
 package.json
 webpack.config.js
-</code></pre>
-
-
+</pre>
 <p>Let's try now how the conversion works. Put some <em>ES6</em> code in our <em>index.js</em></p>
-<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="kd">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s2">"Hello from JS ES6 file!"</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">());</span>
-</code></pre>
-
-
+</pre>
 <p>This contains <em>const</em> and an <em>arrow function</em> that is ES6 only features. If you try to run your Unity project, you will see the following error:</p>
-<pre class="code literal-block"><span></span><code>ApplicationException: Error: Line <span class="m">2</span>: Unexpected token <span class="o">)</span> in Game/index.js
+<pre class="code literal-block">ApplicationException: Error: Line <span class="m">2</span>: Unexpected token <span class="o">)</span> <span class="k">in</span> Game/index.js
 <span class="m">001</span> 
 <span class="m">002</span> const <span class="nv">hello</span> <span class="o">=</span> <span class="o">()</span> <span class="o">=</span>&gt; <span class="o">{</span>
 <span class="m">003</span>   <span class="k">return</span> <span class="s2">"Hello from JS ES6 file!"</span><span class="p">;</span>
@@ -565,101 +517,81 @@ webpack.config.js
 <span class="m">006</span> log<span class="o">(</span>hello<span class="o">())</span><span class="p">;</span>
 JavascriptRunner.Execute <span class="o">(</span>System.String fileName<span class="o">)</span> <span class="o">(</span>at Assets/JavascriptRunner.cs:32<span class="o">)</span>
 JavascriptRunner.Start <span class="o">()</span> <span class="o">(</span>at Assets/JavascriptRunner.cs:17<span class="o">)</span>
-</code></pre>
-
-
+</pre>
 <p>That's because the current version of <em>Jint</em> supports only JS version ES5. Later <em>Jint</em> will also add full ES6 support and the conversion step might not be needed. Let's now run Webpack to convert and bundle our code.</p>
 <p>In command line run the following</p>
-<pre class="code literal-block"><span></span><code>npm run build
-</code></pre>
-
-
+<pre class="code literal-block">npm run build
+</pre>
 <p>After the command is run successfully, you should see a new <strong>dist</strong> folder in the Game folder. That's a folder where Webpack will put the "compiled" version of the Javascript. 
 If you now open <em>Game/dist/app.js</em> file, you will see a minimized JavaScript text. This is the file, openable by Jint, as it has only ES5-compatible code. </p>
 <p>Let's now change our Start method in <em>JavascriptRunner.cs</em> to open it:</p>
-<pre class="code literal-block"><span></span><code><span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<pre class="code literal-block"><span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
   <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
   <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/dist/app.js"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>Now press <em>Play</em> and see output on Unity console, received from originally ES6 code.</p>
-<pre class="code literal-block"><span></span><code>Hello from JS ES6 file!
-</code></pre>
-
-
+<pre class="code literal-block">Hello from JS ES6 file!
+</pre>
 <p>Now we have set up the full npm-powered project, where you can also add any npm package! </p>
 <p>Note, that every time after you change your JavaScript and before to test it in Unity, you will have to run <code>npm run build</code> (or <code>npm run dev</code> as will be shown next) in order for your ES6 scripts to compile to <em>dist/app.js</em></p>
 <p><a name="6-modules-webpack"></a></p>
 <h4>Non-minimized bundle setup and modules</h4>
 <p>Let's have a look at some handy features of Webpack. As you noticed, <em>app.js</em> contains the minimized javascript. It has little size and is good for production, but for debugging errors, where you want to see the code line-by-line it's not very useful. For this we can tell webpack to disable the minimizing. Let's make another npm command that will produce a similar <em>app.js</em> but will not minimize it.</p>
 <p>Add <strong>dev</strong> target to your <em>package.json</em> in <em>"scripts"</em> section:</p>
-<pre class="code literal-block"><span></span><code>  <span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
+<pre class="code literal-block">  <span class="nt">"scripts"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"webpack --mode production"</span><span class="p">,</span>
     <span class="nt">"dev"</span><span class="p">:</span> <span class="s2">"webpack --mode production --env dev"</span>
-  <span class="p">}</span><span class="err">,</span>
-</code></pre>
-
-
+  <span class="p">},</span>
+</pre>
 <p>This will make now Webpack to produce not minimized script, if you run the <strong>dev</strong> target instead of <em>build</em>. Try it. In command line, run</p>
-<pre class="code literal-block"><span></span><code>npm run dev
-</code></pre>
-
-
+<pre class="code literal-block">npm run dev
+</pre>
 <p>Now see the contents of your <em>dist/app.js</em>. It's not minimized anymore! You can press Play in Unity and make sure it still works.</p>
 <p>Let's now see how to split your JavaScript code by modules and use them. Let's create another file, named <em>MyModule.js</em> in <em>Game</em> folder with the following:</p>
-<pre class="code literal-block"><span></span><code><span class="kr">export</span> <span class="kr">const</span> <span class="nx">myFunction1</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="k">export</span> <span class="kd">const</span> <span class="nx">myFunction1</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s2">"This is function 1 from my module"</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kr">export</span> <span class="kr">const</span> <span class="nx">myFunction2</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">myFunction2</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s2">"This is function 2 from my module"</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>We have created a module that exports 2 functions. Now in our <em>index.js</em> or in any other javascript file, we can import those functions. Replace the code in <em>index.js</em> with the following:</p>
-<pre class="code literal-block"><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">myFunction1</span><span class="p">,</span> <span class="nx">myFunction2</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">import</span> <span class="p">{</span> <span class="nx">myFunction1</span><span class="p">,</span> <span class="nx">myFunction2</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
 
-<span class="kr">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s2">"Hello from JS ES6 file!"</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">());</span>
 <span class="nx">log</span><span class="p">(</span><span class="nx">myFunction1</span><span class="p">());</span>
 <span class="nx">log</span><span class="p">(</span><span class="nx">myFunction2</span><span class="p">());</span>
-</code></pre>
-
-
+</pre>
 <p>Now run <code>npm run dev</code> to build the bundle, and then press <em>Play</em> in Unity. You will see the output from module functions. Like this you can decompose your code to files very easily. Of course, you can also put your modules in different subfolders. 
 You can read more about ES6 modules system <a href="https://www.sitepoint.com/understanding-es6-modules/">here</a>.</p>
 <h5>Webpack, and global variables</h5>
 <p>When webpack creates a bundle, it's run in a closed function scope. It means, that from this scope, you cannot create variables in global scope. So, if you execute several bundles from your <em>Engine</em> they cannot communicate with each other, and also C# cannot call the JavaScript functions from your bundles scope. When you need to write to global scope from your module, let me show an easy way to do it with Jint.</p>
 <p>Modify the <em>JavascriptRunner.cs</em> to have code like this in Start:</p>
-<pre class="code literal-block"><span></span><code>    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<pre class="code literal-block">    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
     <span class="p">{</span>
       <span class="n">engine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Engine</span><span class="p">();</span>
       <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"log"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;(</span><span class="n">msg</span> <span class="p">=&gt;</span> <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="n">msg</span><span class="p">)));</span>
       <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"var window = this"</span><span class="p">);</span>
       <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/dist/app.js"</span><span class="p">);</span>
     <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>Before running our bundle, we have injected <em>window</em> variable that references the global scope. Now you can do the following. Add code to your <em>index.js</em>:</p>
-<pre class="code literal-block"><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">thisIsGlobalVariable</span> <span class="o">=</span> <span class="mi">108</span><span class="p">;</span>
+<pre class="code literal-block"><span class="nb">window</span><span class="p">.</span><span class="nx">thisIsGlobalVariable</span> <span class="o">=</span> <span class="mf">108</span><span class="p">;</span>
 
 <span class="nx">log</span><span class="p">(</span><span class="s2">"I can see global variable: "</span><span class="o">+</span><span class="nx">thisIsGlobalVariable</span><span class="p">);</span>
-</code></pre>
-
-
+</pre>
 <p>Build the code with <code>npm run dev</code>, press <em>Play</em> and see the result. Variables in the global context are accessible anywhere in your Javascript code. Use them rare: only when you really need it.
 Of course instead of <em>window</em> you can use <em>global</em>, or any other variable name to hold reference to the global scope, but keeping <em>window</em> one is very recommended, as it's standard, and some libraries will use it too.</p>
 <p>Let's now try to call the function <em>hello()</em> from C# side. </p>
-<pre class="code literal-block"><span></span><code>    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+<pre class="code literal-block">    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
     <span class="p">{</span>
       <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"var window = this"</span><span class="p">);</span>
       <span class="n">Execute</span><span class="p">(</span><span class="s">"Game/dist/app.js"</span><span class="p">);</span>
@@ -667,94 +599,72 @@ Of course instead of <em>window</em> you can use <em>global</em>, or any other v
       <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"hello()"</span><span class="p">);</span>
       <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"C# got result from function: "</span><span class="p">+</span><span class="n">engine</span><span class="p">.</span><span class="n">GetCompletionValue</span><span class="p">());</span>
     <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>If you press Play() now, then you will have the following error on unity console:</p>
-<pre class="code literal-block"><span></span><code>JavaScriptException: hello is not defined
-</code></pre>
-
-
+<pre class="code literal-block">JavaScriptException: hello is not defined
+</pre>
 <p>That's because the generated code in app.js is placed in a closed function scope. So, to make a function accessible from Jint, we need to make it global. Open your <em>index.js</em> and add the following line after <em>hello()</em> function:</p>
-<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="kd">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s2">"Hello from JS ES6 file!"</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">hello</span> <span class="o">=</span> <span class="nx">hello</span><span class="p">;</span>
-</code></pre>
-
-
+</pre>
 <p>Now run <code>npm run dev</code> and press Play. And voilà:</p>
-<pre class="code literal-block"><span></span><code>C# got result from <span class="k">function</span>: Hello from JS ES6 file!
-</code></pre>
-
-
+<pre class="code literal-block">C# got result from <span class="k">function</span>: Hello from JS ES6 file!
+</pre>
 <p>Like this, you can decide, which of js functions you want to expose to your C# engine.</p>
 <p><a name="7-save-state"></a></p>
 <h4>Saving javascript state of the game</h4>
 <p>Since your gameplay logic is going to be in JavaScript, all the state, like player parameters, inventory, quest states, etc, will be contained there. When your game needs to be saved and loaded, the state must be somehow passed to Unity C# code, so that it could save/load it. There is many ways to organize the state in JavaScript. Let's take a look at a simple and recommended one, where all our game state that is intended to be saved is contained in a single object. The other javascript game objects can by one or other way read this state, and modify it when needed. </p>
 <p>Write the following to <em>index.js</em></p>
-<pre class="code literal-block"><span></span><code><span class="kd">var</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="kd">var</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">name</span><span class="o">:</span> <span class="s2">"Alice"</span><span class="p">,</span>
-  <span class="nx">level</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nx">level</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="kr">const</span> <span class="nx">printState</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">printState</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">log</span><span class="p">(</span><span class="sb">`JS state name: </span><span class="si">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">; level: </span><span class="si">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">level</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 <span class="p">};</span>
 <span class="nx">printState</span><span class="p">();</span>
-</code></pre>
-
-
+</pre>
 <p>If you build it and press Play, you will see the state of your game in the unity console. Now, let's add a global function to <em>index.js</em>, called <em>getGameState</em>, that will pass this state to Unity in <em>json</em> format.</p>
-<pre class="code literal-block"><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">getGameState</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">state</span><span class="p">);</span>
+<pre class="code literal-block"><span class="nb">window</span><span class="p">.</span><span class="nx">getGameState</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">state</span><span class="p">);</span>
 <span class="p">};</span>
-</code></pre>
-
-
+</pre>
 <p>Now let's add a button to our Unity project that will save the game state. In <em>JavascriptRunner.cs</em> add the following function:</p>
-<pre class="code literal-block"><span></span><code>    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnGUI</span><span class="p">()</span> <span class="p">{</span>
+<pre class="code literal-block">    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnGUI</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">GUILayout</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s">"Save game"</span><span class="p">))</span> <span class="p">{</span>
         <span class="kt">string</span> <span class="n">jsGameState</span> <span class="p">=</span> <span class="n">engine</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"getGameState()"</span><span class="p">).</span><span class="n">GetCompletionValue</span><span class="p">().</span><span class="n">AsString</span><span class="p">();</span>
         <span class="n">File</span><span class="p">.</span><span class="n">WriteAllText</span><span class="p">(</span><span class="s">"savegame.json"</span><span class="p">,</span> <span class="n">jsGameState</span><span class="p">);</span>
         <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Game saved"</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>You can see that we also can get the result of called js function in one line, because Jint returns instance of <em>Engine</em> from <em>Execute()</em> call. This is very handy.
 Compile the js with <code>npm run dev</code> and press <em>Play</em>. Now you will see <em>Save game</em> button on the screen. Press it, and then have a look at your Unity project folder.
 There will be a file named <em>savegame.json</em></p>
 <p><img alt="pic7" src="../images/unity-js/pic7.png" title="Saved game file"></p>
 <p>As you can see, the contents of this file represent the <em>state</em> object from JavaScript.</p>
 <p>Now, let's modify our <em>savegame.json</em>. Open this file in the text editor and write:</p>
-<pre class="code literal-block"><span></span><code><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Alice"</span><span class="p">,</span><span class="nt">"level"</span><span class="p">:</span><span class="mi">80</span><span class="p">}</span>
-</code></pre>
-
-
+<pre class="code literal-block"><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Alice"</span><span class="p">,</span><span class="nt">"level"</span><span class="p">:</span><span class="mi">80</span><span class="p">}</span>
+</pre>
 <p>So, we cheated and gave Alice level 80. Now we can load the game and see our changes. Let's create a <em>setGameState</em> function in <em>index.js</em></p>
-<pre class="code literal-block"><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">setGameState</span> <span class="o">=</span> <span class="p">(</span><span class="nx">stateString</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">state</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">stateString</span><span class="p">);</span>
+<pre class="code literal-block"><span class="nb">window</span><span class="p">.</span><span class="nx">setGameState</span> <span class="o">=</span> <span class="p">(</span><span class="nx">stateString</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">state</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">stateString</span><span class="p">);</span>
   <span class="nx">printState</span><span class="p">();</span>
 <span class="p">};</span>
-</code></pre>
-
-
+</pre>
 <p>This function will update the <em>state</em> object from the passed json string and will print it. Let's add <em>Load game</em> button to the <em>OnGUI</em> function in <em>JavascriptRunner.cs</em>:</p>
-<pre class="code literal-block"><span></span><code>  <span class="k">if</span> <span class="p">(</span><span class="n">GUILayout</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s">"Load game"</span><span class="p">))</span> <span class="p">{</span>
+<pre class="code literal-block">  <span class="k">if</span> <span class="p">(</span><span class="n">GUILayout</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s">"Load game"</span><span class="p">))</span> <span class="p">{</span>
     <span class="kt">string</span> <span class="n">stateString</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">"savegame.json"</span><span class="p">);</span>
     <span class="n">engine</span><span class="p">.</span><span class="n">Invoke</span><span class="p">(</span><span class="s">"setGameState"</span><span class="p">,</span> <span class="n">stateString</span><span class="p">);</span>
   <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>This will read our saved game and pass it to JavaScript by calling <em>setGameState</em>. Notice, that we use <strong>Invoke</strong> here instead of <strong>Execute</strong>. Invoke is a method of Jint that allows to execute a javascript function with given arguments. Since json string can contain line breaks, we can not simply concatenate it in the <em>Execute</em> method.</p>
 <p>Now build and run the game as usual, then press <em>Load game</em> button. You will see the following on console:</p>
-<pre class="code literal-block"><span></span><code>JS state name: Alice<span class="p">;</span> level: <span class="m">80</span>
-</code></pre>
-
-
+<pre class="code literal-block">JS state name: Alice<span class="p">;</span> level: <span class="m">80</span>
+</pre>
 <p><a name="8-coroutines"></a></p>
 <h4>
 <strong>setTimeout</strong> and Unity <strong>coroutines</strong>
@@ -762,13 +672,11 @@ There will be a file named <em>savegame.json</em></p>
 <p>Let's now see something more interesting. <em>Jint</em> doesn't provide you with <em>setTimeout</em> function, leaving the implementation to the client. By default all the calls that you make to your JavaScript code, and everything, that Jint calls back to C# happen in the same thread. In our case it's main Unity thread. Thus it's up to you how you want to implement the <em>setTimeout</em> and promises behavior, and how you want to manage the multi-threads and synchronization. </p>
 <p>In this section I will show how to implement <em>setTimeout</em> and some promises using Unity <em>coroutines</em> mechanism. This mechanism allows user to schedule parallel execution in the Unity main thread without the need to deal with multi-threading. This is very powerful for handling game animations, sequences of events, etc.</p>
 <p>Let's start with trying to call <em>setTimeout</em> in <em>index.js</em>, that will do some game action. For example, will change the label in our game UI. In your <em>index.js</em> write the following:</p>
-<pre class="code literal-block"><span></span><code><span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
-<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it is changed"</span><span class="p">),</span> <span class="mi">5000</span><span class="p">);</span>
-</code></pre>
-
-
+<pre class="code literal-block"><span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
+<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it is changed"</span><span class="p">),</span> <span class="mf">5000</span><span class="p">);</span>
+</pre>
 <p>In <em>JavascriptRunner.cs</em> let's add a code that outputs the text label to UI, so the beginning of this file will look like this:</p>
-<pre class="code literal-block"><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">JavascriptRunner</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<pre class="code literal-block"><span class="k">public</span> <span class="k">class</span> <span class="nc">JavascriptRunner</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
 <span class="p">{</span>
     <span class="k">private</span> <span class="n">Engine</span> <span class="n">engine</span><span class="p">;</span>
 
@@ -787,68 +695,56 @@ There will be a file named <em>savegame.json</em></p>
     <span class="k">private</span> <span class="k">void</span> <span class="nf">OnGUI</span><span class="p">()</span> <span class="p">{</span>
       <span class="n">GUILayout</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="n">labelText</span><span class="p">);</span>
       <span class="p">...</span>
-</code></pre>
-
-
+</pre>
 <p>Here we added a <code>private string labelText;</code>, and a function that can set it from js: <code>engine.SetValue("setText", new Action&lt;string&gt;(text =&gt; this.labelText = text));</code>
 Finally, we have added a Label of the text to display in the UI: <code>GUILayout.Label(labelText);</code></p>
 <p>We expect the text <em>"This is a text"</em> to appear first. And then, in 5 seconds, it should be changed to <em>"And now it is changed"</em>. Let's check if it's so. Build the scripts using <code>npm run dev</code> and press <em>Play</em>. You will see something like this:
 <img alt="pic8" src="../images/unity-js/pic8.png" title="Error because there is no setTimeout"></p>
 <p>The first part of text is set, but then, there is an error on console. This is expected, as <em>Jint</em> has no <em>setTimeout</em> implementation. Let's make a simple version of it. In your <em>JavascriptRunner.cs</em> in <em>Start()</em> function, before we execute <em>app.js</em>, add the following:</p>
-<pre class="code literal-block"><span></span><code>      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"setTimeout"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="n">Delegate</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;((</span><span class="n">callback</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="code literal-block">      <span class="n">engine</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">"setTimeout"</span><span class="p">,</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="n">Delegate</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;((</span><span class="n">callback</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">TimeoutCoroutine</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">interval</span><span class="p">));</span>
       <span class="p">}));</span>
-</code></pre>
-
-
+</pre>
 <p>Now, add the coroutine function to <em>JavascriptRunner</em> class:</p>
-<pre class="code literal-block"><span></span><code>    <span class="k">private</span> <span class="n">IEnumerator</span> <span class="nf">TimeoutCoroutine</span><span class="p">(</span><span class="n">Delegate</span> <span class="n">callback</span><span class="p">,</span> <span class="kt">int</span> <span class="n">intervalMilliseconds</span><span class="p">)</span> <span class="p">{</span>
+<pre class="code literal-block">    <span class="k">private</span> <span class="n">IEnumerator</span> <span class="nf">TimeoutCoroutine</span><span class="p">(</span><span class="n">Delegate</span> <span class="n">callback</span><span class="p">,</span> <span class="kt">int</span> <span class="n">intervalMilliseconds</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="nf">WaitForSeconds</span><span class="p">(</span><span class="n">intervalMilliseconds</span> <span class="p">/</span> <span class="m">1000.0f</span><span class="p">);</span>
       <span class="n">callback</span><span class="p">.</span><span class="n">DynamicInvoke</span><span class="p">(</span><span class="n">JsValue</span><span class="p">.</span><span class="n">Undefined</span><span class="p">,</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="n">JsValue</span><span class="p">.</span><span class="n">Undefined</span> <span class="p">});</span>
     <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>This coroutine does 2 following actions:</p>
 <ul>
 <li>Waits for the given timeout (note that we divide by 1000 as <em>WaitForSeconds</em> instruction in Unity requires time in seconds)</li>
 <li>Dynamically executes the callback, that JavaScript code passed to the <em>setTimeout</em> function.</li>
 </ul>
 <p>Also, for this code to build, you will need to add 2 using instructions in <em>JavascriptRunner.cs</em>:</p>
-<pre class="code literal-block"><span></span><code><span class="k">using</span> <span class="nn">Jint.Native</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">using</span> <span class="nn">Jint.Native</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
-</code></pre>
-
-
+</pre>
 <p>Now, build using <code>npm run dev</code> and press <em>Play</em>. See how text is being changed in 5 seconds. We have just made a setTimeout function work. If you need, you can likewise also implement <em>clearTimeout</em>, <em>setInterval</em>, and any other API functions. You can also expose functions that call any other Unity coroutine, for example call animation from your JavaScript.  </p>
 <p><a name="9-promises"></a></p>
 <h4>Using promises</h4>
 <p><em>setTimeout</em> is not always very convenient function, as it uses callback. To not break the code flow, it's nice to use <em>promises</em>. Let's implement a promise that waits for some time.</p>
 <p>Let's remove 2 lines that call <em>setText</em> and <em>setTimeout</em> from <em>index.js</em> and add instead the following logic:</p>
-<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">wait</span> <span class="o">=</span> <span class="p">(</span><span class="nx">milliseconds</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="kd">const</span> <span class="nx">wait</span> <span class="o">=</span> <span class="p">(</span><span class="nx">milliseconds</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">resolve</span><span class="p">(),</span> <span class="nx">milliseconds</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="kr">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
-  <span class="nx">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+  <span class="k">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mf">5000</span><span class="p">);</span>
   <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="nx">asyncFunction</span><span class="p">();</span>
-</code></pre>
-
-
+</pre>
 <p>Here we added a promise, that uses our setTimeout in order to wait for the given amount of milliseconds, and <em>asyncFunction</em> that sets initial text, awaits 5 seconds, and changes the text.
 This way is much more elegant, than callback, as it allows to use asynchronous logic and avoid callbacks. </p>
 <p>However, to make it work, we need to install an extension to <em>Babel</em>, that will simulate <em>Promises</em>, <em>generators</em>, and other ES6 API. Here, in <em>Jint</em> it's not supported yet.</p>
 <p>Open your command line in <em>Game</em> folder and add the following:</p>
-<pre class="code literal-block"><span></span><code>npm install --save @babel/polyfill
-</code></pre>
-
-
+<pre class="code literal-block">npm install --save @babel/polyfill
+</pre>
 <p>Now open your <em>.babelrc</em> file and change it, so the content is like this:</p>
-<pre class="code literal-block"><span></span><code><span class="p">{</span>
+<pre class="code literal-block"><span class="p">{</span>
   <span class="nt">"presets"</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">[</span>
       <span class="s2">"@babel/preset-env"</span><span class="p">,</span>
@@ -859,16 +755,14 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
     <span class="p">]</span>
   <span class="p">]</span>
 <span class="p">}</span>
-</code></pre>
-
-
+</pre>
 <p>This basically tells Babel to use emulation of Promises and other API, provided in <em>polyfill</em> package, as much as the JavaScript code requires it. </p>
 <p>Now run <code>npm run dev</code> and press <em>Play</em>. Watch how the text changes in 5 seconds, by the effect of <em>Promise</em>.</p>
 <p><a name="10-build"></a></p>
 <h4>Include javascript files into the built app</h4>
 <p>When we build the game, we need it to contain our javascript bundle inside, to have access to it. Unity has a good cross-platform way to do it, through built-in <em>Resources system</em>. Any file, put in <em>Assets/Resources</em> folder will be included into build. </p>
 <p>Let's change our <em>webpack.config.js</em> so it write the output into the <em>Assets/Resources</em> instead of <em>dist</em> by default.</p>
-<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<pre class="code literal-block"><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">env</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
@@ -888,27 +782,19 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
     <span class="p">}</span>
   <span class="p">};</span>
 <span class="p">};</span>
-</code></pre>
-
-
+</pre>
 <p>Now run <code>npm run dev</code>, and see that <em>Resources</em> folder appeared, containing our bundle:
 <img alt="pic9" src="../images/unity-js/pic9.png" title="Resources folder"></p>
 <p>Let's now make changes to <em>JavascriptRunner.cs</em> in order to load our script from resources. In <em>Execute</em> method replace the line <code>body = File.ReadAllText(fileName);</code> with</p>
-<pre class="code literal-block"><span></span><code><span class="n">body</span> <span class="p">=</span> <span class="n">Resources</span><span class="p">.</span><span class="n">Load</span><span class="p">&lt;</span><span class="n">TextAsset</span><span class="p">&gt;(</span><span class="n">fileName</span><span class="p">).</span><span class="n">text</span><span class="p">;</span>
-</code></pre>
-
-
+<pre class="code literal-block"><span class="n">body</span> <span class="p">=</span> <span class="n">Resources</span><span class="p">.</span><span class="n">Load</span><span class="p">&lt;</span><span class="n">TextAsset</span><span class="p">&gt;(</span><span class="n">fileName</span><span class="p">).</span><span class="n">text</span><span class="p">;</span>
+</pre>
 <p>Then in <em>Start</em> function replace the line <code>Execute("app.js");</code> with</p>
-<pre class="code literal-block"><span></span><code><span class="n">Execute</span><span class="p">(</span><span class="s">"app"</span><span class="p">);</span>
-</code></pre>
-
-
+<pre class="code literal-block"><span class="n">Execute</span><span class="p">(</span><span class="s">"app"</span><span class="p">);</span>
+</pre>
 <p>That's because Unity Resources.Load method expects filename only, without extension.</p>
 <p>Now press <em>Play</em> and check the application works. After that let's make a build. In command line run:</p>
-<pre class="code literal-block"><span></span><code>npm run build
-</code></pre>
-
-
+<pre class="code literal-block">npm run build
+</pre>
 <p>This will make a minimized version of <em>app.js</em>, that has much less size and is good for production. Now build project in Unity to your platform. Run the result application and check it works.</p>
 <p><a name="11-unit-tests"></a></p>
 <h4>Setting up unit tests for the game logic in <strong>JavaScript</strong>
@@ -916,44 +802,36 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
 <p>Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write tests that check individual parts of code, but also integration tests, that simulate the whole game level and test actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. </p>
 <p>If you are interested in automated tests for your game logic, let me here show how to easily make one. There are quite a few good test frameworks for JavaScript. In this tutorial I will use a very popular one, called <a href="https://jestjs.io/">jest</a>.</p>
 <p>Open command line in <em>Game</em> folder and add jest package:</p>
-<pre class="code literal-block"><span></span><code>npm install --save-dev jest
-</code></pre>
-
-
+<pre class="code literal-block">npm install --save-dev jest
+</pre>
 <p>Let's test the logic of <em>asyncFunction</em>:</p>
-<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="kd">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
-  <span class="nx">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+  <span class="k">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mf">5000</span><span class="p">);</span>
   <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
 <span class="p">};</span>
-</code></pre>
-
-
+</pre>
 <p>We will test that it calls first setText with some text, and then, second time calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock functions for the unit tests. Before we start testing, we need to move asyncFunction to the module, that exports it. Let's move it together with the <em>wait</em> function out of <em>index.js</em> to <em>MyModule.js</em>:</p>
-<pre class="code literal-block"><span></span><code><span class="kr">const</span> <span class="nx">wait</span> <span class="o">=</span> <span class="p">(</span><span class="nx">milliseconds</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<pre class="code literal-block"><span class="kd">const</span> <span class="nx">wait</span> <span class="o">=</span> <span class="p">(</span><span class="nx">milliseconds</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">resolve</span><span class="p">(),</span> <span class="nx">milliseconds</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="kr">export</span> <span class="kr">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">asyncFunction</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">setText</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
-  <span class="nx">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+  <span class="k">await</span> <span class="nx">wait</span><span class="p">(</span><span class="mf">5000</span><span class="p">);</span>
   <span class="nx">setText</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
 <span class="p">};</span>
-</code></pre>
-
-
+</pre>
 <p>In <em>index.js</em> keep only the call to the function and import statement:</p>
-<pre class="code literal-block"><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">asyncFunction</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">import</span> <span class="p">{</span> <span class="nx">asyncFunction</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
 
 <span class="p">...</span>
 
 <span class="nx">asyncFunction</span><span class="p">();</span>
-</code></pre>
-
-
+</pre>
 <p>Run <code>npm run dev</code> and press <em>Play</em> to check everything is done right and still works.</p>
 <p>Now, in the same place where you have <em>MyModule.js</em>, create a file, named <em>MyModule.test.js</em>. There is a convention in JavaScript world to put the test file near the tested one. It's very handy. Put the following contents into <em>MyModule.test.js</em></p>
-<pre class="code literal-block"><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">asyncFunction</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
+<pre class="code literal-block"><span class="k">import</span> <span class="p">{</span> <span class="nx">asyncFunction</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">'./MyModule'</span><span class="p">;</span>
 
 <span class="nx">test</span><span class="p">(</span><span class="s1">'sets initial text'</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="c1">// arrange</span>
@@ -963,40 +841,34 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
   <span class="nx">asyncFunction</span><span class="p">();</span>
 
   <span class="c1">// assert</span>
-  <span class="nx">expect</span><span class="p">(</span><span class="nx">setText</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">setText</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">[</span><span class="mf">0</span><span class="p">][</span><span class="mf">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"This is a text"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="nx">test</span><span class="p">(</span><span class="s1">'sets second text'</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="nx">test</span><span class="p">(</span><span class="s1">'sets second text'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="c1">// arrange</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">setText</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span>
 
   <span class="c1">// act</span>
-  <span class="nx">await</span> <span class="nx">asyncFunction</span><span class="p">();</span>
+  <span class="k">await</span> <span class="nx">asyncFunction</span><span class="p">();</span>
 
   <span class="c1">// assert</span>
-  <span class="nx">expect</span><span class="p">(</span><span class="nx">setText</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">setText</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">[</span><span class="mf">1</span><span class="p">][</span><span class="mf">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"And now it's changed after await"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-
-
+</pre>
 <p>Here we made 2 tests, that mock function <em>setText</em> and check it's called with a given argument. <code>setText.mock.calls[0][0]</code> means take the first call of the function, and the first argument.
 Like this you can easily check the called function arguments and results. Jest is very simple and powerful at the same time. You can read more about its features <a href="https://jestjs.io/docs/en/getting-started">here</a></p>
 <p>Now let's run our tests. We need to add <em>"test"</em> target to the <em>packages.json</em>:</p>
-<pre class="code literal-block"><span></span><code>  <span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
+<pre class="code literal-block">  <span class="nt">"scripts"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"build"</span><span class="p">:</span> <span class="s2">"webpack --mode production"</span><span class="p">,</span>
     <span class="nt">"dev"</span><span class="p">:</span> <span class="s2">"webpack --mode production --env dev"</span><span class="p">,</span>
     <span class="nt">"test"</span><span class="p">:</span> <span class="s2">"jest"</span>
-  <span class="p">}</span><span class="err">,</span>
-</code></pre>
-
-
+  <span class="p">},</span>
+</pre>
 <p>Now, in command line in <em>Game</em> folder run:</p>
-<pre class="code literal-block"><span></span><code>npm run <span class="nb">test</span>
-</code></pre>
-
-
+<pre class="code literal-block">npm run <span class="nb">test</span>
+</pre>
 <p>After tests are finished, you will see the following result:</p>
-<pre class="code literal-block"><span></span><code> PASS  ./MyModule.test.js <span class="o">(</span><span class="m">6</span>.151 s<span class="o">)</span>
+<pre class="code literal-block"> PASS  ./MyModule.test.js <span class="o">(</span><span class="m">6</span>.151 s<span class="o">)</span>
   ✓ sets initial text <span class="o">(</span><span class="m">4</span> ms<span class="o">)</span>
   ✓ sets second text <span class="o">(</span><span class="m">5002</span> ms<span class="o">)</span>
 
@@ -1005,9 +877,7 @@ Tests:       <span class="m">2</span> passed, <span class="m">2</span> total
 Snapshots:   <span class="m">0</span> total
 Time:        <span class="m">6</span>.912 s
 Ran all <span class="nb">test</span> suites.
-</code></pre>
-
-
+</pre>
 <p>This draws the end of this tutorial for now. Enjoy writing your games in Unity and JavaScript! In case you need, find the full code of this tutorial project <a href="https://github.com/pleasenophp/unity-js-tutorial">here</a>. 
 In the <em>git log</em> you will see different commits, that match its different stages.</p>
 </div>
@@ -1046,7 +916,7 @@ In the <em>git log</em> you will see different commits, that match its different
 
 
         </section></article><script>var disqus_shortname="pleasenophp";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
-            Contents © 2020         <a href="mailto:info@innerbytes.com">Innerbytes</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2021         <a href="mailto:info@innerbytes.com">Innerbytes</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
             
         </footer>
@@ -1057,9 +927,7 @@ In the <em>git log</em> you will see different commits, that match its different
         <script src="../assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
-        captions: function(element) {
-            return element.getElementsByTagName('img')[0].alt;
-    }});
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
     </script>
 </body>
 </html>

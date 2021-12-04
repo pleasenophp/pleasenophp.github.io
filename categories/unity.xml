@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about unity)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/unity.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 23 May 2020 12:24:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using real JavaScript with Unity</title><link>https://pleasenophp.github.io/posts/using-real-javascript-with-unity.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;What&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about unity)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/unity.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 04 Dec 2021 13:58:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using real JavaScript with Unity</title><link>https://pleasenophp.github.io/posts/using-real-javascript-with-unity.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;What&lt;/h3&gt;
 &lt;p&gt;This tutorial will tell you how to use &lt;a href="https://github.com/sebastienros/jint"&gt;Jint&lt;/a&gt; engine to write cross-platform games in a real &lt;a href="https://www.w3schools.com/js/js_es6.asp"&gt;JavaScript ES6&lt;/a&gt; with &lt;a href="https://unity.com"&gt;Unity&lt;/a&gt;.
 It's not to be confused with UnityScript language, that is .NET js-like syntax, and has little common with JavaScript.&lt;/p&gt;
 &lt;h3&gt;Why&lt;/h3&gt;
@@ -57,7 +57,7 @@ It's not to be confused with UnityScript language, that is .NET js-like syntax, 
 &lt;p&gt;1) Create a project in Unity&lt;/p&gt;
 &lt;p&gt;2) Get the &lt;strong&gt;Jint.dll&lt;/strong&gt; from NuGet packages. For this do the following:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;The latest stable version at the moment of writing this is &lt;em&gt;2.11.58&lt;/em&gt;, so download the package from here: &lt;a href="https://www.nuget.org/packages/Jint/2.11.58"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The latest stable version at the moment of writing this is &lt;em&gt;2.11.58&lt;/em&gt;, so download the package from &lt;a href="https://www.nuget.org/packages/Jint/"&gt;https://www.nuget.org/packages/Jint&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Rename &lt;em&gt;jint.2.11.58.nupkg&lt;/em&gt; to &lt;em&gt;jint.2.11.58.zip&lt;/em&gt; and unpack it&lt;/li&gt;
 &lt;li&gt;Take the Jint.dll from the folder &lt;em&gt;lib/netstandard2.0&lt;/em&gt; of the package&lt;/li&gt;
 &lt;/ul&gt;
@@ -68,7 +68,7 @@ This is recommended, as it is smaller gives the compatibility with the all the p
 &lt;p&gt;4) Create a folder Plugins in your Assets and drag &lt;em&gt;Jint.dll&lt;/em&gt; there.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="pic2" src="https://pleasenophp.github.io/images/unity-js/pic2.png" title="Place Jint.dll into Plugins folder"&gt;&lt;/p&gt;
 &lt;p&gt;5) Let's create a C# MonoBehavior called &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; on a scene object and call some JavaScript from it:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Jint&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
@@ -88,24 +88,20 @@ This is recommended, as it is smaller gives the compatibility with the all the p
 &lt;span class="s"&gt;      "&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Here we create new &lt;em&gt;Engine&lt;/em&gt; object from Jint and call a very simple Hello World code in JS.
 Now attach the JavascriptRunner to the MainCamera on the scene and press &lt;strong&gt;Play&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;You will see the following output in the console:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="pic3" src="https://pleasenophp.github.io/images/unity-js/pic3.png" title="Console output from JavaScript"&gt;&lt;/p&gt;
 &lt;p&gt;Note how we make JavaScript call the Unity &lt;em&gt;Debug.Log&lt;/em&gt; by proxying the call to &lt;em&gt;log&lt;/em&gt; function in JavaScript:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"log"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Action&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;object&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"log"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Action&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;object&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;This is direct function call, where you can call any C# functions from javascript. There is also other ways to call the C# code, let's see them.&lt;/p&gt;
 &lt;p&gt;&lt;a name="2-call-csharp"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Calling Unity C# code from JavaScript&lt;/h4&gt;
 &lt;p&gt;There are several ways to bind C# objects to JavaScript.
 As shown above, we can easily bind C# functions to JS. For non-void functions, that need to return value, you can use &lt;strong&gt;Func&lt;/strong&gt; delegate. Change the code as following and press Play:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Engine&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
   &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"log"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Action&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;object&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
@@ -117,18 +113,14 @@ As shown above, we can easily bind C# functions to JS. For non-void functions, t
 &lt;span class="s"&gt;    log('Response from C#: '+responseFromCsharp);        &lt;/span&gt;
 &lt;span class="s"&gt;  "&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now you can see on the Console:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Response from C#: C# can see that you passed: &lt;span class="m"&gt;108&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;Response from C#: C# can see that you passed: &lt;span class="m"&gt;108&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;We created a function that JavaScript can call and get some value from your C# API.&lt;/p&gt;
 &lt;p&gt;But Jint would not be so powerful if it didn't allow to proxy the whole class from C# to Javascript. That's very handy when you need to give the JS engine access to part of your API.
 Let's do it. Modify the code as following and run it:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Jint&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Jint.Runtime.Interop&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -164,22 +156,16 @@ Let's do it. Modify the code as following and run it:&lt;/p&gt;
 &lt;span class="s"&gt;      "&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Notice, that we added a class &lt;strong&gt;GameApi&lt;/strong&gt; and proxied it to Javascript. You can proxy like this any C# class, or even Enums, that is very handy:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"GameApi"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;TypeReference&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CreateTypeReference&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;typeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;GameApi&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"GameApi"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;TypeReference&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CreateTypeReference&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;typeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;GameApi&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
 &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"MyEnum"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;TypeReference&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CreateTypeReference&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;typeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MyEnum&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;To use it in javascript, we instantiate it using &lt;em&gt;new&lt;/em&gt; operator:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;gameApi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;GameApi&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;gameApi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ow"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;GameApi&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;Other than that, we can also proxy an existing instance of a C# class to exchange data between the Unity and Javascript engine. Let's say we have a &lt;em&gt;WorldModel&lt;/em&gt; object, that has some data, and we want to proxy it to JavaScript: &lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Jint&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
@@ -204,7 +190,7 @@ Let's do it. Modify the code as following and run it:&lt;/p&gt;
 
       &lt;span class="kt"&gt;var&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;WorldModel&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
       &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"world"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="s"&gt;"{world.PlayerName} has {world.NumberOfDonuts} donuts"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;$"{world.PlayerName} has {world.NumberOfDonuts} donuts"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
       &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;@"&lt;/span&gt;
 &lt;span class="s"&gt;        log('Javascript can see that '+world.PlayerName+' has '+world.NumberOfDonuts+' donuts');&lt;/span&gt;
@@ -212,12 +198,10 @@ Let's do it. Modify the code as following and run it:&lt;/p&gt;
 &lt;span class="s"&gt;        world.NumberOfDonuts += 3;&lt;/span&gt;
 &lt;span class="s"&gt;      "&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-      &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="s"&gt;"{world.PlayerName} has now {world.NumberOfDonuts} donuts. Thanks, JavaScript, for giving us some"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;$"{world.PlayerName} has now {world.NumberOfDonuts} donuts. Thanks, JavaScript, for giving us some"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Press Play and watch the fun on the Console. Here we have proxied an existing object to JavaScript. You can see that we can both read and write to C# object from the JS side. Like this you can easily expose the shared data to your JS engine.&lt;/p&gt;
 &lt;p&gt;There are also several other ways of exposing the C# code to JavaScript. You can even expose the whole CLR with all namespaces, even though it's not recommended. You would rather expose only the API that your scripter or modder is supposed to call. But if you need to get more knowledge about interoperability, read the Jint &lt;a href="https://github.com/sebastienros/jint"&gt;manual&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a name="3-load-js-files"&gt;&lt;/a&gt;&lt;/p&gt;
@@ -226,15 +210,13 @@ Let's do it. Modify the code as following and run it:&lt;/p&gt;
 &lt;p&gt;In your Unity project, create a folder, named for example &lt;em&gt;Game&lt;/em&gt; on the same level where &lt;em&gt;Assets&lt;/em&gt; exists. This will be a folder for our JavaScript project. It's good to not create this folder inside of Assets, so Unity doesn't try to import javascript files and create .meta files for them.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="pic4" src="https://pleasenophp.github.io/images/unity-js/pic4.png" title="Create Game folder for JavaScript"&gt;&lt;/p&gt;
 &lt;p&gt;Let's then create a file named &lt;em&gt;index.js&lt;/em&gt; and put it into this folder. This will be our main file, from which the game scripts will start. You can of course name this file how you want, but I will use &lt;em&gt;index.js&lt;/em&gt; in this tutorial. Let's put there some code.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"Hello from JS file!"&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Let's modify the &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; to load code from file. Then, press Play to see how it works.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Jint&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System.IO&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -251,35 +233,27 @@ Let's do it. Modify the code as following and run it:&lt;/p&gt;
       &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ReadAllText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Game/index.js"&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;As you can see, it's quite simple, as we use the same method &lt;em&gt;engine.Execute&lt;/em&gt;, but pass there the text, loaded from file. &lt;/p&gt;
 &lt;p&gt;Here it's important to understand, that &lt;em&gt;SetValue&lt;/em&gt; and &lt;em&gt;Execute&lt;/em&gt; action we perform, add the objects to the same &lt;em&gt;JavaScript scope&lt;/em&gt;. It means, that any code in &lt;em&gt;index.js&lt;/em&gt; will have access to the &lt;em&gt;log&lt;/em&gt; or any other objects we inject. Script in &lt;em&gt;index.js&lt;/em&gt; will also have access to the result of any previous Execute command. For example:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;@"var myVar = 1"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;@"var myVar = 1"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ReadAllText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Game/index.js"&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;The code in &lt;em&gt;index.js&lt;/em&gt; will be able to see myVar variable. This is one of the simple ways to split your code into modules that see each other, or implement sort of &lt;em&gt;require&lt;/em&gt; function, that will dynamically load another file to the scope. But in the next parts of the tutorial I will show how we can use &lt;strong&gt;Webpack&lt;/strong&gt;, and standard &lt;strong&gt;import&lt;/strong&gt; statements.&lt;/p&gt;
 &lt;p&gt;Also you can easily call &lt;em&gt;"hello"&lt;/em&gt; function in JavaScript, and get result from it in C# like this:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ReadAllText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Game/index.js"&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ReadAllText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Game/index.js"&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
 &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"hello()"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="kt"&gt;var&lt;/span&gt; &lt;span class="n"&gt;functionResult&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetCompletionValue&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;AsString&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"C# got function result from Javascript: "&lt;/span&gt;&lt;span class="p"&gt;+&lt;/span&gt;&lt;span class="n"&gt;functionResult&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;If you now press Play, then you will see the following on console:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;C# got &lt;span class="k"&gt;function&lt;/span&gt; result from Javascript: Hello from JS file!
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;C# got &lt;span class="k"&gt;function&lt;/span&gt; result from Javascript: Hello from JS file!
+&lt;/pre&gt;
 &lt;p&gt;&lt;a name="4-handle-exceptions"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Handle exceptions&lt;/h4&gt;
 &lt;p&gt;Let's add the code to handle exceptions, happened in javascript and show some info. &lt;/p&gt;
 &lt;p&gt;Modify your &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; like this.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Jint&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System.IO&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -306,11 +280,11 @@ Let's do it. Modify the code as following and run it:&lt;/p&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
         &lt;span class="k"&gt;catch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;JavaScriptException&lt;/span&gt; &lt;span class="n"&gt;ex&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
           &lt;span class="kt"&gt;var&lt;/span&gt; &lt;span class="n"&gt;location&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetLastSyntaxNode&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;Location&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-          &lt;span class="kt"&gt;var&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="s"&gt;"Jint runtime error {ex.Error} {fileName} (Line {location.Line}, Column {location.Column})\n{PrintBody(body)}"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+          &lt;span class="kt"&gt;var&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;$"Jint runtime error {ex.Error} {fileName} (Line {location.Line}, Column {location.Column})\n{PrintBody(body)}"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
           &lt;span class="n"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LogError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
         &lt;span class="p"&gt;}&lt;/span&gt;
         &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="n"&gt;ex&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-          &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;ApplicationException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="s"&gt;"Error: {ex.Message} in {fileName}\n{PrintBody(body)}"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+          &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;ApplicationException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;$"Error: {ex.Message} in {fileName}\n{PrintBody(body)}"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 
@@ -318,22 +292,18 @@ Let's do it. Modify the code as following and run it:&lt;/p&gt;
     &lt;span class="p"&gt;{&lt;/span&gt;
       &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IsNullOrEmpty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;""&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
       &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="s"&gt;"\r\n"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"\r"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"\n"&lt;/span&gt; &lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="n"&gt;StringSplitOptions&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;None&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"\n"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Enumerable&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Length&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;Select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="s"&gt;"{i+1:D3} {lines[i]}"&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"\n"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Enumerable&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Length&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;Select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;$"{i+1:D3} {lines[i]}"&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;We added &lt;em&gt;Execute&lt;/em&gt; private function that executes a script and handles &lt;em&gt;JavaScriptException&lt;/em&gt; for runtime error, and general &lt;em&gt;Exception&lt;/em&gt; for parsing and IO errors. It prints the line and column information, and also the code body with line numbers. Try it by adding some wrong code or unknown variable to &lt;em&gt;index.js&lt;/em&gt; and see how it works:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"Hello from JS file! "&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;someVar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;On console you will see:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Jint runtime error ReferenceError: someVar is not defined Game/index.js &lt;span class="o"&gt;(&lt;/span&gt;Line &lt;span class="m"&gt;3&lt;/span&gt;, Column &lt;span class="m"&gt;32&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;Jint runtime error ReferenceError: someVar is not defined Game/index.js &lt;span class="o"&gt;(&lt;/span&gt;Line &lt;span class="m"&gt;3&lt;/span&gt;, Column &lt;span class="m"&gt;32&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;span class="m"&gt;001&lt;/span&gt; 
 &lt;span class="m"&gt;002&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt; hello&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
 &lt;span class="m"&gt;003&lt;/span&gt;   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"Hello from JS file! "&lt;/span&gt;+someVar&lt;span class="p"&gt;;&lt;/span&gt;
@@ -343,9 +313,7 @@ Let's do it. Modify the code as following and run it:&lt;/p&gt;
 UnityEngine.Debug:LogError&lt;span class="o"&gt;(&lt;/span&gt;Object&lt;span class="o"&gt;)&lt;/span&gt;
 JavascriptRunner:Execute&lt;span class="o"&gt;(&lt;/span&gt;String&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;at Assets/JavascriptRunner.cs:29&lt;span class="o"&gt;)&lt;/span&gt;
 JavascriptRunner:Start&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;at Assets/JavascriptRunner.cs:17&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now you have a fully working JavaScript ES5 project with Unity. In the next chapters we will see more advanced topics - how to use the &lt;em&gt;JavaScript ES6&lt;/em&gt; with Jint, how to setup &lt;em&gt;npm&lt;/em&gt;, &lt;em&gt;unit tests&lt;/em&gt;, etc.&lt;/p&gt;
 &lt;p&gt;&lt;a name="5-setup-webpack"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Setting up Webpack and Babel to enable ES6 and npm packages support&lt;/h4&gt;
@@ -359,13 +327,11 @@ JavascriptRunner:Start&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&g
 &lt;p&gt;In command line &lt;em&gt;cd&lt;/em&gt; to the &lt;em&gt;Game&lt;/em&gt; folder of your project, where index.js is located:
 &lt;img alt="pic5" src="https://pleasenophp.github.io/images/unity-js/pic5.png" title="Game folder in command line"&gt;&lt;/p&gt;
 &lt;p&gt;Now run &lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npm init -y
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;npm init -y
+&lt;/pre&gt;
 &lt;p&gt;&lt;img alt="pic6" src="https://pleasenophp.github.io/images/unity-js/pic6.png" title="Initializing npm project"&gt;&lt;/p&gt;
 &lt;p&gt;This will initialize empty npm project in your folder by creating a &lt;em&gt;package.json&lt;/em&gt; file. Open this file in a text editor, delete its contents and put the following to it:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nt"&gt;"name"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"my-cool-game"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
   &lt;span class="nt"&gt;"version"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"0.0.1"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
   &lt;span class="nt"&gt;"author"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -373,18 +339,14 @@ JavascriptRunner:Start&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&g
     &lt;span class="nt"&gt;"build"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"webpack --mode production"&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;We can specify the name of the project, version, author and other fields here. The important though is the &lt;em&gt;scripts&lt;/em&gt; section, where we have our webpack build target, that will pack our ES6 code and convert it to ES5. Also note, that the name of the project must be &lt;em&gt;dashes-separated&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;To make it work, we need to install Webpack and Babel. Run the following 2 commands in your command line, being in &lt;em&gt;Game&lt;/em&gt; folder:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npm i webpack webpack-cli --save-dev
+&lt;pre class="code literal-block"&gt;npm i webpack webpack-cli --save-dev
 npm i @babel/core babel-loader @babel/preset-env --save-dev
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;After installation is finished, your &lt;em&gt;package.json&lt;/em&gt; content will look like this:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nt"&gt;"name"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"my-cool-game"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
   &lt;span class="nt"&gt;"version"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"0.0.1"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
   &lt;span class="nt"&gt;"author"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -399,19 +361,15 @@ npm i @babel/core babel-loader @babel/preset-env --save-dev
     &lt;span class="nt"&gt;"webpack-cli"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"^3.3.11"&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;The versions of packages can be different, but if they are there, it means, that babel and webpack are successfully installed. You will also see that &lt;em&gt;package-lock.json&lt;/em&gt; file, and &lt;em&gt;node_modules&lt;/em&gt; folder are created. You don't need to care about those, as they managed by npm. However, if you are using version control, then ignore &lt;strong&gt;node_modules&lt;/strong&gt;, because it contains all the downloaded npm packages and should not be versioned. You can delete the &lt;em&gt;node_modules&lt;/em&gt; folder at any time, and restore it again by running &lt;code&gt;npm install&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The next step is to enable Babel, that will transpose JavaScript code to ES5. Create a file named &lt;em&gt;.babelrc&lt;/em&gt; in your &lt;em&gt;Game&lt;/em&gt; folder and put the following inside:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nt"&gt;"presets"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"@babel/preset-env"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;And the last step is to configure Webpack. For this create a file named &lt;em&gt;webpack.config.js&lt;/em&gt; in your &lt;em&gt;Game&lt;/em&gt; folder and put the following inside:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;env&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="nx"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;env&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nx"&gt;entry&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="nx"&gt;app&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'./index.js'&lt;/span&gt;
@@ -426,29 +384,23 @@ npm i @babel/core babel-loader @babel/preset-env --save-dev
     &lt;span class="p"&gt;}&lt;/span&gt;
   &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;This tells Webpack to read your &lt;em&gt;index.js&lt;/em&gt; and convert it to the bundle. Your should now have the following items in the Game folder:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.babelrc
+&lt;pre class="code literal-block"&gt;.babelrc
 index.js
 node_modules
 package-lock.json
 package.json
 webpack.config.js
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Let's try now how the conversion works. Put some &lt;em&gt;ES6&lt;/em&gt; code in our &lt;em&gt;index.js&lt;/em&gt;&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"Hello from JS ES6 file!"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;This contains &lt;em&gt;const&lt;/em&gt; and an &lt;em&gt;arrow function&lt;/em&gt; that is ES6 only features. If you try to run your Unity project, you will see the following error:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ApplicationException: Error: Line &lt;span class="m"&gt;2&lt;/span&gt;: Unexpected token &lt;span class="o"&gt;)&lt;/span&gt; in Game/index.js
+&lt;pre class="code literal-block"&gt;ApplicationException: Error: Line &lt;span class="m"&gt;2&lt;/span&gt;: Unexpected token &lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; Game/index.js
 &lt;span class="m"&gt;001&lt;/span&gt; 
 &lt;span class="m"&gt;002&lt;/span&gt; const &lt;span class="nv"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; &lt;span class="o"&gt;{&lt;/span&gt;
 &lt;span class="m"&gt;003&lt;/span&gt;   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"Hello from JS ES6 file!"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -457,101 +409,81 @@ webpack.config.js
 &lt;span class="m"&gt;006&lt;/span&gt; log&lt;span class="o"&gt;(&lt;/span&gt;hello&lt;span class="o"&gt;())&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 JavascriptRunner.Execute &lt;span class="o"&gt;(&lt;/span&gt;System.String fileName&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;at Assets/JavascriptRunner.cs:32&lt;span class="o"&gt;)&lt;/span&gt;
 JavascriptRunner.Start &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;at Assets/JavascriptRunner.cs:17&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;That's because the current version of &lt;em&gt;Jint&lt;/em&gt; supports only JS version ES5. Later &lt;em&gt;Jint&lt;/em&gt; will also add full ES6 support and the conversion step might not be needed. Let's now run Webpack to convert and bundle our code.&lt;/p&gt;
 &lt;p&gt;In command line run the following&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npm run build
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;npm run build
+&lt;/pre&gt;
 &lt;p&gt;After the command is run successfully, you should see a new &lt;strong&gt;dist&lt;/strong&gt; folder in the Game folder. That's a folder where Webpack will put the "compiled" version of the Javascript. 
 If you now open &lt;em&gt;Game/dist/app.js&lt;/em&gt; file, you will see a minimized JavaScript text. This is the file, openable by Jint, as it has only ES5-compatible code. &lt;/p&gt;
 &lt;p&gt;Let's now change our Start method in &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; to open it:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Engine&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
   &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"log"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Action&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;object&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
   &lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Game/dist/app.js"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now press &lt;em&gt;Play&lt;/em&gt; and see output on Unity console, received from originally ES6 code.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Hello from JS ES6 file!
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;Hello from JS ES6 file!
+&lt;/pre&gt;
 &lt;p&gt;Now we have set up the full npm-powered project, where you can also add any npm package! &lt;/p&gt;
 &lt;p&gt;Note, that every time after you change your JavaScript and before to test it in Unity, you will have to run &lt;code&gt;npm run build&lt;/code&gt; (or &lt;code&gt;npm run dev&lt;/code&gt; as will be shown next) in order for your ES6 scripts to compile to &lt;em&gt;dist/app.js&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a name="6-modules-webpack"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Non-minimized bundle setup and modules&lt;/h4&gt;
 &lt;p&gt;Let's have a look at some handy features of Webpack. As you noticed, &lt;em&gt;app.js&lt;/em&gt; contains the minimized javascript. It has little size and is good for production, but for debugging errors, where you want to see the code line-by-line it's not very useful. For this we can tell webpack to disable the minimizing. Let's make another npm command that will produce a similar &lt;em&gt;app.js&lt;/em&gt; but will not minimize it.&lt;/p&gt;
 &lt;p&gt;Add &lt;strong&gt;dev&lt;/strong&gt; target to your &lt;em&gt;package.json&lt;/em&gt; in &lt;em&gt;"scripts"&lt;/em&gt; section:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="s2"&gt;"scripts"&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;  &lt;span class="nt"&gt;"scripts"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nt"&gt;"build"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"webpack --mode production"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="nt"&gt;"dev"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"webpack --mode production --env dev"&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;,&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+  &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;This will make now Webpack to produce not minimized script, if you run the &lt;strong&gt;dev&lt;/strong&gt; target instead of &lt;em&gt;build&lt;/em&gt;. Try it. In command line, run&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npm run dev
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;npm run dev
+&lt;/pre&gt;
 &lt;p&gt;Now see the contents of your &lt;em&gt;dist/app.js&lt;/em&gt;. It's not minimized anymore! You can press Play in Unity and make sure it still works.&lt;/p&gt;
 &lt;p&gt;Let's now see how to split your JavaScript code by modules and use them. Let's create another file, named &lt;em&gt;MyModule.js&lt;/em&gt; in &lt;em&gt;Game&lt;/em&gt; folder with the following:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;export&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;myFunction1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;myFunction1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"This is function 1 from my module"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="kr"&gt;export&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;myFunction2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;myFunction2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"This is function 2 from my module"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;We have created a module that exports 2 functions. Now in our &lt;em&gt;index.js&lt;/em&gt; or in any other javascript file, we can import those functions. Replace the code in &lt;em&gt;index.js&lt;/em&gt; with the following:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;myFunction1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;myFunction2&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="nx"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;'./MyModule'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;myFunction1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;myFunction2&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kr"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;'./MyModule'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"Hello from JS ES6 file!"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 
 &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
 &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;myFunction1&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
 &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;myFunction2&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now run &lt;code&gt;npm run dev&lt;/code&gt; to build the bundle, and then press &lt;em&gt;Play&lt;/em&gt; in Unity. You will see the output from module functions. Like this you can decompose your code to files very easily. Of course, you can also put your modules in different subfolders. 
 You can read more about ES6 modules system &lt;a href="https://www.sitepoint.com/understanding-es6-modules/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h5&gt;Webpack, and global variables&lt;/h5&gt;
 &lt;p&gt;When webpack creates a bundle, it's run in a closed function scope. It means, that from this scope, you cannot create variables in global scope. So, if you execute several bundles from your &lt;em&gt;Engine&lt;/em&gt; they cannot communicate with each other, and also C# cannot call the JavaScript functions from your bundles scope. When you need to write to global scope from your module, let me show an easy way to do it with Jint.&lt;/p&gt;
 &lt;p&gt;Modify the &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; to have code like this in Start:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;    &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
     &lt;span class="p"&gt;{&lt;/span&gt;
       &lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Engine&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
       &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"log"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Action&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;object&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
       &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"var window = this"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
       &lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Game/dist/app.js"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Before running our bundle, we have injected &lt;em&gt;window&lt;/em&gt; variable that references the global scope. Now you can do the following. Add code to your &lt;em&gt;index.js&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;thisIsGlobalVariable&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;108&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;thisIsGlobalVariable&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;108&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
 &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I can see global variable: "&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;thisIsGlobalVariable&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Build the code with &lt;code&gt;npm run dev&lt;/code&gt;, press &lt;em&gt;Play&lt;/em&gt; and see the result. Variables in the global context are accessible anywhere in your Javascript code. Use them rare: only when you really need it.
 Of course instead of &lt;em&gt;window&lt;/em&gt; you can use &lt;em&gt;global&lt;/em&gt;, or any other variable name to hold reference to the global scope, but keeping &lt;em&gt;window&lt;/em&gt; one is very recommended, as it's standard, and some libraries will use it too.&lt;/p&gt;
 &lt;p&gt;Let's now try to call the function &lt;em&gt;hello()&lt;/em&gt; from C# side. &lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;    &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
     &lt;span class="p"&gt;{&lt;/span&gt;
       &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"var window = this"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
       &lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Game/dist/app.js"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
@@ -559,106 +491,82 @@ Of course instead of &lt;em&gt;window&lt;/em&gt; you can use &lt;em&gt;global&lt
       &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"hello()"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
       &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"C# got result from function: "&lt;/span&gt;&lt;span class="p"&gt;+&lt;/span&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetCompletionValue&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;If you press Play() now, then you will have the following error on unity console:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;JavaScriptException: hello is not defined
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;JavaScriptException: hello is not defined
+&lt;/pre&gt;
 &lt;p&gt;That's because the generated code in app.js is placed in a closed function scope. So, to make a function accessible from Jint, we need to make it global. Open your &lt;em&gt;index.js&lt;/em&gt; and add the following line after &lt;em&gt;hello()&lt;/em&gt; function:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"Hello from JS ES6 file!"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now run &lt;code&gt;npm run dev&lt;/code&gt; and press Play. And voilà:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;C# got result from &lt;span class="k"&gt;function&lt;/span&gt;: Hello from JS ES6 file!
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;C# got result from &lt;span class="k"&gt;function&lt;/span&gt;: Hello from JS ES6 file!
+&lt;/pre&gt;
 &lt;p&gt;Like this, you can decide, which of js functions you want to expose to your C# engine.&lt;/p&gt;
 &lt;p&gt;&lt;a name="7-save-state"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Saving javascript state of the game&lt;/h4&gt;
 &lt;p&gt;Since your gameplay logic is going to be in JavaScript, all the state, like player parameters, inventory, quest states, etc, will be contained there. When your game needs to be saved and loaded, the state must be somehow passed to Unity C# code, so that it could save/load it. There is many ways to organize the state in JavaScript. Let's take a look at a simple and recommended one, where all our game state that is intended to be saved is contained in a single object. The other javascript game objects can by one or other way read this state, and modify it when needed. &lt;/p&gt;
 &lt;p&gt;Write the following to &lt;em&gt;index.js&lt;/em&gt;&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"Alice"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-  &lt;span class="nx"&gt;level&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nx"&gt;level&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 
-&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;printState&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;printState&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`JS state name: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;; level: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;level&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;span class="nx"&gt;printState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;If you build it and press Play, you will see the state of your game in the unity console. Now, let's add a global function to &lt;em&gt;index.js&lt;/em&gt;, called &lt;em&gt;getGameState&lt;/em&gt;, that will pass this state to Unity in &lt;em&gt;json&lt;/em&gt; format.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getGameState&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stringify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getGameState&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stringify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now let's add a button to our Unity project that will save the game state. In &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; add the following function:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;OnGUI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;OnGUI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
       &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;GUILayout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Save game"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="n"&gt;jsGameState&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"getGameState()"&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;GetCompletionValue&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;AsString&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
         &lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WriteAllText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"savegame.json"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;jsGameState&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Game saved"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
       &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;You can see that we also can get the result of called js function in one line, because Jint returns instance of &lt;em&gt;Engine&lt;/em&gt; from &lt;em&gt;Execute()&lt;/em&gt; call. This is very handy.
 Compile the js with &lt;code&gt;npm run dev&lt;/code&gt; and press &lt;em&gt;Play&lt;/em&gt;. Now you will see &lt;em&gt;Save game&lt;/em&gt; button on the screen. Press it, and then have a look at your Unity project folder.
 There will be a file named &lt;em&gt;savegame.json&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="pic7" src="https://pleasenophp.github.io/images/unity-js/pic7.png" title="Saved game file"&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, the contents of this file represent the &lt;em&gt;state&lt;/em&gt; object from JavaScript.&lt;/p&gt;
 &lt;p&gt;Now, let's modify our &lt;em&gt;savegame.json&lt;/em&gt;. Open this file in the text editor and write:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;"name"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;"Alice"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;"level"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;"name"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;"Alice"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;"level"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;So, we cheated and gave Alice level 80. Now we can load the game and see our changes. Let's create a &lt;em&gt;setGameState&lt;/em&gt; function in &lt;em&gt;index.js&lt;/em&gt;&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setGameState&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;stateString&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="nx"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;stateString&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setGameState&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;stateString&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;stateString&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
   &lt;span class="nx"&gt;printState&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;This function will update the &lt;em&gt;state&lt;/em&gt; object from the passed json string and will print it. Let's add &lt;em&gt;Load game&lt;/em&gt; button to the &lt;em&gt;OnGUI&lt;/em&gt; function in &lt;em&gt;JavascriptRunner.cs&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;GUILayout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Load game"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;GUILayout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Load game"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="n"&gt;stateString&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ReadAllText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"savegame.json"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Invoke&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"setGameState"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stateString&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;This will read our saved game and pass it to JavaScript by calling &lt;em&gt;setGameState&lt;/em&gt;. Notice, that we use &lt;strong&gt;Invoke&lt;/strong&gt; here instead of &lt;strong&gt;Execute&lt;/strong&gt;. Invoke is a method of Jint that allows to execute a javascript function with given arguments. Since json string can contain line breaks, we can not simply concatenate it in the &lt;em&gt;Execute&lt;/em&gt; method.&lt;/p&gt;
 &lt;p&gt;Now build and run the game as usual, then press &lt;em&gt;Load game&lt;/em&gt; button. You will see the following on console:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;JS state name: Alice&lt;span class="p"&gt;;&lt;/span&gt; level: &lt;span class="m"&gt;80&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;JS state name: Alice&lt;span class="p"&gt;;&lt;/span&gt; level: &lt;span class="m"&gt;80&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;&lt;a name="8-coroutines"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;&lt;strong&gt;setTimeout&lt;/strong&gt; and Unity &lt;strong&gt;coroutines&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;Let's now see something more interesting. &lt;em&gt;Jint&lt;/em&gt; doesn't provide you with &lt;em&gt;setTimeout&lt;/em&gt; function, leaving the implementation to the client. By default all the calls that you make to your JavaScript code, and everything, that Jint calls back to C# happen in the same thread. In our case it's main Unity thread. Thus it's up to you how you want to implement the &lt;em&gt;setTimeout&lt;/em&gt; and promises behavior, and how you want to manage the multi-threads and synchronization. &lt;/p&gt;
 &lt;p&gt;In this section I will show how to implement &lt;em&gt;setTimeout&lt;/em&gt; and some promises using Unity &lt;em&gt;coroutines&lt;/em&gt; mechanism. This mechanism allows user to schedule parallel execution in the Unity main thread without the need to deal with multi-threading. This is very powerful for handling game animations, sequences of events, etc.&lt;/p&gt;
 &lt;p&gt;Let's start with trying to call &lt;em&gt;setTimeout&lt;/em&gt; in &lt;em&gt;index.js&lt;/em&gt;, that will do some game action. For example, will change the label in our game UI. In your &lt;em&gt;index.js&lt;/em&gt; write the following:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This is a text"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="nx"&gt;setTimeout&lt;/span&gt;&lt;span class="p"&gt;(()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"And now it is changed"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;&lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This is a text"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nx"&gt;setTimeout&lt;/span&gt;&lt;span class="p"&gt;(()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"And now it is changed"&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mf"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;In &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; let's add a code that outputs the text label to UI, so the beginning of this file will look like this:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;JavascriptRunner&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;MonoBehaviour&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;JavascriptRunner&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;MonoBehaviour&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Engine&lt;/span&gt; &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
@@ -677,68 +585,56 @@ There will be a file named &lt;em&gt;savegame.json&lt;/em&gt;&lt;/p&gt;
     &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;OnGUI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
       &lt;span class="n"&gt;GUILayout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Label&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;labelText&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
       &lt;span class="p"&gt;...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Here we added a &lt;code&gt;private string labelText;&lt;/code&gt;, and a function that can set it from js: &lt;code&gt;engine.SetValue("setText", new Action&amp;lt;string&amp;gt;(text =&amp;gt; this.labelText = text));&lt;/code&gt;
 Finally, we have added a Label of the text to display in the UI: &lt;code&gt;GUILayout.Label(labelText);&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;We expect the text &lt;em&gt;"This is a text"&lt;/em&gt; to appear first. And then, in 5 seconds, it should be changed to &lt;em&gt;"And now it is changed"&lt;/em&gt;. Let's check if it's so. Build the scripts using &lt;code&gt;npm run dev&lt;/code&gt; and press &lt;em&gt;Play&lt;/em&gt;. You will see something like this:
 &lt;img alt="pic8" src="https://pleasenophp.github.io/images/unity-js/pic8.png" title="Error because there is no setTimeout"&gt;&lt;/p&gt;
 &lt;p&gt;The first part of text is set, but then, there is an error on console. This is expected, as &lt;em&gt;Jint&lt;/em&gt; has no &lt;em&gt;setTimeout&lt;/em&gt; implementation. Let's make a simple version of it. In your &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; in &lt;em&gt;Start()&lt;/em&gt; function, before we execute &lt;em&gt;app.js&lt;/em&gt;, add the following:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;      &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"setTimeout"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Action&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Delegate&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;((&lt;/span&gt;&lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;interval&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;      &lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"setTimeout"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Action&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Delegate&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;((&lt;/span&gt;&lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;interval&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="n"&gt;StartCoroutine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TimeoutCoroutine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;interval&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
       &lt;span class="p"&gt;}));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now, add the coroutine function to &lt;em&gt;JavascriptRunner&lt;/em&gt; class:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;IEnumerator&lt;/span&gt; &lt;span class="nf"&gt;TimeoutCoroutine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Delegate&lt;/span&gt; &lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;intervalMilliseconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="n"&gt;IEnumerator&lt;/span&gt; &lt;span class="nf"&gt;TimeoutCoroutine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Delegate&lt;/span&gt; &lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;intervalMilliseconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
       &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;WaitForSeconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;intervalMilliseconds&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt; &lt;span class="m"&gt;1000.0f&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
       &lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DynamicInvoke&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;JsValue&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Undefined&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;JsValue&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Undefined&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;This coroutine does 2 following actions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Waits for the given timeout (note that we divide by 1000 as &lt;em&gt;WaitForSeconds&lt;/em&gt; instruction in Unity requires time in seconds)&lt;/li&gt;
 &lt;li&gt;Dynamically executes the callback, that JavaScript code passed to the &lt;em&gt;setTimeout&lt;/em&gt; function.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Also, for this code to build, you will need to add 2 using instructions in &lt;em&gt;JavascriptRunner.cs&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Jint.Native&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Jint.Native&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;System.Collections&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now, build using &lt;code&gt;npm run dev&lt;/code&gt; and press &lt;em&gt;Play&lt;/em&gt;. See how text is being changed in 5 seconds. We have just made a setTimeout function work. If you need, you can likewise also implement &lt;em&gt;clearTimeout&lt;/em&gt;, &lt;em&gt;setInterval&lt;/em&gt;, and any other API functions. You can also expose functions that call any other Unity coroutine, for example call animation from your JavaScript.  &lt;/p&gt;
 &lt;p&gt;&lt;a name="9-promises"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Using promises&lt;/h4&gt;
 &lt;p&gt;&lt;em&gt;setTimeout&lt;/em&gt; is not always very convenient function, as it uses callback. To not break the code flow, it's nice to use &lt;em&gt;promises&lt;/em&gt;. Let's implement a promise that waits for some time.&lt;/p&gt;
 &lt;p&gt;Let's remove 2 lines that call &lt;em&gt;setText&lt;/em&gt; and &lt;em&gt;setTimeout&lt;/em&gt; from &lt;em&gt;index.js&lt;/em&gt; and add instead the following logic:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;milliseconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;resolve&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;milliseconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;resolve&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nx"&gt;setTimeout&lt;/span&gt;&lt;span class="p"&gt;(()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;resolve&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="nx"&gt;milliseconds&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
 
-&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This is a text"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="nx"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="k"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
   &lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"And now it's changed after await"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 
 &lt;span class="nx"&gt;asyncFunction&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Here we added a promise, that uses our setTimeout in order to wait for the given amount of milliseconds, and &lt;em&gt;asyncFunction&lt;/em&gt; that sets initial text, awaits 5 seconds, and changes the text.
 This way is much more elegant, than callback, as it allows to use asynchronous logic and avoid callbacks. &lt;/p&gt;
 &lt;p&gt;However, to make it work, we need to install an extension to &lt;em&gt;Babel&lt;/em&gt;, that will simulate &lt;em&gt;Promises&lt;/em&gt;, &lt;em&gt;generators&lt;/em&gt;, and other ES6 API. Here, in &lt;em&gt;Jint&lt;/em&gt; it's not supported yet.&lt;/p&gt;
 &lt;p&gt;Open your command line in &lt;em&gt;Game&lt;/em&gt; folder and add the following:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npm install --save @babel/polyfill
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;npm install --save @babel/polyfill
+&lt;/pre&gt;
 &lt;p&gt;Now open your &lt;em&gt;.babelrc&lt;/em&gt; file and change it, so the content is like this:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nt"&gt;"presets"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
     &lt;span class="p"&gt;[&lt;/span&gt;
       &lt;span class="s2"&gt;"@babel/preset-env"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -749,16 +645,14 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
     &lt;span class="p"&gt;]&lt;/span&gt;
   &lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;This basically tells Babel to use emulation of Promises and other API, provided in &lt;em&gt;polyfill&lt;/em&gt; package, as much as the JavaScript code requires it. &lt;/p&gt;
 &lt;p&gt;Now run &lt;code&gt;npm run dev&lt;/code&gt; and press &lt;em&gt;Play&lt;/em&gt;. Watch how the text changes in 5 seconds, by the effect of &lt;em&gt;Promise&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a name="10-build"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Include javascript files into the built app&lt;/h4&gt;
 &lt;p&gt;When we build the game, we need it to contain our javascript bundle inside, to have access to it. Unity has a good cross-platform way to do it, through built-in &lt;em&gt;Resources system&lt;/em&gt;. Any file, put in &lt;em&gt;Assets/Resources&lt;/em&gt; folder will be included into build. &lt;/p&gt;
 &lt;p&gt;Let's change our &lt;em&gt;webpack.config.js&lt;/em&gt; so it write the output into the &lt;em&gt;Assets/Resources&lt;/em&gt; instead of &lt;em&gt;dist&lt;/em&gt; by default.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'path'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'path'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="nx"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;env&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nx"&gt;entry&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -778,71 +672,55 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
     &lt;span class="p"&gt;}&lt;/span&gt;
   &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Now run &lt;code&gt;npm run dev&lt;/code&gt;, and see that &lt;em&gt;Resources&lt;/em&gt; folder appeared, containing our bundle:
 &lt;img alt="pic9" src="https://pleasenophp.github.io/images/unity-js/pic9.png" title="Resources folder"&gt;&lt;/p&gt;
 &lt;p&gt;Let's now make changes to &lt;em&gt;JavascriptRunner.cs&lt;/em&gt; in order to load our script from resources. In &lt;em&gt;Execute&lt;/em&gt; method replace the line &lt;code&gt;body = File.ReadAllText(fileName);&lt;/code&gt; with&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;body&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Load&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;TextAsset&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;fileName&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;body&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Resources&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Load&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;TextAsset&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;fileName&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;Then in &lt;em&gt;Start&lt;/em&gt; function replace the line &lt;code&gt;Execute("app.js");&lt;/code&gt; with&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"app"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"app"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;That's because Unity Resources.Load method expects filename only, without extension.&lt;/p&gt;
 &lt;p&gt;Now press &lt;em&gt;Play&lt;/em&gt; and check the application works. After that let's make a build. In command line run:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npm run build
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;npm run build
+&lt;/pre&gt;
 &lt;p&gt;This will make a minimized version of &lt;em&gt;app.js&lt;/em&gt;, that has much less size and is good for production. Now build project in Unity to your platform. Run the result application and check it works.&lt;/p&gt;
 &lt;p&gt;&lt;a name="11-unit-tests"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Setting up unit tests for the game logic in &lt;strong&gt;JavaScript&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write tests that check individual parts of code, but also integration tests, that simulate the whole game level and test actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. &lt;/p&gt;
 &lt;p&gt;If you are interested in automated tests for your game logic, let me here show how to easily make one. There are quite a few good test frameworks for JavaScript. In this tutorial I will use a very popular one, called &lt;a href="https://jestjs.io/"&gt;jest&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Open command line in &lt;em&gt;Game&lt;/em&gt; folder and add jest package:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npm install --save-dev jest
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;npm install --save-dev jest
+&lt;/pre&gt;
 &lt;p&gt;Let's test the logic of &lt;em&gt;asyncFunction&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This is a text"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="nx"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="k"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
   &lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"And now it's changed after await"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;We will test that it calls first setText with some text, and then, second time calls it with different text. This is good for tutorial, as it will also demonstrate how we can mock functions for the unit tests. Before we start testing, we need to move asyncFunction to the module, that exports it. Let's move it together with the &lt;em&gt;wait&lt;/em&gt; function out of &lt;em&gt;index.js&lt;/em&gt; to &lt;em&gt;MyModule.js&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;milliseconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;resolve&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;milliseconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;resolve&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nx"&gt;setTimeout&lt;/span&gt;&lt;span class="p"&gt;(()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;resolve&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="nx"&gt;milliseconds&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
 
-&lt;span class="kr"&gt;export&lt;/span&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This is a text"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="nx"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="k"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
   &lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"And now it's changed after await"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;In &lt;em&gt;index.js&lt;/em&gt; keep only the call to the function and import statement:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="nx"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;'./MyModule'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kr"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;'./MyModule'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
 &lt;span class="p"&gt;...&lt;/span&gt;
 
 &lt;span class="nx"&gt;asyncFunction&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Run &lt;code&gt;npm run dev&lt;/code&gt; and press &lt;em&gt;Play&lt;/em&gt; to check everything is done right and still works.&lt;/p&gt;
 &lt;p&gt;Now, in the same place where you have &lt;em&gt;MyModule.js&lt;/em&gt;, create a file, named &lt;em&gt;MyModule.test.js&lt;/em&gt;. There is a convention in JavaScript world to put the test file near the tested one. It's very handy. Put the following contents into &lt;em&gt;MyModule.test.js&lt;/em&gt;&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="nx"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;'./MyModule'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kr"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;'./MyModule'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
 &lt;span class="nx"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sets initial text'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="c1"&gt;// arrange&lt;/span&gt;
@@ -852,40 +730,34 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
   &lt;span class="nx"&gt;asyncFunction&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
   &lt;span class="c1"&gt;// assert&lt;/span&gt;
-  &lt;span class="nx"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;mock&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;calls&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]).&lt;/span&gt;&lt;span class="nx"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This is a text"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="nx"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;mock&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;calls&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]).&lt;/span&gt;&lt;span class="nx"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This is a text"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
 
-&lt;span class="nx"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sets second text'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="nx"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'sets second text'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="c1"&gt;// arrange&lt;/span&gt;
   &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setText&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;jest&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;fn&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
   &lt;span class="c1"&gt;// act&lt;/span&gt;
-  &lt;span class="nx"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+  &lt;span class="k"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;asyncFunction&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
   &lt;span class="c1"&gt;// assert&lt;/span&gt;
-  &lt;span class="nx"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;mock&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;calls&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]).&lt;/span&gt;&lt;span class="nx"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"And now it's changed after await"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="nx"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;mock&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;calls&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]).&lt;/span&gt;&lt;span class="nx"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"And now it's changed after await"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;Here we made 2 tests, that mock function &lt;em&gt;setText&lt;/em&gt; and check it's called with a given argument. &lt;code&gt;setText.mock.calls[0][0]&lt;/code&gt; means take the first call of the function, and the first argument.
 Like this you can easily check the called function arguments and results. Jest is very simple and powerful at the same time. You can read more about its features &lt;a href="https://jestjs.io/docs/en/getting-started"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Now let's run our tests. We need to add &lt;em&gt;"test"&lt;/em&gt; target to the &lt;em&gt;packages.json&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="s2"&gt;"scripts"&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;  &lt;span class="nt"&gt;"scripts"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nt"&gt;"build"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"webpack --mode production"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="nt"&gt;"dev"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"webpack --mode production --env dev"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="nt"&gt;"test"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"jest"&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;,&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+  &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;Now, in command line in &lt;em&gt;Game&lt;/em&gt; folder run:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npm run &lt;span class="nb"&gt;test&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;pre class="code literal-block"&gt;npm run &lt;span class="nb"&gt;test&lt;/span&gt;
+&lt;/pre&gt;
 &lt;p&gt;After tests are finished, you will see the following result:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt; PASS  ./MyModule.test.js &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;.151 s&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;pre class="code literal-block"&gt; PASS  ./MyModule.test.js &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;.151 s&lt;span class="o"&gt;)&lt;/span&gt;
   ✓ sets initial text &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt; ms&lt;span class="o"&gt;)&lt;/span&gt;
   ✓ sets second text &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5002&lt;/span&gt; ms&lt;span class="o"&gt;)&lt;/span&gt;
 
@@ -894,8 +766,6 @@ Tests:       &lt;span class="m"&gt;2&lt;/span&gt; passed, &lt;span class="m"&gt;
 Snapshots:   &lt;span class="m"&gt;0&lt;/span&gt; total
 Time:        &lt;span class="m"&gt;6&lt;/span&gt;.912 s
 Ran all &lt;span class="nb"&gt;test&lt;/span&gt; suites.
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;/pre&gt;
 &lt;p&gt;This draws the end of this tutorial for now. Enjoy writing your games in Unity and JavaScript! In case you need, find the full code of this tutorial project &lt;a href="https://github.com/pleasenophp/unity-js-tutorial"&gt;here&lt;/a&gt;. 
 In the &lt;em&gt;git log&lt;/em&gt; you will see different commits, that match its different stages.&lt;/p&gt;&lt;/div&gt;</description><category>javascript</category><category>jint</category><category>npm</category><category>unity</category><category>webpack</category><guid>https://pleasenophp.github.io/posts/using-real-javascript-with-unity.html</guid><pubDate>Tue, 19 May 2020 16:54:56 GMT</pubDate></item></channel></rss>
