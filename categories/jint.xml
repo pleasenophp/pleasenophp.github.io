@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about jint)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/jint.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 04 Dec 2021 13:58:29 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using real JavaScript with Unity</title><link>https://pleasenophp.github.io/posts/using-real-javascript-with-unity.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h3&gt;What&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming (Posts about jint)</title><link>https://pleasenophp.github.io/</link><description></description><atom:link href="https://pleasenophp.github.io/categories/jint.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 22 Jan 2023 00:22:18 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using real JavaScript with Unity</title><link>https://pleasenophp.github.io/posts/using-real-javascript-with-unity.html</link><dc:creator>Innerbytes</dc:creator><description>&lt;div&gt;&lt;h5&gt;Update notes&lt;/h5&gt;
+&lt;p&gt;Last update and review: 2023-01-22. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The demo project has been updated tested with Unity 2021.3.16f1 LTS&lt;/li&gt;
+&lt;li&gt;The demo project of this tutorial is available &lt;a href="https://github.com/pleasenophp/unity-js-tutorial"&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The tutorial code updated with the necessary fixes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;What&lt;/h3&gt;
 &lt;p&gt;This tutorial will tell you how to use &lt;a href="https://github.com/sebastienros/jint"&gt;Jint&lt;/a&gt; engine to write cross-platform games in a real &lt;a href="https://www.w3schools.com/js/js_es6.asp"&gt;JavaScript ES6&lt;/a&gt; with &lt;a href="https://unity.com"&gt;Unity&lt;/a&gt;.
 It's not to be confused with UnityScript language, that is .NET js-like syntax, and has little common with JavaScript.&lt;/p&gt;
 &lt;h3&gt;Why&lt;/h3&gt;
@@ -58,6 +65,9 @@ It's not to be confused with UnityScript language, that is .NET js-like syntax, 
 &lt;p&gt;2) Get the &lt;strong&gt;Jint.dll&lt;/strong&gt; from NuGet packages. For this do the following:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The latest stable version at the moment of writing this is &lt;em&gt;2.11.58&lt;/em&gt;, so download the package from &lt;a href="https://www.nuget.org/packages/Jint/"&gt;https://www.nuget.org/packages/Jint&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6&gt;(&lt;em&gt;Note: This tutorial uses the latest stable version of Jint for the moment: 2x. If you have issues with performance in your game, you can also try the Jint 3x prerelease version that is reported to be faster. For this you will need to download both Jint and Esprisma dlls. See the comments for more details.&lt;/em&gt;)&lt;/h6&gt;
+&lt;ul&gt;
 &lt;li&gt;Rename &lt;em&gt;jint.2.11.58.nupkg&lt;/em&gt; to &lt;em&gt;jint.2.11.58.zip&lt;/em&gt; and unpack it&lt;/li&gt;
 &lt;li&gt;Take the Jint.dll from the folder &lt;em&gt;lib/netstandard2.0&lt;/em&gt; of the package&lt;/li&gt;
 &lt;/ul&gt;
@@ -651,7 +661,8 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
 &lt;p&gt;&lt;a name="10-build"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Include javascript files into the built app&lt;/h4&gt;
 &lt;p&gt;When we build the game, we need it to contain our javascript bundle inside, to have access to it. Unity has a good cross-platform way to do it, through built-in &lt;em&gt;Resources system&lt;/em&gt;. Any file, put in &lt;em&gt;Assets/Resources&lt;/em&gt; folder will be included into build. &lt;/p&gt;
-&lt;p&gt;Let's change our &lt;em&gt;webpack.config.js&lt;/em&gt; so it write the output into the &lt;em&gt;Assets/Resources&lt;/em&gt; instead of &lt;em&gt;dist&lt;/em&gt; by default.&lt;/p&gt;
+&lt;p&gt;Let's change our &lt;em&gt;webpack.config.js&lt;/em&gt; so it write the output into the &lt;em&gt;Assets/Resources&lt;/em&gt; instead of &lt;em&gt;dist&lt;/em&gt; by default.
+We will also use .txt extension here instead of .js, so that the Unity could easily load the file as a text asset.&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'path'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="nx"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;env&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -664,7 +675,7 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
         &lt;span class="p"&gt;]&lt;/span&gt;
     &lt;span class="p"&gt;},&lt;/span&gt;
     &lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-      &lt;span class="nx"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'app.js'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="nx"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'app.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
       &lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;resolve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;__dirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'../Assets/Resources'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="p"&gt;},&lt;/span&gt;
     &lt;span class="nx"&gt;optimization&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -685,7 +696,7 @@ This way is much more elegant, than callback, as it allows to use asynchronous l
 &lt;p&gt;Now press &lt;em&gt;Play&lt;/em&gt; and check the application works. After that let's make a build. In command line run:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;npm run build
 &lt;/pre&gt;
-&lt;p&gt;This will make a minimized version of &lt;em&gt;app.js&lt;/em&gt;, that has much less size and is good for production. Now build project in Unity to your platform. Run the result application and check it works.&lt;/p&gt;
+&lt;p&gt;This will make a minimized version of &lt;em&gt;app.txt&lt;/em&gt;, that has much less size and is good for production. Now build project in Unity to your platform. Run the result application and check it works.&lt;/p&gt;
 &lt;p&gt;&lt;a name="11-unit-tests"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Setting up unit tests for the game logic in &lt;strong&gt;JavaScript&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;Unit tests, and other form of automated tests can keep the low level of bugs and high quality of your game project. Especially it's important for a complex story logic. You can write tests that check individual parts of code, but also integration tests, that simulate the whole game level and test actions player can do in most situations. It's recommended to write tests before or along with adding new features and story parts to the game. &lt;/p&gt;
