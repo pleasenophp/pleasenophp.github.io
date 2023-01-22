@@ -9,6 +9,15 @@
 .. type: text
 -->
 
+#### Update notes
+
+Last update and review: 2023-01-22. 
+
+- The demo project has been updated tested with Unity 2021.3.16f1 LTS
+- The demo project of this tutorial is available [here](https://github.com/pleasenophp/unity-js-tutorial).
+- The tutorial code updated with the necessary fixes
+
+
 ## What
 
 This tutorial will tell you how to use [Jint](https://github.com/sebastienros/jint) engine to write cross-platform games in a real [JavaScript ES6](https://www.w3schools.com/js/js_es6.asp) with [Unity](https://unity.com).
@@ -81,6 +90,8 @@ To run JavaScript engine from .NET we will use [Jint](https://github.com/sebasti
 2) Get the **Jint.dll** from NuGet packages. For this do the following:
 
 * The latest stable version at the moment of writing this is *2.11.58*, so download the package from [https://www.nuget.org/packages/Jint](https://www.nuget.org/packages/Jint/)
+##### (*Note: This tutorial uses the latest stable version of Jint for the moment: 2x. If you have issues with performance in your game, you can also try the Jint 3x prerelease version that is reported to be faster. For this you will need to download both Jint and Esprisma dlls. See the comments for more details.*)
+
 * Rename *jint.2.11.58.nupkg* to *jint.2.11.58.zip* and unpack it
 * Take the Jint.dll from the folder *lib/netstandard2.0* of the package
 
@@ -841,6 +852,8 @@ Now run ```npm run dev``` and press *Play*. Watch how the text changes in 5 seco
 When we build the game, we need it to contain our javascript bundle inside, to have access to it. Unity has a good cross-platform way to do it, through built-in *Resources system*. Any file, put in *Assets/Resources* folder will be included into build. 
 
 Let's change our *webpack.config.js* so it write the output into the *Assets/Resources* instead of *dist* by default.
+We will also use .txt extension here instead of .js, so that the Unity could easily load the file as a text asset.
+
 ```js
 const path = require('path');
 module.exports = env => {
@@ -854,7 +867,7 @@ module.exports = env => {
         ]
     },
     output: {
-      filename: 'app.js',
+      filename: 'app.txt',
       path: path.resolve(__dirname, '../Assets/Resources')
     },
     optimization: {
@@ -882,7 +895,7 @@ Now press *Play* and check the application works. After that let's make a build.
 ```bash
 npm run build
 ```
-This will make a minimized version of *app.js*, that has much less size and is good for production. Now build project in Unity to your platform. Run the result application and check it works.
+This will make a minimized version of *app.txt*, that has much less size and is good for production. Now build project in Unity to your platform. Run the result application and check it works.
 
 <a name="11-unit-tests"></a>
 ### Setting up unit tests for the game logic in **JavaScript**
